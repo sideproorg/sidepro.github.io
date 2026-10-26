@@ -17,7 +17,6 @@
     <a class="mark" href="{{ '/' | relative_url }}" aria-label="side·pro">side<span class="dot">·</span>pro{% if page.url == "/" %}<span class="suf" id="mark-suf" aria-hidden="true"></span><span class="cur" id="mark-cur" aria-hidden="true"></span>{% endif %}</a>
     <nav aria-label="Secciones">
       {% assign u = page.url %}
-      <a href="{{ '/' | relative_url }}"{% if u == "/" %} aria-current="page"{% endif %}>inicio</a>
       <a href="{{ '/jects/' | relative_url }}"{% if u contains "/jects/" %} aria-current="page"{% endif %}>/jects</a>
       <a href="{{ '/fessionals/' | relative_url }}"{% if u contains "/fessionals/" %} aria-current="page"{% endif %}>/fessionals</a>
       <a href="{{ '/rfc/' | relative_url }}"{% if u contains "/rfc/" %} aria-current="page"{% endif %}>RFC</a>
