@@ -47,8 +47,8 @@ Está en el pie de todas las páginas y en `/estado/`. Si tiene más de treinta 
 
 ## Publicar por primera vez
 
-1. Crear la organización `sidepro` en GitHub (plan gratuito) y exigir 2FA a sus miembros. Crear el repo público `sidepro/sidepro.org` y subir este contenido a la rama `main`.
-2. En el repo: *Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `/ (root)`*. En un minuto el sitio aparece en `https://sidepro.github.io/sidepro.org/`.
+1. Crear la organización `sidepro` en GitHub (plan gratuito) y exigir 2FA a sus miembros. Crear el repo público `sidepro/sidepro.github.io` (con ese nombre exacto, así el sitio se sirve en la raíz y no en una subcarpeta) y subir este contenido a la rama `main`.
+2. En el repo: *Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `/ (root)`*. En un minuto el sitio aparece en `https://sidepro.github.io/`.
 3. Reemplazar los marcadores: `[tu nombre]`, `[correo del proyecto]` y `[N]` en `_config.yml`, `_data/estado.yml` y `_pedidos/`.
 4. Dominio: en la cuenta de Cloudflare de sidepro, registrar `sidepro.org` y crear dos registros DNS: `CNAME sidepro.org → sidepro.github.io` y `CNAME www → sidepro.github.io` (sin proxy naranja al principio). Después renombrar `CNAME.pendiente` a `CNAME`, poner `sidepro.org` como *Custom domain* en *Settings → Pages* y marcar *Enforce HTTPS*.
-5. Espejo: crear `sidepro/sidepro.org` en Codeberg y configurar el push automático (Codeberg → *Settings → Mirror*, o una Action con un token guardado como secreto). Anotar en `MANTENIMIENTO.md`.
+5. Espejo: crear `sidepro/sidepro.github.io` en Codeberg y configurar el push automático (Codeberg → *Settings → Mirror*, o una Action con un token guardado como secreto). Anotar en `MANTENIMIENTO.md`.

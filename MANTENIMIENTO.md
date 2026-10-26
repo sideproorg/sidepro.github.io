@@ -6,8 +6,8 @@ Hoja viva. Si algo acá no es cierto, es un error y se corrige con un PR. Últim
 
 | Pieza | Dónde | Cuenta | Costo | Quién puede entrar |
 | --- | --- | --- | --- | --- |
-| Sitio (Jekyll) | GitHub Pages, repo `sidepro/sidepro.org`, rama `main` | Organización `sidepro` en GitHub | 0 | [owner 1], [owner 2: pendiente, mes 1] |
-| Espejo del repo | Codeberg, `sidepro/sidepro.org` (push automático) | Organización `sidepro` en Codeberg | 0 | los mismos |
+| Sitio (Jekyll) | GitHub Pages, repo `sidepro/sidepro.github.io`, rama `main` | Organización `sidepro` en GitHub | 0 | [owner 1], [owner 2: pendiente, mes 1] |
+| Espejo del repo | Codeberg, `sidepro/sidepro.github.io` (push automático) | Organización `sidepro` en Codeberg | 0 | los mismos |
 | Copia de resguardo | Software Heritage, "Save code now" con la URL del repo | ninguna | 0 | cualquiera |
 | Dominio `sidepro.org` | Cloudflare Registrar, pagado por 3 años | Cuenta de Cloudflare de sidepro (no personal) | ~USD 11/año | los mismos |
 | Dominio `sideproject.lat` | [registrador], alternativa si el INPI rechaza "sidepro" | la misma | ~USD 15-25/año | los mismos |
