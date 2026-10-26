@@ -1,0 +1,7 @@
+# "Cómo funciona", en cinco pasos. El orden es información: no agregar sin cambiar la RFC-001.
+# Cada línea entre comillas: si el texto lleva dos puntos, YAML lo leería como otra cosa.
+- "Traés un proyecto de tu ciudad que ya sabe qué le falta, con alguien que lo va a operar. El proyecto escribe su pedido en una página; si prefiere, lo manda por audio y alguien lo pasa a la ficha."
+- "La ficha va a /jects. Vos te anotás a una: la que trajiste o cualquier otra. Leés el acuerdo de una página antes de decir que sí."
+- "Sesión 0, presencial, con quien va a operar el sistema. Prototipo en papel antes de cualquier código."
+- "Doce semanas con hitos, no con cadencia. Si una semana no podés, avisás; desaparecer dos semanas avisando no es abandono."
+- "Traspaso: la operadora cambia algo sola, sin vos en la llamada. Postmortem público, con tu nombre en el repo."

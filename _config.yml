@@ -1,0 +1,53 @@
+# sidepro.org — configuración de Jekyll (compila GitHub Pages, sin plugins ni tema externo)
+title: sidepro
+description: Horas libres puestas en side projects que mejoran proyectos locales.
+url: "https://sidepro.org"
+baseurl: ""
+lang: es-AR
+
+# Quién firma y cómo se escribe. Cambiar acá y aparece en todas las páginas.
+firma: "[tu nombre]"
+correo_proyecto: "[correo del proyecto]"
+
+# Formulario de /fesionals. Queda cerrado hasta que exista un responsable de datos con domicilio.
+# Cuando se abra: formulario_abierto: true, y el Worker desplegado en worker_url (ver worker/README.md).
+formulario_abierto: false
+worker_url: "https://anotarse.sidepro.org/anotarse"
+aviso_version: "2026-10-26"
+responsable_datos: ""
+domicilio_datos: ""
+herramienta_datos: "Cloudflare Workers y Email Routing (Cloudflare, Inc., EE.UU.), que reenvían sin guardar; la casilla del proyecto"
+
+collections:
+  pedidos:
+    output: true
+    permalink: /jects/:name/
+  rfc:
+    output: true
+    permalink: /rfc/:name/
+
+defaults:
+  - scope: { path: "", type: "pedidos" }
+    values: { layout: pedido }
+  - scope: { path: "", type: "rfc" }
+    values: { layout: rfc }
+  - scope: { path: "" }
+    values: { layout: default }
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+exclude:
+  - worker
+  - README.md
+  - CONTRIBUTING.md
+  - MANTENIMIENTO.md
+  - LICENSE
+  - LICENSE-CODIGO
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - scripts

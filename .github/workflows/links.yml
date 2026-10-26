@@ -1,0 +1,24 @@
+# Falla el PR si hay un link roto en el contenido. No compila nada: solo lee los archivos.
+name: links
+on:
+  pull_request:
+  schedule:
+    - cron: "17 9 1 * *"   # el 1 de cada mes, por si un sitio ajeno desapareció
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude-path assets
+            --exclude-path worker/node_modules
+            --exclude 'mailto:'
+            --exclude 'CAMBIAR'
+            --exclude '^https://sidepro\.org/'
+            --exclude '^https://anotarse\.sidepro\.org/'
+            --exclude '^https://github\.com/sidepro$'
+            '**/*.md' '**/*.html' '**/*.yml'
+          fail: true

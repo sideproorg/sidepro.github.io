@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<section>
+  <p class="eyebrow">RFC-{{ page.numero }} · {{ page.estado }}</p>
+  <h1>{{ page.titulo }}</h1>
+  <dl class="meta">
+    <dt>Estado</dt><dd>{{ page.estado }}</dd>
+    <dt>Abre</dt><dd>{{ page.abre | date: "%d/%m/%Y" }}</dd>
+    {% if page.cierra != "" %}<dt>Cierra</dt><dd>{{ page.cierra | date: "%d/%m/%Y" }}</dd>{% endif %}
+    {% if page.objeciones != "" %}<dt>Objeciones</dt><dd>{{ page.objeciones }}</dd>{% endif %}
+    <dt>Dónde se discute</dt><dd>En el pull request que la propone, en el repo. Cualquiera puede comentar antes de anotarse.</dd>
+  </dl>
+</section>
+<section class="prosa">
+  {{ content }}
+</section>

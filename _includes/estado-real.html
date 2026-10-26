@@ -1,0 +1,10 @@
+{% assign e = site.data.estado %}
+<div class="estado" aria-label="Estado real a la fecha">
+  <div><span class="k">estado real al</span> {{ e.fecha }}</div>
+  <div><span class="k">existe:</span> {{ e.existe }}</div>
+  <div><span class="k">no existe todavía:</span> {{ e.no_existe }}</div>
+  <div><span class="k">alcance:</span> {{ e.alcance }}</div>
+  <div><span class="k">custodia:</span> {{ e.custodia }}</div>
+  <div><span class="k">horas en especie:</span> {{ e.horas_en_especie }}</div>
+  <div><span class="k">firma:</span> {{ e.firma }}</div>
+</div>

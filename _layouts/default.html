@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preload" href="{{ '/assets/fonts/PaperMono-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/sidepro.css' | relative_url }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f6b5c'/%3E%3Ccircle cx='8' cy='8' r='2.2' fill='%23f3f6f2'/%3E%3C/svg%3E">
+  <meta name="robots" content="index,follow">
+</head>
+<body>
+<div class="wrap">
+  <header class="cabecera">
+    <a class="mark" href="{{ '/' | relative_url }}">side<span class="dot">·</span>pro</a>
+    <nav aria-label="Secciones">
+      {% assign u = page.url %}
+      <a href="{{ '/' | relative_url }}"{% if u == "/" %} aria-current="page"{% endif %}>inicio</a>
+      <a href="{{ '/jects/' | relative_url }}"{% if u contains "/jects/" %} aria-current="page"{% endif %}>/jects</a>
+      <a href="{{ '/fesionals/' | relative_url }}"{% if u contains "/fesionals/" %} aria-current="page"{% endif %}>/fesionals</a>
+      <a href="{{ '/rfc/' | relative_url }}"{% if u contains "/rfc/" %} aria-current="page"{% endif %}>RFC</a>
+      <a href="{{ '/faq/' | relative_url }}"{% if u contains "/faq/" %} aria-current="page"{% endif %}>FAQ</a>
+      <a href="{{ '/estado/' | relative_url }}"{% if u contains "/estado/" %} aria-current="page"{% endif %}>Estado real</a>
+    </nav>
+  </header>
+
+  <main>
+{{ content }}
+  </main>
+
+  <footer>
+    {% include estado-real.html %}
+    <nav class="pie" aria-label="Pie">
+      <a href="{{ '/jects/' | relative_url }}">/jects</a>
+      <a href="{{ '/fesionals/' | relative_url }}">/fesionals</a>
+      <a href="{{ '/rfc/' | relative_url }}">RFC</a>
+      <a href="{{ '/faq/' | relative_url }}">FAQ</a>
+      <a href="https://github.com/sidepro" rel="noopener">repo</a>
+    </nav>
+    <div class="brand">{{ site.description }}</div>
+    <div class="legal">Textos con licencia CC BY-SA 4.0; código del sitio, MIT. Sin rastreadores. Tipografía <a href="https://github.com/paper-design/paper-mono" rel="noopener">Paper Mono</a> (OFL). Lo que nombre a personas o comunidades queda fuera de la licencia y no se publica sin su lectura.</div>
+  </footer>
+</div>
+</body>
+</html>

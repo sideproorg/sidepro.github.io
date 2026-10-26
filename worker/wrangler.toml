@@ -1,0 +1,32 @@
+# Worker del formulario de /fesionals. Reenvía por correo y no guarda nada.
+# Vive en la cuenta de Cloudflare de sidepro (custodia doble), nunca en una personal.
+name = "sidepro-anotarse"
+main = "src/index.js"
+compatibility_date = "2026-01-15"
+workers_dev = false
+
+# El formulario del sitio apunta a https://anotarse.sidepro.org/anotarse (ver worker_url en _config.yml).
+routes = [
+  { pattern = "anotarse.sidepro.org", custom_domain = true }
+]
+
+# Envío por Email Routing. destination_address tiene que estar verificada en Email Routing
+# (Cloudflare manda un correo de verificación a esa casilla). Es la casilla del proyecto, con contrato de encargado.
+[[send_email]]
+name = "CORREO"
+destination_address = "CAMBIAR@casilla-del-proyecto"
+
+[vars]
+ORIGEN = "https://sidepro.org"
+DESDE = "formulario@sidepro.org"
+PARA = "CAMBIAR@casilla-del-proyecto"
+GRACIAS = "https://sidepro.org/gracias/"
+CORREO_AYUDA = "CAMBIAR@casilla-del-proyecto"
+
+# Opcional: límite de envíos por IP (5 por minuto). Si al desplegar wrangler rechaza esta sección,
+# borrarla: el Worker funciona igual con la trampa para bots y la comprobación de tiempo.
+# [[unsafe.bindings]]
+# name = "LIMITE"
+# type = "ratelimit"
+# namespace_id = "1001"
+# simple = { limit = 5, period = 60 }

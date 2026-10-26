@@ -1,0 +1,5 @@
+# Links que la revisión ignora. Cada línea con su motivo.
+# Internos del sitio: se resuelven recién al publicar.
+^/
+# Placeholders del repo, se reemplazan al encender cada pieza.
+CAMBIAR

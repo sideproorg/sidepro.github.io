@@ -1,0 +1,10 @@
+# Estado real a la fecha. Aparece en el pie de todas las páginas y en /estado.
+# Regla: si algo acá suena más grande de lo que es, es un error y se corrige.
+# Cualquiera puede actualizarlo con un PR; si tiene más de 30 días, un PR "sin novedades" también vale.
+fecha: "26/10/2026"
+existe: "este sitio, el repo, dos pedidos candidatos sin firmar (traídos por [tu nombre]), una persona con tope de horas."
+no_existe: "persona jurídica, tarifa, pedido terminado, licencia definida para el código (RFC-002, abierta), responsable de datos con domicilio."
+alcance: "solo Argentina, solo Córdoba."
+custodia: "una sola persona; la segunda se busca en el mes 1. Hasta que haya responsable de datos, el formulario no abre."
+horas_en_especie: "[N] por semana de [tu nombre]."
+firma: "[tu nombre]"

@@ -1,0 +1,29 @@
+---
+title: "RFC"
+description: "Las reglas de sidepro, una carilla cada una, con quién objetó y cómo se resolvió."
+---
+{% assign rfcs = site.rfc | sort: "numero" %}
+<section>
+  <p class="eyebrow">RFC</p>
+  <h1>Las reglas se escriben en público.</h1>
+  <p class="lead">Cada regla es una RFC de una carilla: qué se propone, quién objetó, cómo se resolvió. Se discuten en el pull request que las propone y se pueden comentar antes de anotarse. Las que están abiertas son las decisiones que faltan.</p>
+</section>
+<section>
+  <table class="tabla">
+    <thead><tr><th>RFC</th><th>Título</th><th>Estado</th><th>Abre</th></tr></thead>
+    <tbody>
+    {% for r in rfcs %}
+      <tr>
+        <td><a href="{{ r.url | relative_url }}">RFC-{{ r.numero }}</a></td>
+        <td>{{ r.titulo }}</td>
+        <td>{{ r.estado }}</td>
+        <td>{{ r.abre | date: "%d/%m/%Y" }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+<section class="tintbox">
+  <p class="eyebrow">Para proponer una</p>
+  <p>Copiá <code>_rfc/rfc-002.md</code>, numerala, escribila en una carilla y abrí un PR. El PR es la discusión; cuando cierra, la RFC dice cómo se resolvió y quién objetó.</p>
+</section>

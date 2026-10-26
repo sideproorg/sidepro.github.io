@@ -1,0 +1,12 @@
+{
+  "name": "sidepro-anotarse",
+  "private": true,
+  "description": "Worker del formulario de sidepro.org: reenvía por correo, no guarda nada.",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

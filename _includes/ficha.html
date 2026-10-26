@@ -1,0 +1,36 @@
+{% comment %} Ficha "Pedido". Uso: {% include ficha.html p=pedido %} {% endcomment %}
+{% assign p = include.p %}
+<article class="ficha" aria-label="Ficha {{ p.id }}">
+  <div class="top">
+    <span class="id">{{ p.id }}{% if p.estado == "ejemplo" %} · ejemplo{% endif %}</span>
+    <div class="chips">
+      {% if p.estado == "ejemplo" %}<span class="chip ex">EJEMPLO, sin firma</span>{% endif %}
+      {% if p.estado == "ejemplo" or p.estado == "abierta" %}<span class="chip open">abierta</span>{% endif %}
+      {% if p.estado == "en-curso" %}<span class="chip open">en curso</span>{% endif %}
+      {% if p.estado == "cerrada" %}<span class="chip">cerrada</span>{% endif %}
+      <span class="chip">{{ p.ciudad }}</span>
+    </div>
+  </div>
+  <h3><a href="{{ p.url | relative_url }}">{{ p.titulo }}</a></h3>
+  <dl>
+    <dt>Quién pide</dt><dd>{{ p.quien_pide }}</dd>
+    <dt>Quién lo trajo</dt><dd>{{ p.quien_lo_trajo }}</dd>
+    <dt>El problema</dt><dd>{{ p.problema }}</dd>
+    <dt>Qué hay hoy</dt><dd>{{ p.que_hay }}</dd>
+    <dt>Qué tiene que quedar andando</dt><dd>{{ p.que_queda }}</dd>
+    <dt>Quién lo opera</dt><dd>{{ p.quien_opera }}</dd>
+    <dt>Horas</dt><dd>{{ p.horas }}</dd>
+    <dt>Licencia</dt><dd>{{ p.licencia }}</dd>
+    {% if p.hay_plata %}<dt>Hay plata</dt><dd>{{ p.hay_plata }}</dd>{% endif %}
+  </dl>
+  <div class="foot">
+    <span class="muted">{{ p.cierre }}</span>
+    {% if include.boton == "fichas" %}
+      <a class="btn ghost" href="{{ '/jects/' | relative_url }}">Ver todas las fichas</a>
+    {% elsif p.estado == "cerrada" %}
+      <a class="btn ghost" href="{{ p.url | relative_url }}">Leer el postmortem</a>
+    {% else %}
+      <a class="btn" href="{{ '/fesionals/#lista' | relative_url }}">Me anoto a este pedido</a>
+    {% endif %}
+  </div>
+</article>

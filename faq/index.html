@@ -1,0 +1,17 @@
+---
+title: "FAQ"
+description: "Lo incómodo, antes de que lo preguntes: contrato, licencia, horas, datos, qué no construimos."
+---
+<section>
+  <p class="eyebrow">FAQ</p>
+  <h1>Lo incómodo, antes de que lo preguntes.</h1>
+  <div class="faq">
+    {% for item in site.data.faq %}
+    <details>
+      <summary>{{ item.q }}</summary>
+      <p>{{ item.a }}</p>
+    </details>
+    {% endfor %}
+  </div>
+  <p class="muted">La pregunta más repetida en el correo entra acá, con un PR.</p>
+</section>
