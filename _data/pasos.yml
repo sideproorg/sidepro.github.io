@@ -1,7 +1,7 @@
-# "Cómo funciona", en cinco pasos. El orden es información: no agregar sin cambiar la RFC-001.
+# "Cómo funciona", en cinco pasos: son las cinco etapas de la RFC-001. No agregar sin cambiar la RFC.
 # Cada línea entre comillas: si el texto lleva dos puntos, YAML lo leería como otra cosa.
-- "Traés un proyecto de tu ciudad que ya sabe qué le falta, con alguien que lo va a operar. El proyecto escribe su pedido en una página; si prefiere, lo manda por audio y alguien lo pasa a la ficha."
-- "La ficha va a /jects. Vos te anotás a una: la que trajiste o cualquier otra. Leés el acuerdo de una página antes de decir que sí."
-- "Sesión 0, presencial, con quien va a operar el sistema. Prototipo en papel antes de cualquier código."
-- "Doce semanas con hitos, no con cadencia. Si una semana no podés, avisás; desaparecer dos semanas avisando no es abandono."
-- "Traspaso: la operadora cambia algo sola, sin vos en la llamada. Postmortem público, con tu nombre en el repo."
+- "Pedido. Traés un proyecto de tu ciudad que ya sabe qué le falta, con alguien que lo va a operar. El proyecto escribe su ficha en una página y la firma quien opera; vos te anotás a esa ficha o a cualquier otra de /jects."
+- "Papel. Sesión 0, presencial, con quien va a operar: dos horas, un prototipo en papel que esa persona le explica a un tercero, la herramienta elegida entre las que ya abre en su teléfono."
+- "Datos reales. Un commit por semana. En la semana 4, quien opera carga datos reales ella misma. Si una semana no podés, avisás; desaparecer dos semanas avisando no es abandono."
+- "Sola. Quien opera cambia algo sin vos en la llamada y lo anota. Si no puede, el sistema está mal hecho y se arregla eso, no la persona."
+- "Traspaso. Las contraseñas quedan en el proyecto, vos perdés permiso de escritura, y el postmortem lo firma quien opera. Se publica igual, salga como salga."

@@ -22,7 +22,8 @@
     <dt>Quién lo opera</dt><dd>{{ p.quien_opera }}</dd>
     <dt>Horas</dt><dd>{{ p.horas }}</dd>
     <dt>Licencia</dt><dd>{{ p.licencia }}</dd>
-    {% if p.hay_plata %}<dt>Hay plata</dt><dd>{{ p.hay_plata }}</dd>{% endif %}
+    {% if p.financiamiento %}<dt>Financiamiento</dt><dd>{{ p.financiamiento }}</dd>{% elsif p.hay_plata %}<dt>Hay plata</dt><dd>{{ p.hay_plata }}</dd>{% endif %}
+    {% if p.etapa %}<dt>Etapa</dt><dd>{{ p.etapa }} · de cinco, según la <a href="{{ '/rfc/rfc-001/' | relative_url }}">RFC-001</a>{% if p.registro %} · <a href="{{ p.registro }}" rel="noopener">registro</a>{% endif %}</dd>{% endif %}
   </dl>
   <div class="foot">
     <span class="muted">{{ p.cierre }}</span>

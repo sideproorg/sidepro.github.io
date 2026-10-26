@@ -14,5 +14,7 @@ quien_opera: "[Rol de quien opera del lado de la escuela, sin nombre hasta la fi
 horas: 4 por semana, 12 semanas, en dupla.
 licencia: La elige el proyecto. Todavía no sabemos.
 hay_plata: No.
+financiamiento: "No. Si el proyecto consigue financiamiento para este pedido, puede pagar por lo entregado, por hito y con factura; se escribe acá antes de empezar."
+etapa: "1 Pedido"
 cierre: Abre apenas la escuela lea la ficha y la firme.
 ---

@@ -15,8 +15,10 @@
   a: Te vas sin sanción. Lo que entregaste queda con licencia abierta y con traspaso documentado. Lo único que se pide es avisar y no desaparecer sin decir nada.
 - q: ¿De quién es el código?
   a: Del proyecto, desde el primer commit; su cuenta es la canónica. sidepro guarda un fork público con el historial intacto, para que tu trabajo y tu nombre sobrevivan si el proyecto borra su repo. Sin datos, capturas ni credenciales de nadie.
-- q: ¿Cobro?
-  a: No. Y está escrito dónde va cada peso cuando lo haya. Lo que sí existe es el repo público con tu nombre y la gente con la que trabajaste.
+- q: ¿Se cobra?
+  a: "Por defecto, no: son horas libres, con dueño y final, y quedan en el postmortem. Si el proyecto consigue financiamiento para su pedido, puede pagar por lo entregado, por hito y con factura, a quien opera y a la dupla; lo decide el proyecto, se escribe antes de empezar y dónde fue cada peso queda en SALIDA.md, que es público. Podés decir que no y el pedido sigue igual. sidepro no cobra, no paga ni intermedia. Revisá tu contrato antes."
+- q: ¿Cómo arranca un pedido y cuántas reuniones tiene?
+  a: "Seis horas en doce semanas: una llamada corta entre los dos fessionals para repartirse roles, una sesión 0 presencial de dos horas con quien opera, cinco quincenales de quince minutos y un traspaso de una hora. Las cinco etapas (pedido, papel, datos reales, sola, traspaso), los roles y qué se registra dónde están en la RFC-001, que se puede comentar."
 - q: ¿Qué no vamos a construir?
   a: Apps móviles, modelos de IA, integraciones con bancos o AFIP, logins para cincuenta usuarios, dashboards en tiempo real. Sí formularios, planillas con validaciones, bases simples y exportaciones; lo que una persona del proyecto pueda operar y modificar sin vos.
 - q: ¿Y si el proyecto no responde?

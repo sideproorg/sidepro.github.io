@@ -14,5 +14,7 @@ quien_opera: "[Todavía no hay quien opere nombrado. Sin operadora con horas aco
 horas: 4 por semana, 12 semanas, en dupla, cuando se abra.
 licencia: La elige el proyecto. Todavía no sabemos.
 hay_plata: No.
+financiamiento: "No. Si el proyecto consigue financiamiento para este pedido, puede pagar por lo entregado, por hito y con factura; se escribe acá antes de empezar."
+etapa: "0 Candidata"
 cierre: Candidata. Se vuelve pedido cuando la escuela diga qué le falta y alguien de ella lo vaya a operar.
 ---

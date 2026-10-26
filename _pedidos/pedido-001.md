@@ -18,6 +18,8 @@ quien_opera: "[Rol de quien opera del lado del nodo, sin nombre hasta la firma, 
 horas: 4 por semana, 12 semanas, en dupla. En curso desde [mes].
 licencia: La elige el proyecto de una lista corta. Todavía no está decidida.
 hay_plata: No. Está escrito dónde va cada peso cuando lo haya.
+financiamiento: "No. Si el proyecto consigue financiamiento para este pedido, puede pagar por lo entregado, por hito y con factura; se escribe acá antes de empezar."
+etapa: "3 Datos reales"
 cierre: El primer pedido real del sitio. Ya está andando y se puede sumar alguien más.
 ---
 Cuando el nodo firme, acá va el link a su repo y, al final, el postmortem firmado por quien opera.
