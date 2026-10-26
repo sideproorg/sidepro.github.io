@@ -1,18 +1,18 @@
 ---
 id: pedido-002
-titulo: Saber cuánta leche falta cada semana
-estado: ejemplo
+titulo: Llevar la compra y venta de yerba y miel que financia la escuela
+estado: abierta
 firmado: false
-ciudad: Córdoba
+ciudad: Unquillo, Córdoba
 orden: 2
-quien_pide: Un comedor barrial de Córdoba, con su red de comedores.
-quien_lo_trajo: "[tu nombre]. Cuando alguien de los primeros seis traiga el suyo, acá va su nombre o alias."
-problema: Cuenta raciones en un cuaderno que se moja. Cuando pide fondos, no tiene cómo mostrar cuántos comen ni qué falta.
-que_hay: Un cuaderno por mes y fotos en el celular de quien cocina.
-que_queda: Registro semanal de raciones servidas, kilos recibidos por donante y faltantes. Sin datos de quién come.
-quien_opera: Quien cocina y carga, desde su celular. No la dirigencia.
+quien_pide: Una escuela autogestiva de Unquillo, Córdoba, que se financia comprando y vendiendo yerba mate y miel. El nombre se publica cuando firme su pedido.
+quien_lo_trajo: "[tu nombre]. Ya habló con quien lo operaría y está dispuesto a firmar la ficha."
+problema: "[El proyecto completa, en una oración: qué les pasa hoy con las compras, las ventas y la plata que entra y sale.]"
+que_hay: "[El proyecto completa: dónde anotan hoy las compras, las ventas y lo que se debe.]"
+que_queda: "[El proyecto completa: la única cosa que tiene que quedar funcionando.]"
+quien_opera: "[Rol de quien opera del lado de la escuela, sin nombre hasta la firma, con sus horas semanales acordadas.]"
 horas: 4 por semana, 12 semanas, en dupla.
 licencia: La elige el proyecto. Todavía no sabemos.
 hay_plata: No.
-cierre: Al final, el cuaderno sigue, pero en un sistema que el comedor maneja sin nosotros.
+cierre: Abre apenas la escuela lea la ficha y la firme.
 ---

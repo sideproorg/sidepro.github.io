@@ -2,7 +2,7 @@
 
 1. Todo entra por pull request; con una aprobación se publica solo. No hace falta conocernos.
 2. Se aceptan cambios de contenido: fichas (`_pedidos/`), RFC (`_rfc/`), tarjetas (`_data/fesionals.yml`), Estado real (`_data/estado.yml`), FAQ (`_data/faq.yml`), correcciones de texto.
-3. Una ficha nueva: copiá `_pedidos/pedido-002.md`, completá el encabezado, `estado: ejemplo` hasta que quien opera la firme.
+3. Una ficha nueva: copiá `_pedidos/pedido-002.md`, completá el encabezado, `estado: candidata` hasta que quien opera la firme.
 4. Nada sobre una persona u organización sin su lectura: la ficha la escribe el proyecto, y su nombre se publica cuando firma.
 5. Sin estas palabras: voluntariado, impacto, empoderar, sumate, cambiá el mundo, beneficiarios, comunidad como muletilla. Sin contadores, sin fotos de gente.
 6. Estado real con más de 30 días: cualquiera lo actualiza, aunque sea "sin novedades". Cambiá la fecha y solo lo que cambió.

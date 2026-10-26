@@ -2,9 +2,10 @@
 {% assign p = include.p %}
 <article class="ficha" aria-label="Ficha {{ p.id }}">
   <div class="top">
-    <span class="id">{{ p.id }}{% if p.estado == "ejemplo" %} · ejemplo{% endif %}</span>
+    <span class="id">{{ p.id }}{% if p.estado == "ejemplo" %} · ejemplo{% elsif p.estado == "candidata" %} · candidata{% endif %}</span>
     <div class="chips">
-      {% if p.estado == "ejemplo" %}<span class="chip ex">EJEMPLO, sin firma</span>{% endif %}
+      {% if p.estado == "ejemplo" %}<span class="chip ex">EJEMPLO, sin firma</span>{% elsif p.firmado != true %}<span class="chip ex">sin firma todavía</span>{% endif %}
+      {% if p.estado == "candidata" %}<span class="chip">candidata</span>{% endif %}
       {% if p.estado == "ejemplo" or p.estado == "abierta" %}<span class="chip open">abierta</span>{% endif %}
       {% if p.estado == "en-curso" %}<span class="chip open">en curso</span>{% endif %}
       {% if p.estado == "cerrada" %}<span class="chip">cerrada</span>{% endif %}

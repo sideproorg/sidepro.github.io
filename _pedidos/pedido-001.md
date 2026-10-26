@@ -1,22 +1,23 @@
 ---
 # Ficha "Pedido". La escribe el proyecto en su lenguaje y la firma quien va a operar el sistema.
 # Si dice "urgente", "etc." o "una plataforma", está mal escrita y no se publica.
-# estado: ejemplo | abierta | en-curso | cerrada     firmado: true cuando la ficha tiene firma de quien opera.
+# estado: candidata | abierta | en-curso | cerrada     firmado: true cuando quien opera firmó la ficha.
+# Los campos entre corchetes los completa el proyecto antes de firmar. El nombre de la organización entra con la firma.
 id: pedido-001
-titulo: Pesar y liquidar sin perder el cuaderno
-estado: ejemplo
+titulo: El sistema del nodo de productores y consumidores agroecológicos
+estado: en-curso
 firmado: false
-ciudad: Córdoba
+ciudad: Unquillo, Córdoba
 orden: 1
-quien_pide: Una cooperativa de recicladores de Córdoba. El nombre se publica cuando firme su pedido.
-quien_lo_trajo: "[tu nombre], que vive a veinte cuadras."
-problema: Pesa y liquida a sus recolectores en un cuaderno. Cuando el cuaderno se pierde, alguien cobra mal.
-que_hay: Dos años de cuadernos y una balanza.
-que_queda: Carga de pesajes por persona y liquidación semanal exportable a planilla. Nada de "plataforma".
-quien_opera: La persona que hoy lleva el cuaderno, con 2 horas semanales acordadas. Tiene nombre; va en la ficha firmada.
-horas: 4 por semana, 12 semanas, en dupla. Si una semana no podés, avisás y no pasa nada.
+quien_pide: Un nodo de productores y consumidores agroecológicos de Unquillo, en las Sierras Chicas de Córdoba. El nombre se publica cuando firme su pedido.
+quien_lo_trajo: "[tu nombre], que ya está trabajando en él."
+problema: "[El proyecto completa, en una oración: qué les pasa hoy sin el sistema.]"
+que_hay: "[El proyecto completa: cuadernos, planillas, grupo de WhatsApp, lo que usen hoy.]"
+que_queda: "[El proyecto completa: la única cosa que tiene que quedar funcionando cuando el pedido termine.]"
+quien_opera: "[Rol de quien opera del lado del nodo, sin nombre hasta la firma, con sus horas semanales acordadas.]"
+horas: 4 por semana, 12 semanas, en dupla. En curso desde [mes].
 licencia: La elige el proyecto de una lista corta. Todavía no está decidida.
 hay_plata: No. Está escrito dónde va cada peso cuando lo haya.
-cierre: Es el pedido menos fotogénico de los dos. Por eso va primero.
+cierre: El primer pedido real del sitio. Ya está andando y se puede sumar alguien más.
 ---
-El sistema se queda con ellos. Cuando la cooperativa firme, acá va el link al repo del proyecto y, al final, el postmortem firmado por quien opera.
+Cuando el nodo firme, acá va el link a su repo y, al final, el postmortem firmado por quien opera.
