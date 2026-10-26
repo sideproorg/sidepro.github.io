@@ -8,8 +8,8 @@ Hoy el sitio tiene `formulario_abierto: false` en `_config.yml`, así que el for
 
 1. **Cuenta de Cloudflare de sidepro**, no personal, con dos personas como miembros y 2FA en las dos. Códigos de recuperación impresos en dos sobres.
 2. **Dominio**: `sidepro.org` registrado o transferido a esa cuenta (Registrar), pagado por tres años. DNS en Cloudflare.
-3. **Email Routing** activado para `sidepro.org`. En *Destination addresses*, agregar la casilla del proyecto (la que tiene contrato de encargado, no Gmail gratuito) y verificarla con el correo que manda Cloudflare.
-4. Editar `wrangler.toml`: `destination_address`, `PARA` y `CORREO_AYUDA` con esa casilla. `DESDE` tiene que ser una dirección de `sidepro.org` (Email Routing la acepta como remitente).
+3. **Email Routing**. Si la casilla del proyecto vive en otro proveedor con su propio MX (Zoho, por ejemplo), Email Routing no puede activarse sobre `sidepro.org`: activarlo sobre el subdominio `mensajes.sidepro.org` (Cloudflare lo permite por subdominio). En *Destination addresses*, agregar la casilla del proyecto (la que tiene contrato de encargado, no Gmail gratuito) y verificarla con el correo que manda Cloudflare.
+4. Editar `wrangler.toml`: `destination_address`, `PARA` y `CORREO_AYUDA` con esa casilla. `DESDE` tiene que ser una dirección del dominio o subdominio donde está activo Email Routing (por defecto, `formulario@mensajes.sidepro.org`).
 5. Desde esta carpeta, con Node 20 o más: `npx wrangler login` y `npx wrangler deploy`. Si wrangler rechaza la sección `[[unsafe.bindings]]`, borrarla y volver a desplegar.
 6. Probar sin datos reales:
    ```

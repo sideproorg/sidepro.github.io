@@ -18,7 +18,7 @@ destination_address = "CAMBIAR@casilla-del-proyecto"
 
 [vars]
 ORIGEN = "https://sidepro.org"
-DESDE = "formulario@sidepro.org"
+DESDE = "formulario@mensajes.sidepro.org"   # Email Routing activo en el subdominio mensajes.sidepro.org
 PARA = "CAMBIAR@casilla-del-proyecto"
 GRACIAS = "https://sidepro.org/gracias/"
 CORREO_AYUDA = "CAMBIAR@casilla-del-proyecto"
