@@ -19,6 +19,6 @@ jobs:
             --exclude 'CAMBIAR'
             --exclude '^https://sidepro\.org/'
             --exclude '^https://anotarse\.sidepro\.org/'
-            --exclude '^https://github\.com/sidepro$'
+            --exclude '^https://github\.com/sideproorg$'
             '**/*.md' '**/*.html' '**/*.yml'
           fail: true
