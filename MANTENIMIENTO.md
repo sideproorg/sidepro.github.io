@@ -13,7 +13,7 @@ Hoja viva. Si algo acá no es cierto, es un error y se corrige con un PR. Últim
 | Dominio `sideproject.lat` | [registrador], alternativa si el INPI rechaza "sidepro" | la misma | ~USD 15-25/año | los mismos |
 | DNS | Cloudflare | la misma | 0 | los mismos |
 | Correo del proyecto | Email Routing (Cloudflare) → casilla con contrato de encargado ([proveedor]) | la misma + cuenta de la casilla | 0 | los mismos |
-| Formulario de /fesionals | Worker `sidepro-anotarse` (`worker/`), apagado | la misma | 0 | los mismos |
+| Formulario de /fessionals | Worker `sidepro-anotarse` (`worker/`), apagado | la misma | 0 | los mismos |
 | `.com.ar` | no registrado: espera un responsable con CUIT | | | |
 
 ## Claves y recuperación

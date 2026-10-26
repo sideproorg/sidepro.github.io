@@ -9,7 +9,7 @@ lang: es-AR
 firma: "[tu nombre]"
 correo_proyecto: "[correo del proyecto]"
 
-# Formulario de /fesionals. Queda cerrado hasta que exista un responsable de datos con domicilio.
+# Formulario de /fessionals. Queda cerrado hasta que exista un responsable de datos con domicilio.
 # Cuando se abra: formulario_abierto: true, y el Worker desplegado en worker_url (ver worker/README.md).
 formulario_abierto: false
 worker_url: "https://anotarse.sidepro.org/anotarse"

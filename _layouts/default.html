@@ -14,12 +14,12 @@
 <body>
 <div class="wrap">
   <header class="cabecera">
-    <a class="mark" href="{{ '/' | relative_url }}">side<span class="dot">·</span>pro</a>
+    <a class="mark" href="{{ '/' | relative_url }}" aria-label="side·pro">side<span class="dot">·</span>pro{% if page.url == "/" %}<span class="suf" id="mark-suf" aria-hidden="true"></span><span class="cur" id="mark-cur" aria-hidden="true"></span>{% endif %}</a>
     <nav aria-label="Secciones">
       {% assign u = page.url %}
       <a href="{{ '/' | relative_url }}"{% if u == "/" %} aria-current="page"{% endif %}>inicio</a>
       <a href="{{ '/jects/' | relative_url }}"{% if u contains "/jects/" %} aria-current="page"{% endif %}>/jects</a>
-      <a href="{{ '/fesionals/' | relative_url }}"{% if u contains "/fesionals/" %} aria-current="page"{% endif %}>/fesionals</a>
+      <a href="{{ '/fessionals/' | relative_url }}"{% if u contains "/fessionals/" %} aria-current="page"{% endif %}>/fessionals</a>
       <a href="{{ '/rfc/' | relative_url }}"{% if u contains "/rfc/" %} aria-current="page"{% endif %}>RFC</a>
       <a href="{{ '/faq/' | relative_url }}"{% if u contains "/faq/" %} aria-current="page"{% endif %}>FAQ</a>
       <a href="{{ '/estado/' | relative_url }}"{% if u contains "/estado/" %} aria-current="page"{% endif %}>Estado real</a>
@@ -34,7 +34,7 @@
     {% include estado-real.html %}
     <nav class="pie" aria-label="Pie">
       <a href="{{ '/jects/' | relative_url }}">/jects</a>
-      <a href="{{ '/fesionals/' | relative_url }}">/fesionals</a>
+      <a href="{{ '/fessionals/' | relative_url }}">/fessionals</a>
       <a href="{{ '/rfc/' | relative_url }}">RFC</a>
       <a href="{{ '/faq/' | relative_url }}">FAQ</a>
       <a href="https://github.com/sideproorg" rel="noopener">repo</a>
@@ -43,5 +43,26 @@
     <div class="legal">Textos con licencia CC BY-SA 4.0; código del sitio, MIT. Sin rastreadores. Tipografía <a href="https://github.com/paper-design/paper-mono" rel="noopener">Paper Mono</a> (OFL). Lo que nombre a personas o comunidades queda fuera de la licencia y no se publica sin su lectura.</div>
   </footer>
 </div>
+{% if page.url == "/" %}
+<script>
+// El wordmark escribe "jects" y "fessionals" después de "pro" una sola vez por sesión, y queda quieto.
+// Sin movimiento si el sistema lo pide. El texto tipeado es decorativo: el enlace sigue leyéndose "side·pro".
+(function () {
+  var suf = document.getElementById("mark-suf"), cur = document.getElementById("mark-cur");
+  if (!suf || !cur) return;
+  var quieto = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var visto = false;
+  try { visto = sessionStorage.getItem("sidepro.mark") === "1"; } catch (e) {}
+  if (quieto || visto) { cur.className = "cur fija"; return; }
+  try { sessionStorage.setItem("sidepro.mark", "1"); } catch (e) {}
+  var t = 700, pasos = [];
+  function tipea(s) { for (var i = 1; i <= s.length; i++) (function (k) { pasos.push([t, function () { suf.textContent = s.slice(0, k); }]); })(i), t += 70; t += 900; }
+  function borra(s) { for (var i = s.length - 1; i >= 0; i--) (function (k) { pasos.push([t, function () { suf.textContent = s.slice(0, k); }]); })(i), t += 40; t += 500; }
+  tipea("jects"); borra("jects"); tipea("fessionals"); borra("fessionals");
+  pasos.push([t, function () { cur.className = "cur fija"; }]);
+  pasos.forEach(function (p) { setTimeout(p[1], p[0]); });
+})();
+</script>
+{% endif %}
 </body>
 </html>

@@ -1,4 +1,4 @@
-// sidepro-anotarse: recibe el formulario de /fesionals, arma un correo con fecha, hora,
+// sidepro-anotarse: recibe el formulario de /fessionals, arma un correo con fecha, hora,
 // versión del aviso y consentimiento, lo manda a la casilla del proyecto por Email Routing
 // y NO guarda nada. Sin base, sin logs con datos, sin IP ni user agent en el correo.
 //
@@ -15,7 +15,7 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === "GET") {
-      return texto("sidepro · anotarse. Solo acepta el formulario de " + env.ORIGEN + "/fesionals/. No guarda nada.", 200);
+      return texto("sidepro · anotarse. Solo acepta el formulario de " + env.ORIGEN + "/fessionals/. No guarda nada.", 200);
     }
     if (request.method !== "POST" || url.pathname !== "/anotarse") {
       return texto("Nada por acá.", 404);
@@ -65,7 +65,7 @@ export default {
 
     const ahora = new Date();
     const cuerpo = [
-      "Anotación en sidepro.org/fesionals",
+      "Anotación en sidepro.org/fessionals",
       "",
       "Fecha y hora (UTC): " + ahora.toISOString(),
       "Versión del aviso de datos aceptado: " + v.aviso_version,

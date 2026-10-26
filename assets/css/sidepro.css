@@ -46,6 +46,11 @@ b, strong { font-weight: 600; }
 .mark { font-weight: 700; letter-spacing: .01em; font-size: 16px; text-decoration: none; }
 .mark.inline { font-size: inherit; }
 .mark .dot { color: var(--accent); }
+.mark .suf { font-weight: 500; color: var(--fg); }
+.mark .cur { display: inline-block; width: .55ch; height: 1em; vertical-align: -.12em; background: var(--accent); margin-left: 2px; animation: parpadeo 1s steps(1) infinite; }
+.mark .cur.fija { animation: none; opacity: .35; }
+@keyframes parpadeo { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mark .cur { animation: none; opacity: .35; } }
 .cabecera nav { display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: 13px; }
 .cabecera nav a { text-decoration: none; color: var(--muted); }
 .cabecera nav a[aria-current] { color: var(--fg); border-bottom: 2px solid var(--accent); }

@@ -1,6 +1,6 @@
 # Worker del formulario (apagado hasta que haya responsable de datos)
 
-Qué hace: recibe el formulario de `/fesionals`, arma un correo con fecha y hora, versión del aviso aceptado y "consentimiento: sí", y lo manda a la casilla del proyecto por Email Routing. **No guarda nada.** Es lo que votó la mesa (3 de 5) y lo que decidió la promotora el 26/10/2026.
+Qué hace: recibe el formulario de `/fessionals`, arma un correo con fecha y hora, versión del aviso aceptado y "consentimiento: sí", y lo manda a la casilla del proyecto por Email Routing. **No guarda nada.** Es lo que votó la mesa (3 de 5) y lo que decidió la promotora el 26/10/2026.
 
 Hoy el sitio tiene `formulario_abierto: false` en `_config.yml`, así que el formulario no se muestra y este Worker no hace falta. Se enciende solo cuando exista un responsable del archivo con nombre y domicilio (Ley 25.326).
 

@@ -1,0 +1,117 @@
+---
+title: "/fessionals"
+description: "Quiénes forman parte de sidepro, en qué están y qué dejaron andando. Y las dos cosas que hacen falta para ser de los primeros seis."
+---
+{% assign tarjetas = site.data.fessionals | where_exp: "t", "t.ejemplo != true" %}
+{% assign ejemplo = site.data.fessionals | where: "ejemplo", true | first %}
+<section>
+  <p class="eyebrow">/fessionals</p>
+  <h1>Quiénes forman parte, en qué están y qué dejaron andando.</h1>
+  <p class="lead">Acá va una tarjeta por persona, solo si quiso aparecer y con lo que quiso mostrar: nombre o alias, ciudad, qué sabe hacer, el pedido que trajo, el que está haciendo y, si lo pidió, el repo con su nombre. Nunca el empleador, nunca un correo público. También van, si quieren y con el sí de su proyecto, quienes operan el sistema del otro lado.</p>
+</section>
+
+<section>
+  {% if tarjetas.size == 0 %}
+  <h2>Acá van a estar los que estén. Hoy, nadie.</h2>
+  <p>Todavía no firmó nadie. Van a ser seis, en Córdoba, con dos pedidos concretos. Lo que se decide, se decide abierto, en las <a href="{{ '/rfc/' | relative_url }}">RFC del repo</a>, y quienes entren primero las van a discutir. Si querés ser de los primeros, más abajo dice cómo. Te contesta {{ site.firma }}, no un formulario.</p>
+  <div class="people" aria-label="Tarjetas de quienes forman parte">
+    <div class="person ejemplo">
+      <span class="who">así se ve una tarjeta cuando existe</span>
+      <strong>{{ ejemplo.nombre }} · {{ ejemplo.ciudad }}</strong>
+      <span>{{ ejemplo.sabe }}</span>
+      <span class="muted">Trajo: {{ ejemplo.trajo }} · está en: {{ ejemplo.esta_en }} · desde {{ ejemplo.desde }} · repo con su nombre, si lo pidió</span>
+    </div>
+  </div>
+  {% else %}
+  <h2>Quienes están</h2>
+  <div class="people" aria-label="Tarjetas de quienes forman parte">
+    {% for t in tarjetas %}
+    <div class="person">
+      {% if t.opera %}<span class="who">opera</span>{% endif %}
+      <strong>{{ t.nombre }} · {{ t.ciudad }}</strong>
+      <span>{{ t.sabe }}</span>
+      <span class="muted">{% if t.trajo != "" %}Trajo: {{ t.trajo }} · {% endif %}{% if t.esta_en != "" %}está en: {{ t.esta_en }} · {% endif %}desde {{ t.desde }}{% if t.repo != "" %} · <a href="{{ t.repo }}" rel="noopener">repo con su nombre</a>{% endif %}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+<section id="requisitos">
+  <h2>Dos cosas hacen falta para ser de los primeros seis</h2>
+  <ol class="steps">
+    <li><strong>Trabajar hoy en IT para una empresa u organización</strong>, en relación de dependencia o con un contrato estable. Se declara, no se verifica, y nunca se pide ni se publica el nombre del empleador. Es lo que hace que esto sea un side project y no un trabajo sin sueldo.</li>
+    <li><strong>Traer un proyecto de tu ciudad o zona que ya sepa qué le falta</strong>, con alguien que lo vaya a operar y esté dispuesto a firmar la ficha de una página. Tiene que existir ya y no ser tuyo: lo que falta lo dicen ellos. Después te anotás a ese pedido o a cualquier otro de <a href="{{ '/jects/' | relative_url }}">/jects</a>.</li>
+  </ol>
+  <p class="muted">Un club, un comedor, una cooperativa, una feria, una biblioteca popular, un centro vecinal, una escuela. Casi siempre llevan algo en un cuaderno o en un grupo de WhatsApp que se pierde.</p>
+</section>
+
+<section id="lista">
+  <h2>Los primeros seis</h2>
+  {% if site.formulario_abierto %}
+  <p class="muted">Cinco campos, tres preguntas y dos casillas. Te escribe {{ site.firma }}, con nombre. Hoy no hay plazo prometido, porque todavía no hay quien atienda además de esa persona. No se promete nada más que eso.</p>
+  <form id="form-anotarse" method="post" action="{{ site.worker_url }}">
+    <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
+    <input type="hidden" name="t" value="" id="f-t">
+    <p class="trampa" aria-hidden="true"><label>Si sos una persona, dejá esto vacío <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></p>
+    <fieldset>
+      <legend>Qué puede figurar en público, si entrás</legend>
+      <div class="radios">
+        <label><input type="radio" name="publico" value="nada" checked> Nada</label>
+        <label><input type="radio" name="publico" value="alias"> Un alias</label>
+        <label><input type="radio" name="publico" value="nombre"> Mi nombre</label>
+      </div>
+      <span class="hint">La tarjeta se cambia o se baja el mismo día. Lo que no se borra es tu nombre en los commits del repo del proyecto, si elegiste firmarlos. Un contrato con cláusula de exclusividad es motivo suficiente para "nada".</span>
+    </fieldset>
+    <div class="field">
+      <label for="f-nombre">Nombre o alias</label>
+      <input id="f-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80">
+    </div>
+    <div class="field">
+      <label for="f-contacto">Cómo te escribimos</label>
+      <input id="f-contacto" name="contacto" type="text" placeholder="correo, Telegram o Signal" required maxlength="120">
+      <span class="hint">No se publica ni se comparte. Se borra si pedís que se borre.</span>
+    </div>
+    <div class="field">
+      <label for="f-sabe">Qué sabés hacer, en una línea</label>
+      <input id="f-sabe" name="sabe" type="text" placeholder="por ejemplo: pipelines de datos, Postgres, formularios que no se rompen" maxlength="160">
+    </div>
+    <div class="field">
+      <label for="f-horas">Horas libres reales por semana</label>
+      <select id="f-horas" name="horas">
+        <option value="">Elegí</option>
+        <option>4</option>
+        <option>4 a 6</option>
+        <option>6 a 8</option>
+        <option>Depende de la semana; a veces 0</option>
+      </select>
+      <span class="hint">Las reales, no las que te gustaría tener. Se diseña para que aguante semanas de 0.</span>
+    </div>
+    <div class="field">
+      <label for="f-proyecto">El proyecto que traés: qué es y en qué ciudad, en una línea</label>
+      <input id="f-proyecto" name="proyecto" type="text" placeholder="por ejemplo: un comedor de barrio Alberdi que cuenta raciones en un cuaderno" required maxlength="200">
+      <span class="hint">Sin nombres de personas. Si ya tiene ficha, el link alcanza.</span>
+    </div>
+    <fieldset>
+      <legend>¿Hablaste con quien lo operaría?</legend>
+      <div class="radios">
+        <label><input type="radio" name="opera" value="si"> Sí, y está dispuesto a firmar la ficha</label>
+        <label><input type="radio" name="opera" value="no" checked> Todavía no</label>
+      </div>
+    </fieldset>
+    <label class="check"><input type="checkbox" id="f-trabajo" required> Trabajo hoy en IT para una empresa u organización, en relación de dependencia o con contrato estable.</label>
+    <p class="hint">Esa casilla y lo de tu contrato con tu empleador no viajan: el navegador las exige, pero no se envían ni se guardan. Lo del contrato se habla en el uno a uno.</p>
+    <fieldset>
+      <legend>Qué pasa con estos datos</legend>
+      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto y el proyecto que traés para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no hay primeros seis, se borran y se deja constancia. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
+      <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> Leí esto y estoy de acuerdo.</label>
+    </fieldset>
+    <div><button type="submit" class="btn">Quiero ser de los primeros seis</button></div>
+  </form>
+  <script>document.getElementById('f-t').value = String(Date.now());</script>
+  {% else %}
+  <div class="tintbox">
+    <p><strong>El formulario todavía no abre.</strong> Guardar tu nombre y tu contacto exige un responsable con nombre y domicilio (Ley 25.326), y hoy no lo hay: se decide en el mes 1 y se escribe acá cuando exista. Mientras tanto, si cumplís las dos cosas de arriba, escribí a <code>{{ site.correo_proyecto }}</code> con el proyecto que traés, sin nombres de personas. Te contesta {{ site.firma }}, con nombre, sin plazo prometido. Lo de tu contrato con tu empleador no lo escribas: se habla en el uno a uno.</p>
+  </div>
+  {% endif %}
+</section>

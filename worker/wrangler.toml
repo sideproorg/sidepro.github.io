@@ -1,4 +1,4 @@
-# Worker del formulario de /fesionals. Reenvía por correo y no guarda nada.
+# Worker del formulario de /fessionals. Reenvía por correo y no guarda nada.
 # Vive en la cuenta de Cloudflare de sidepro (custodia doble), nunca en una personal.
 name = "sidepro-anotarse"
 main = "src/index.js"

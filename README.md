@@ -7,9 +7,9 @@ sidepro junta a profesionales de IT que trabajan remoto y tienen horas libres co
 ## Cómo está hecho
 
 - **Jekyll tal como lo compila GitHub Pages**, sin plugins ni tema externo. No hay `npm install` ni Action de build: se hace push a `main` y GitHub publica.
-- **Contenido en archivos de texto**: las fichas en `_pedidos/`, las RFC en `_rfc/`, el Estado real en `_data/estado.yml`, las tarjetas de `/fesionals` en `_data/fesionals.yml`, la FAQ en `_data/faq.yml`. Se editan desde el navegador.
+- **Contenido en archivos de texto**: las fichas en `_pedidos/`, las RFC en `_rfc/`, el Estado real en `_data/estado.yml`, las tarjetas de `/fessionals` en `_data/fessionals.yml`, la FAQ en `_data/faq.yml`. Se editan desde el navegador.
 - **Tipografía Paper Mono** (licencia OFL) servida desde `assets/fonts/`. Sin Google Fonts, sin rastreadores, sin analítica.
-- **Formulario de /fesionals**: cerrado hasta que exista un responsable de datos (Ley 25.326). Cuando abra, lo recibe un Worker de Cloudflare que reenvía por correo y no guarda nada (`worker/`).
+- **Formulario de /fessionals**: cerrado hasta que exista un responsable de datos (Ley 25.326). Cuando abra, lo recibe un Worker de Cloudflare que reenvía por correo y no guarda nada (`worker/`).
 
 ## Agregar una ficha en diez minutos
 
@@ -17,7 +17,7 @@ sidepro junta a profesionales de IT que trabajan remoto y tienen horas libres co
 2. Completá los campos del encabezado. La escribe el proyecto en su lenguaje; si dice "urgente", "etc." o "una plataforma", está mal escrita. `estado: candidata` hasta que el proyecto diga qué le falta y tenga quien opere; `abierta` cuando lo diga; `firmado: true` cuando quien opera firme.
 3. Abrí un pull request. Con una aprobación se publica sola en `/jects/pedido-004/`.
 
-Lo mismo para una RFC (`_rfc/`), una tarjeta (`_data/fesionals.yml`) o una línea del Estado real (`_data/estado.yml`). Más en [CONTRIBUTING.md](CONTRIBUTING.md); qué corre, dónde y quién tiene qué clave, en [MANTENIMIENTO.md](MANTENIMIENTO.md).
+Lo mismo para una RFC (`_rfc/`), una tarjeta (`_data/fessionals.yml`) o una línea del Estado real (`_data/estado.yml`). Más en [CONTRIBUTING.md](CONTRIBUTING.md); qué corre, dónde y quién tiene qué clave, en [MANTENIMIENTO.md](MANTENIMIENTO.md).
 
 ## Estructura
 
@@ -25,7 +25,7 @@ Lo mismo para una RFC (`_rfc/`), una tarjeta (`_data/fesionals.yml`) o una líne
 _config.yml            nombre, firma, correo del proyecto, formulario abierto o cerrado
 _data/estado.yml       Estado real a la fecha (pie de todas las páginas)
 _data/faq.yml          preguntas honestas
-_data/fesionals.yml    tarjetas de quienes forman parte (opt-in)
+_data/fessionals.yml    tarjetas de quienes forman parte (opt-in)
 _data/pasos.yml        "Cómo funciona"
 _data/no.yml           "Lo que no vas a encontrar acá"
 _pedidos/              una ficha por pedido → /jects/<id>/
