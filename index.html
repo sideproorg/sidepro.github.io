@@ -22,11 +22,12 @@ description: "Profesionales de tecnologías digitales que trabajan en remoto y p
 </section>
 
 <section>
-  <h2>Cómo funciona</h2>
+  <h2>Cómo participar</h2>
   <ol class="steps">
     {% for paso in site.data.pasos %}<li>{{ paso }}</li>
     {% endfor %}
   </ol>
+  <p class="muted" style="margin-top:12px">El formulario para anotarte está en <a href="{{ '/fessionals/#lista' | relative_url }}">/fessionals</a>{% unless site.formulario_abierto %} (hoy cerrado: ahí dice por qué y cómo escribir mientras tanto){% endunless %}. Lo que pasa después, de la ficha al postmortem, son cinco etapas y está en la <a href="{{ '/rfc/rfc-001/' | relative_url }}">RFC-001</a>.</p>
 </section>
 
 <section>

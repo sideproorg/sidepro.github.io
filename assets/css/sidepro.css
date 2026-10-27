@@ -170,6 +170,23 @@ fieldset p.hint { margin: 0; }
 .radios { display: flex; flex-wrap: wrap; gap: 8px 16px; }
 .radios label { font-weight: 400; display: flex; align-items: center; gap: 6px; }
 .radios input { width: auto; }
+.radios.columna { flex-direction: column; gap: 6px; }
+.radios.columna label { align-items: flex-start; }
+.radios.columna label input { margin-top: 4px; flex: none; }
+.radios.columna label > span { display: inline; }
+.grilla { display: grid; grid-template-columns: 3ch repeat(3, minmax(0, 1fr)); gap: 4px 6px; max-width: 320px; align-items: center; font-size: 12.5px; }
+.grilla .gh, .grilla .gd { color: var(--muted); font-size: 11.5px; text-align: center; }
+.grilla .gd { text-align: right; padding-right: 4px; }
+.grilla label { margin: 0; display: block; }
+.grilla label input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.grilla label span { display: block; text-align: center; border: 1px solid var(--line); padding: 4px 0; cursor: pointer; color: var(--muted); user-select: none; }
+.grilla label input:checked + span { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.grilla label input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 1px; }
+#f-error { color: var(--accent); font-weight: 600; }
+textarea { font: inherit; font-size: 13px; width: 100%; padding: 8px 10px; border: 1px solid var(--line); background: var(--card); color: var(--fg); border-radius: 0; min-height: 110px; }
+.grilla.cruce .celda { text-align: center; border: 1px solid var(--line); padding: 4px 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+.grilla.cruce .celda.algunos { color: var(--fg); background: var(--tint); }
+.grilla.cruce .celda.todos { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 600; }
 label.check { font-weight: 500; display: flex; align-items: flex-start; gap: 8px; }
 label.check input { width: auto; margin-top: 4px; }
 .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

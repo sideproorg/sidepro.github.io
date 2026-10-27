@@ -49,11 +49,55 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
 <section id="lista">
   <h2>Anotarse</h2>
   {% if site.formulario_abierto %}
-  <p class="muted">Cinco campos, tres preguntas y dos casillas. Te escribe {{ site.firma }}, con nombre. Hoy no hay plazo prometido, porque todavía no hay quien atienda además de esa persona. No se promete nada más que eso.</p>
-  <form id="form-anotarse" method="post" action="{{ site.worker_url }}">
+  <p class="muted">Un formulario corto. Te escribe {{ site.firma }}, con nombre. Hoy no hay plazo prometido, porque todavía no hay quien atienda además de esa persona. No se promete nada más que eso.</p>
+  <form id="form-anotarse" method="post" action="{{ site.worker_url }}" enctype="multipart/form-data">
     <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
     <input type="hidden" name="t" value="" id="f-t">
+    <input type="hidden" name="disp" value="" id="f-disp">
     <p class="trampa" aria-hidden="true"><label>Si sos una persona, dejá esto vacío <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></p>
+
+    <fieldset>
+      <legend>Cómo entrás</legend>
+      <div class="radios columna">
+        <label><input type="radio" name="via" value="a" checked> <span>Traigo una organización socio-ambiental de mi localidad que ya sabe qué le falta</span></label>
+        <label><input type="radio" name="via" value="b"> <span>Me anoto a dos pedidos de /jects</span></label>
+      </div>
+    </fieldset>
+
+    <div id="via-a">
+      <div class="field">
+        <label for="f-proyecto">El proyecto que traés: qué es y en qué localidad, en una línea</label>
+        <input id="f-proyecto" name="proyecto" type="text" placeholder="por ejemplo: un comedor de barrio Alberdi que cuenta raciones en un cuaderno" maxlength="200">
+        <span class="hint">Sin nombres de personas. Si ya tiene ficha, el link alcanza.</span>
+      </div>
+      <div class="field">
+        <label for="f-archivo">Contalo como puedas: un audio, una foto del cuaderno o del papel, un PDF (opcional)</label>
+        <input id="f-archivo" name="archivo" type="file" accept="audio/*,image/*,application/pdf">
+        <span class="hint">Un archivo, hasta {{ site.archivo_mb }} MB. Lo escucha o lo mira una sola persona, con nombre; no pasa por ninguna IA ni se reenvía. Se vuelca a la ficha y se borra al firmarla o a los 30 días, con constancia. Nunca va al repo.</span>
+      </div>
+      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> Lo grabé o lo escribí yo, o quien opera lo autoriza. No hay nombres, voces ni caras de otras personas.</label>
+      <fieldset>
+        <legend>¿Hablaste con quien lo operaría?</legend>
+        <div class="radios">
+          <label><input type="radio" name="opera" value="si"> Sí, y está dispuesto a firmar la ficha</label>
+          <label><input type="radio" name="opera" value="no" checked> Todavía no</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div id="via-b" hidden>
+      <fieldset>
+        <legend>Elegí dos pedidos</legend>
+        <div class="radios columna">
+          {% assign lista = site.pedidos | sort: "actualizado" | reverse %}
+          {% for p in lista %}
+          <label><input type="checkbox" name="pedidos" value="{{ p.codigo }}"> <span><b>{{ p.codigo }}</b> · {{ p.titulo }}{% if p.firmado != true %} <i class="muted">(sin firma todavía)</i>{% endif %}</span></label>
+          {% endfor %}
+        </div>
+        <span class="hint">Los pedidos sin firma arrancan cuando el proyecto firme su ficha. Si entrás así, sos segunda de esos pedidos y arrancás por videollamada: escuchás el audio de la sesión 0 y firmás el acuerdo antes de tocar datos.</span>
+      </fieldset>
+    </div>
+
     <fieldset>
       <legend>Qué puede figurar en público, si entrás</legend>
       <div class="radios">
@@ -87,31 +131,64 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
       </select>
       <span class="hint">Las reales, no las que te gustaría tener. Se diseña para que aguante semanas de 0.</span>
     </div>
-    <div class="field">
-      <label for="f-proyecto">El proyecto que traés: qué es y en qué ciudad, en una línea</label>
-      <input id="f-proyecto" name="proyecto" type="text" placeholder="por ejemplo: un comedor de barrio Alberdi que cuenta raciones en un cuaderno" required maxlength="200">
-      <span class="hint">Sin nombres de personas. Si ya tiene ficha, el link alcanza.</span>
-    </div>
+
     <fieldset>
-      <legend>¿Hablaste con quien lo operaría?</legend>
-      <div class="radios">
-        <label><input type="radio" name="opera" value="si"> Sí, y está dispuesto a firmar la ficha</label>
-        <label><input type="radio" name="opera" value="no" checked> Todavía no</label>
+      <legend>Tus franjas libres en una semana normal</legend>
+      <div class="grilla" id="grilla">
+        <span></span><span class="gh">mañana</span><span class="gh">tarde</span><span class="gh">noche</span>
+        {% assign dias = "lu,ma,mi,ju,vi,sa,do" | split: "," %}
+        {% for d in dias %}
+        <span class="gd">{{ d }}</span>
+        <label><input type="checkbox" data-f="{{ d }}-m"><span>m</span></label>
+        <label><input type="checkbox" data-f="{{ d }}-t"><span>t</span></label>
+        <label><input type="checkbox" data-f="{{ d }}-n"><span>n</span></label>
+        {% endfor %}
       </div>
+      <span class="hint">Viajan en el correo como un código (por ejemplo <code>lu-n,mi-t</code>). Quien convoca las cruza en <a href="{{ '/cruzar/' | relative_url }}">/cruzar/</a>, sin guardar nada, y propone día y hora con nombre.</span>
     </fieldset>
+
     <label class="check"><input type="checkbox" id="f-trabajo" required> Trabajo hoy en IT para una empresa u organización, en relación de dependencia o con contrato estable.</label>
     <p class="hint">Esa casilla y lo de tu contrato con tu empleador no viajan: el navegador las exige, pero no se envían ni se guardan. Lo del contrato se habla en el uno a uno.</p>
     <fieldset>
       <legend>Qué pasa con estos datos</legend>
-      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto y el proyecto que traés para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no arrancó ningún pedido con vos, se borran y se deja constancia. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
+      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto, tus franjas y el proyecto que traés (o los pedidos que elegiste) para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no arrancó ningún pedido con vos, se borran y se deja constancia; el archivo, al firmar la ficha o a los 30 días. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
       <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> Leí esto y estoy de acuerdo.</label>
     </fieldset>
+    <p class="hint" id="f-error" hidden></p>
     <div><button type="submit" class="btn">Quiero anotarme</button></div>
   </form>
-  <script>document.getElementById('f-t').value = String(Date.now());</script>
+  <script>
+  (function () {
+    document.getElementById('f-t').value = String(Date.now());
+    var form = document.getElementById('form-anotarse'), err = document.getElementById('f-error');
+    var va = document.getElementById('via-a'), vb = document.getElementById('via-b');
+    function via() { return form.querySelector('input[name="via"]:checked').value; }
+    function mostrar() { var a = via() === 'a'; va.hidden = !a; vb.hidden = a; }
+    form.querySelectorAll('input[name="via"]').forEach(function (r) { r.addEventListener('change', mostrar); });
+    mostrar();
+    function fallo(m) { err.textContent = m; err.hidden = false; err.scrollIntoView({ block: 'center' }); }
+    form.addEventListener('submit', function (ev) {
+      err.hidden = true;
+      var disp = []; form.querySelectorAll('#grilla input:checked').forEach(function (c) { disp.push(c.dataset.f); });
+      document.getElementById('f-disp').value = disp.join(',');
+      if (via() === 'a') {
+        var pr = document.getElementById('f-proyecto').value.trim();
+        if (!pr) { ev.preventDefault(); return fallo('Falta decir qué proyecto traés, en una línea.'); }
+        var f = document.getElementById('f-archivo').files[0];
+        if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('El archivo pesa más de {{ site.archivo_mb }} MB. Mandá uno más chico o contalo en el campo de texto; el audio puede ir después por WhatsApp.'); }
+        if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('Si mandás un archivo, marcá que lo grabaste o escribiste vos, o que quien opera lo autoriza.'); }
+        form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
+      } else {
+        var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
+        if (n !== 2) { ev.preventDefault(); return fallo('Elegí exactamente dos pedidos.'); }
+        document.getElementById('f-proyecto').value = ''; document.getElementById('f-archivo').value = '';
+      }
+    });
+  })();
+  </script>
   {% else %}
   <div class="tintbox">
-    <p><strong>El formulario todavía no abre.</strong> Guardar tu nombre y tu contacto exige un responsable con nombre y domicilio (Ley 25.326), y hoy no lo hay: se decide en el mes 1 y se escribe acá cuando exista. Mientras tanto, si cumplís las dos cosas de arriba, escribí a <code>{{ site.correo_proyecto }}</code> con el proyecto que traés, sin nombres de personas. Te contesta {{ site.firma }}, con nombre, sin plazo prometido. Lo de tu contrato con tu empleador no lo escribas: se habla en el uno a uno.</p>
+    <p><strong>El formulario todavía no abre.</strong> Guardar tu nombre y tu contacto exige un responsable con nombre y domicilio (Ley 25.326), y hoy no lo hay: se decide en el mes 1 y se escribe acá cuando exista. Mientras tanto, si cumplís las dos cosas de arriba, escribí a <code>{{ site.correo_proyecto }}</code>: con el proyecto que traés (sin nombres de personas), o con los dos pedidos de /jects a los que te anotás. Te contesta {{ site.firma }}, con nombre, sin plazo prometido. Lo de tu contrato con tu empleador no lo escribas: se habla en el uno a uno.</p>
   </div>
   {% endif %}
 </section>

@@ -22,6 +22,7 @@ DESDE = "formulario@mensajes.sidepro.org"   # Email Routing activo en el subdomi
 PARA = "CAMBIAR@casilla-del-proyecto"
 GRACIAS = "https://sidepro.org/gracias/"
 CORREO_AYUDA = "CAMBIAR@casilla-del-proyecto"
+MAX_MB = "10"   # tamaño máximo del archivo adjunto; tiene que coincidir con archivo_mb en _config.yml
 
 # Opcional: límite de envíos por IP (5 por minuto). Si al desplegar wrangler rechaza esta sección,
 # borrarla: el Worker funciona igual con la trampa para bots y la comprobación de tiempo.

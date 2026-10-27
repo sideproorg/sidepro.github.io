@@ -9,7 +9,7 @@ sidepro reúne a profesionales de tecnologías digitales que trabajan en remoto 
 - **Jekyll tal como lo compila GitHub Pages**, sin plugins ni tema externo. No hay `npm install` ni Action de build: se hace push a `main` y GitHub publica.
 - **Contenido en archivos de texto**: las fichas en `_pedidos/`, las RFC en `_rfc/`, el Estado real en `_data/estado.yml`, las tarjetas de `/fessionals` en `_data/fessionals.yml`, la FAQ en `_data/faq.yml`. Se editan desde el navegador.
 - **Tipografía Paper Mono** (licencia OFL) servida desde `assets/fonts/`. Sin Google Fonts, sin rastreadores, sin analítica.
-- **Formulario de /fessionals**: cerrado hasta que exista un responsable de datos (Ley 25.326). Cuando abra, lo recibe un Worker de Cloudflare que reenvía por correo y no guarda nada (`worker/`).
+- **Formulario de /fessionals**: cerrado hasta que exista un responsable de datos (Ley 25.326). Cuando abra, lo recibe un Worker de Cloudflare que reenvía por correo y no guarda nada (`worker/`). Dos maneras de entrar: traer un proyecto (con un archivo opcional, audio, imagen o PDF de hasta 10 MB, que viaja como adjunto) o anotarse a dos pedidos de `/jects`. Las franjas libres viajan como un código que quien convoca cruza en `/cruzar/`, en su navegador; nada se guarda.
 
 ## Agregar una ficha en diez minutos
 
@@ -26,10 +26,11 @@ _config.yml            nombre, firma, correo del proyecto, formulario abierto o 
 _data/estado.yml       Estado real a la fecha (pie de todas las páginas)
 _data/faq.yml          preguntas honestas
 _data/fessionals.yml    tarjetas de quienes forman parte (opt-in)
-_data/pasos.yml        "Cómo funciona"
+_data/pasos.yml        "Cómo participar", tres pasos (las cinco etapas de un pedido están en la RFC-001)
 _data/no.yml           "Lo que no vas a encontrar acá"
 _pedidos/              una ficha por pedido → /jects/<id>/
 _rfc/                  una carilla por regla → /rfc/<id>/
+cruzar/                /cruzar/: cruza códigos de franjas libres en el navegador, sin guardar nada
 _layouts/ _includes/   plantillas
 assets/css/sidepro.css dirección "Papel": tokens de color y tipografía al principio del archivo
 assets/fonts/          Paper Mono y su licencia

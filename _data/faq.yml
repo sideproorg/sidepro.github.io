@@ -6,7 +6,9 @@
 - q: ¿Cuántas horas de verdad?
   a: Al menos 4 por semana durante 12 semanas, con hitos, no con cadencia; el techo lo ponés vos. Unas 50 horas útiles en total. Si una semana no podés, avisás y no pasa nada.
 - q: ¿Tengo que traer un proyecto?
-  a: Sí. Una organización socio-ambiental de tu ciudad o zona, que ya exista y ya sepa qué le falta, con alguien que lo vaya a operar y esté dispuesto a firmar la ficha de una página. Lo que falta lo dicen ellos, no vos. Una vez adentro, te anotás a ese pedido o a cualquier otro de /jects.
+  a: "Hay dos maneras de entrar. Traés uno: una organización socio-ambiental de tu ciudad o zona, que ya exista y ya sepa qué le falta, con alguien que lo vaya a operar y esté dispuesto a firmar la ficha de una página; lo que falta lo dicen ellos, no vos. O te anotás a dos de los pedidos que ya están en /jects: entrás como segunda de esos pedidos, no abrís pedidos nuevos y arrancás por videollamada, con el audio de la sesión 0 y el acuerdo firmado antes de tocar datos. Los pedidos sin firma se pueden elegir desde ya, pero arrancan cuando el proyecto firme."
+- q: ¿Qué mando si traigo un proyecto?
+  a: "Una línea con qué es y en qué localidad, y si querés un archivo de hasta 10 MB: un audio tuyo contando qué se pierde hoy, una foto del cuaderno, un PDF. Lo escucha o lo mira una persona con nombre, no pasa por ninguna IA, se vuelca a la ficha y se borra al firmarla o a los 30 días, con constancia. Sin nombres, voces ni caras de otras personas: si en el audio habla quien opera, tiene que saberlo y autorizarlo."
 - q: ¿Y si no conozco ningún proyecto?
   a: Preguntá en tu cuadra quién lleva las cuentas del club, del comedor, de la feria, de la cooperativa, de la biblioteca. Casi siempre es un cuaderno o un grupo de WhatsApp que se pierde. Si no aparece ninguno, todavía no es el momento; sin proyecto no hay sesión 0.
 - q: ¿Y si ahora no trabajo para ninguna empresa?
@@ -18,7 +20,7 @@
 - q: ¿Se cobra?
   a: "Por defecto, no: son horas libres, con dueño y final, y quedan en el postmortem. Si el proyecto consigue financiamiento para su pedido, puede pagar por lo entregado, por hito y con factura, a quien opera y a la dupla; lo decide el proyecto, se escribe antes de empezar y dónde fue cada peso queda en SALIDA.md, que es público. Podés decir que no y el pedido sigue igual. sidepro no cobra, no paga ni intermedia. Revisá tu contrato antes."
 - q: ¿Cómo arranca un pedido y cuántas reuniones tiene?
-  a: "Seis horas en doce semanas: una llamada corta entre los dos fessionals para repartirse roles, una sesión 0 presencial de dos horas con quien opera, cinco quincenales de quince minutos y un traspaso de una hora. Las cinco etapas (pedido, papel, datos reales, sola, traspaso), los roles y qué se registra dónde están en la RFC-001, que se puede comentar."
+  a: "Seis horas en doce semanas: una llamada corta entre los dos fessionals para repartirse roles, una sesión 0 presencial de dos horas con quien opera (va quien trajo el proyecto; quien entró a dos pedidos la escucha grabada y arranca por videollamada), cinco quincenales de quince minutos y un traspaso de una hora. Las fechas no las pone ningún sistema: en el formulario marcás tus franjas libres, quien convoca las cruza en /cruzar/ en su navegador, sin guardar nada, y propone día y hora en el issue del repo, con nombre. Las cinco etapas (pedido, papel, datos reales, sola, traspaso), los roles y qué se registra dónde están en la RFC-001, que se puede comentar."
 - q: ¿Qué no vamos a construir?
   a: Apps móviles, modelos de IA, integraciones con bancos o AFIP, logins para cincuenta usuarios, dashboards en tiempo real. Sí formularios, planillas con validaciones, bases simples y exportaciones; lo que una persona del proyecto pueda operar y modificar sin vos.
 - q: ¿Y si el proyecto no responde?

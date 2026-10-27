@@ -24,7 +24,7 @@ Hoja viva. Si algo acá no es cierto, es un error y se corrige con un PR. Últim
 
 ## Rutina
 
-- **Mensual (15 minutos)**: la segunda custodia entra a GitHub, Cloudflare y la casilla; revisa que el Estado real tenga menos de 30 días; si el formulario está abierto, borra las anotaciones de más de 90 días sin primeros seis y deja constancia en `docs/actas.md` (cantidad y fecha, nunca nombres).
+- **Mensual (15 minutos)**: la segunda custodia entra a GitHub, Cloudflare y la casilla; revisa que el Estado real tenga menos de 30 días; si el formulario está abierto, borra las anotaciones de más de 90 días que no arrancaron ningún pedido, y los archivos adjuntos de más de 30 días o de fichas ya firmadas, y deja constancia en `docs/actas.md` (cantidad y fecha, nunca nombres).
 - **Cada PR**: la Action de links rotos tiene que pasar. Si falla por un sitio ajeno caído, se agrega a `.lycheeignore` con una línea de por qué.
 - **Mes 1 (una vez, 20 minutos)**: simulacro de apagado: desactivar GitHub Pages y servir el sitio desde Codeberg Pages. Si funciona, se anota acá la fecha. Si no, se arregla antes de la semana 8.
 - **Cada tres años**: renovar los dominios. Fecha de vencimiento de `sidepro.org`: [fecha].

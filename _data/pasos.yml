@@ -1,7 +1,5 @@
-# "Cómo funciona", en cinco pasos: son las cinco etapas de la RFC-001. No agregar sin cambiar la RFC.
+# "Cómo participar", en tres pasos (la persona). Cómo se hace un pedido, en cinco etapas, está en la RFC-001 (el pedido).
 # Cada línea entre comillas: si el texto lleva dos puntos, YAML lo leería como otra cosa.
-- "Pedido. Traés una organización socio-ambiental de tu ciudad que ya sabe qué le falta, con alguien que lo va a operar. El proyecto escribe su ficha en una página y la firma quien opera; vos te anotás a esa ficha o a cualquier otra de /jects."
-- "Papel. Sesión 0, presencial, con quien va a operar: dos horas, un prototipo en papel que esa persona le explica a un tercero, la herramienta elegida entre las que ya abre en su teléfono."
-- "Datos reales. Un commit por semana. En la semana 4, quien opera carga datos reales ella misma. Si una semana no podés, avisás; desaparecer dos semanas avisando no es abandono."
-- "Sola. Quien opera cambia algo sin vos en la llamada y lo anota. Si no puede, el sistema está mal hecho y se arregla eso, no la persona."
-- "Traspaso. Las contraseñas quedan en el proyecto, vos perdés permiso de escritura, y el postmortem lo firma quien opera. Se publica igual, salga como salga."
+- "Anotate. Decís qué hacés en IT y tus horas libres reales, y elegís cómo entrás: traés una organización socio-ambiental de tu localidad que ya sabe qué le falta, y lo contás como puedas (texto, audio o foto del papel); o te anotás a dos de los pedidos de /jects. Contesta una persona, con nombre."
+- "Papel. Si trajiste un proyecto, antes de escribir código nos juntamos en persona con quien va a usar el sistema cada día, sobre el cuaderno donde hoy se pierde todo, y dibujamos en papel cómo se carga, se busca y se corrige un dato. Si quien opera no lo entiende, no se programa. De ahí sale la ficha firmada. Si entraste a dos pedidos, arrancás por videollamada: escuchás el audio de esa sesión y firmás el acuerdo antes de tocar datos."
+- "Fecha. En el formulario marcás tus franjas libres de la semana. Quien convoca las cruza en /cruzar/, sin guardar nada, y propone día y hora en el issue del repo del proyecto, con nombre. Desde ahí el pedido corre por sus cinco etapas."
