@@ -2,11 +2,9 @@
 title: ""
 description: "Tres meses, cuatro horas por semana, un proyecto de tu ciudad que ya sabe qué le falta. Profesionales de IT remotos y proyectos de Córdoba."
 ---
-{% assign pedidos = site.pedidos | sort: "orden" %}
-{% assign primero = pedidos | first %}
 <section>
-  <p class="eyebrow">Un pedido, antes que cualquier explicación</p>
-  {% include ficha.html p=primero boton="fichas" %}
+  <p class="eyebrow">Lo que está pasando, antes que cualquier explicación</p>
+  {% include jects-log.html %}
 </section>
 
 <section>

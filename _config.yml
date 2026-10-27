@@ -4,6 +4,7 @@ description: Horas libres puestas en side projects que mejoran proyectos locales
 url: "https://sidepro.org"
 baseurl: ""
 lang: es-AR
+timezone: America/Argentina/Cordoba
 
 # Quién firma y cómo se escribe. Cambiar acá y aparece en todas las páginas.
 firma: "[tu nombre]"

@@ -2,7 +2,7 @@
 title: "/jects"
 description: "Los proyectos a los que te podés anotar: una ficha por pedido, con quién lo opera y qué tiene que quedar funcionando."
 ---
-{% assign pedidos = site.pedidos | sort: "orden" %}
+{% assign pedidos = site.pedidos | sort: "actualizado" | reverse %}
 {% assign firmados = pedidos | where: "firmado", true %}
 <section>
   <p class="eyebrow">/jects</p>

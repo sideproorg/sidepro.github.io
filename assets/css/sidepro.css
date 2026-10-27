@@ -104,6 +104,31 @@ dl.meta dd { padding-left: 0; }
 .door .path { display: block; font-size: 18px; font-weight: 600; margin-bottom: 6px; color: var(--accent); }
 .door .path b { color: var(--fg); }
 
+/* Cuadro de jects (portada): git log */
+.box { background: var(--card); border: 1px solid var(--line); position: relative; }
+.box::before { content: attr(data-label); position: absolute; top: -9px; left: 12px; background: var(--card); padding: 0 6px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.box .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; padding: 8px 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.box .foot a { color: var(--accent); text-decoration: none; }
+.st { display: inline-block; font-size: 11px; padding: 0 7px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.st.curso { color: var(--accent); border-color: var(--accent); }
+.st.abierta { color: var(--fg); border-color: var(--fg); }
+.st.cand { border-style: dashed; }
+.log { padding: 14px 14px 10px; }
+.log .cmd { color: var(--muted); font-size: 12.5px; margin: 0 0 10px; }
+.log .cmd b { color: var(--fg); font-weight: 600; }
+.log ol { list-style: none; margin: 0; padding: 0; display: grid; }
+.log li { display: grid; grid-template-columns: 2ch 1fr; gap: 0 8px; }
+.log .rail { color: var(--line); text-align: center; line-height: 1.35; white-space: pre; font-size: 13px; }
+.log .rail b { color: var(--accent); font-weight: 400; }
+.log li:last-child .rail { background: linear-gradient(var(--card) 1.4em, transparent 1.4em); }
+.log .body { padding-bottom: 12px; min-width: 0; }
+.log .body a { text-decoration: none; display: block; }
+.log .body a:hover .t { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.log .line1 { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.log .line1 .h { color: var(--accent); font-weight: 600; }
+.log .t { display: block; font-weight: 600; font-size: 14px; margin-top: 2px; }
+.log .m { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
 /* Listas */
 .steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; counter-reset: s; font-size: 13.5px; }
 .steps li { position: relative; padding-left: 4ch; counter-increment: s; min-width: 0; }

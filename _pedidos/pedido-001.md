@@ -4,11 +4,13 @@
 # estado: candidata | abierta | en-curso | cerrada     firmado: true cuando quien opera firmó la ficha.
 # Los campos entre corchetes los completa el proyecto antes de firmar. El nombre de la organización entra con la firma.
 id: pedido-001
-titulo: El sistema del nodo de productores y consumidores agroecológicos
+titulo: Un sistema de logística y comercialización para un Nodo de productores y consumidores agroecológicos
 estado: en-curso
 firmado: false
 ciudad: Unquillo, Córdoba
 orden: 1
+actualizado: "2026-10-27"   # última actualización de la ficha; se cambia con cada PR
+etapa_n: 3   # 0 candidata, 1 pedido, 2 papel, 3 datos reales, 4 sola, 5 traspaso
 quien_pide: Un nodo de productores y consumidores agroecológicos de Unquillo, en las Sierras Chicas de Córdoba. El nombre se publica cuando firme su pedido.
 quien_lo_trajo: "[tu nombre], que ya está trabajando en él."
 problema: "[El proyecto completa, en una oración: qué les pasa hoy sin el sistema.]"

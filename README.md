@@ -14,7 +14,7 @@ sidepro junta a profesionales de IT que trabajan remoto y tienen horas libres co
 ## Agregar una ficha en diez minutos
 
 1. Copiá `_pedidos/pedido-002.md` como `_pedidos/pedido-004.md`.
-2. Completá los campos del encabezado. La escribe el proyecto en su lenguaje; si dice "urgente", "etc." o "una plataforma", está mal escrita. `estado: candidata` hasta que el proyecto diga qué le falta y tenga quien opere; `abierta` cuando lo diga; `firmado: true` cuando quien opera firme.
+2. Completá los campos del encabezado. La escribe el proyecto en su lenguaje; si dice "urgente", "etc." o "una plataforma", está mal escrita. `estado: candidata` hasta que el proyecto diga qué le falta y tenga quien opere; `abierta` cuando lo diga; `firmado: true` cuando quien opera firme. `actualizado` con la fecha del cambio y `etapa_n` (0 a 5): de ahí salen el orden y la etapa en la portada.
 3. Abrí un pull request. Con una aprobación se publica sola en `/jects/pedido-004/`.
 
 Lo mismo para una RFC (`_rfc/`), una tarjeta (`_data/fessionals.yml`) o una línea del Estado real (`_data/estado.yml`). Más en [CONTRIBUTING.md](CONTRIBUTING.md); qué corre, dónde y quién tiene qué clave, en [MANTENIMIENTO.md](MANTENIMIENTO.md).
