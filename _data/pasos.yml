@@ -1,6 +1,6 @@
 # "Cómo funciona", en cinco pasos: son las cinco etapas de la RFC-001. No agregar sin cambiar la RFC.
 # Cada línea entre comillas: si el texto lleva dos puntos, YAML lo leería como otra cosa.
-- "Pedido. Traés un proyecto de tu ciudad que ya sabe qué le falta, con alguien que lo va a operar. El proyecto escribe su ficha en una página y la firma quien opera; vos te anotás a esa ficha o a cualquier otra de /jects."
+- "Pedido. Traés una organización socio-ambiental de tu ciudad que ya sabe qué le falta, con alguien que lo va a operar. El proyecto escribe su ficha en una página y la firma quien opera; vos te anotás a esa ficha o a cualquier otra de /jects."
 - "Papel. Sesión 0, presencial, con quien va a operar: dos horas, un prototipo en papel que esa persona le explica a un tercero, la herramienta elegida entre las que ya abre en su teléfono."
 - "Datos reales. Un commit por semana. En la semana 4, quien opera carga datos reales ella misma. Si una semana no podés, avisás; desaparecer dos semanas avisando no es abandono."
 - "Sola. Quien opera cambia algo sin vos en la llamada y lo anota. Si no puede, el sistema está mal hecho y se arregla eso, no la persona."

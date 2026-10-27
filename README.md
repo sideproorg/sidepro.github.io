@@ -2,7 +2,7 @@
 
 Horas libres puestas en side projects que mejoran proyectos locales.
 
-sidepro junta a profesionales de IT que trabajan remoto y tienen horas libres con proyectos de Argentina (ciclo 1: Córdoba) que ya saben qué les falta y no cómo llegar. Pedidos de doce semanas, al menos cuatro horas por semana, en dupla con quien va a operar el sistema. Lo que queda andando lo gobierna el proyecto. Este repo es el sitio y el archivo: lo que no está acá, no existe.
+sidepro reúne a profesionales de tecnologías digitales que trabajan en remoto con pequeñas organizaciones socio-ambientales (ciclo 1: Córdoba) que ya saben qué les falta y necesitan profesionales calificados para mejorar su funcionamiento. Pedidos de doce semanas, al menos cuatro horas por semana, en dupla con quien va a operar el sistema. Lo que queda andando lo gobierna el proyecto. Este repo es el sitio y el archivo: lo que no está acá, no existe.
 
 ## Cómo está hecho
 
