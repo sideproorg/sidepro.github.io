@@ -9,6 +9,7 @@ description: "Who is part of sidepro, what they are on, and what they left runni
   <p class="eyebrow">/fessionals</p>
   <h1>Who is part of it, what they are on, and what they left running.</h1>
   <p class="lead">One card per person goes here, only if they wanted to appear and with what they wanted to show: name or alias, city, what they know how to do, the request they brought, the one they are working on and, if they asked, the repo with their name. Never the employer, never a public email. Operators on the other side go here too, if they want and with their project's yes.</p>
+  <p>Every request works in an open repo. You can read how another pair solved a form, a backup or a hard decision, commit by commit, with the why written next to it. It is a way to watch other professionals work up close, and to learn from it without asking anyone's permission.</p>
 </section>
 
 <section>
@@ -95,7 +96,7 @@ description: "Who is part of sidepro, what they are on, and what they left runni
           <label><input type="checkbox" name="pedidos" value="{{ p.codigo }}"> <span><b>{{ p.codigo }}</b> · {{ p.titulo }}{% if p.firmado != true %} <i class="muted">(not signed yet)</i>{% endif %}</span></label>
           {% endfor %}
         </div>
-        <span class="hint">Unsigned requests start when the project signs. If you come in this way, you are the second on those requests and start by video call: you listen to the recording of session 0 and sign the agreement before touching any data.</span>
+        <span class="hint">Unsigned requests start when the project signs. If you come in this way, you are the second on those requests; if you arrive after session 0, you listen to its recording and sign the agreement before touching any data.</span>
       </fieldset>
     </div>
 

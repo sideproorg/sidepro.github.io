@@ -1,6 +1,6 @@
 # SESIÓN 0 · [id] · [fecha, lugar y hora del proyecto]
 
-Dos horas, presencial, en el lugar del proyecto. Si el proyecto habla menos del 40% del tiempo, se repite. Sale papel, no código.
+Dos horas, en línea, en el horario del proyecto. Se graba con permiso de quien opera, para quien entre después. Si el proyecto habla menos del 40% del tiempo, se repite. Sale papel, no código.
 
 1. Qué les falta, dicho por quien opera (10 min).
 2. Cómo lo hacen hoy a mano: el cuaderno, la planilla, el grupo (20 min).

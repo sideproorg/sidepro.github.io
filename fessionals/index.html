@@ -8,6 +8,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
   <p class="eyebrow">/fessionals</p>
   <h1>Quiénes forman parte, en qué están y qué dejaron andando.</h1>
   <p class="lead">Acá va una tarjeta por persona, solo si quiso aparecer y con lo que quiso mostrar: nombre o alias, ciudad, qué sabe hacer, el pedido que trajo, el que está haciendo y, si lo pidió, el repo con su nombre. Nunca el empleador, nunca un correo público. También van, si quieren y con el sí de su proyecto, quienes operan el sistema del otro lado.</p>
+  <p>Cada pedido trabaja en un repo abierto. Se puede leer cómo resolvió otra dupla un formulario, una copia de respaldo o una decisión difícil, commit a commit, con el porqué escrito al lado. Es una forma de ver trabajar a otros profesionales de cerca, y de aprender de eso sin pedirle permiso a nadie.</p>
 </section>
 
 <section>
@@ -94,7 +95,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
           <label><input type="checkbox" name="pedidos" value="{{ p.codigo }}"> <span><b>{{ p.codigo }}</b> · {{ p.titulo }}{% if p.firmado != true %} <i class="muted">(sin firma todavía)</i>{% endif %}</span></label>
           {% endfor %}
         </div>
-        <span class="hint">Los pedidos sin firma arrancan cuando el proyecto firme su ficha. Si entrás así, sos segunda de esos pedidos y arrancás por videollamada: escuchás el audio de la sesión 0 y firmás el acuerdo antes de tocar datos.</span>
+        <span class="hint">Los pedidos sin firma arrancan cuando el proyecto firme su ficha. Si entrás así, sos segunda de esos pedidos; si llegás después de la sesión 0, escuchás su grabación y firmás el acuerdo antes de tocar datos.</span>
       </fieldset>
     </div>
 
