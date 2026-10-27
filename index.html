@@ -12,11 +12,11 @@ description: "side·pro reúne a profesionales de tecnologías digitales que tra
   <div class="doors">
     <a class="door" href="{{ '/jects/' | relative_url }}">
       <span class="path">/<b>jects</b></span>
-      <span>Los proyectos a los que te podés anotar: una ficha por pedido, con quién lo opera y qué tiene que quedar funcionando.</span>
+      <span>Los proyectos a los que te puedes anotar: una ficha por pedido, con quién lo opera y qué tiene que quedar funcionando.</span>
     </a>
     <a class="door" href="{{ '/fessionals/' | relative_url }}">
       <span class="path">/<b>fessionals</b></span>
-      <span>Quiénes forman parte, en qué están y qué dejaron andando, con el trabajo a la vista. Y las dos cosas que hacen falta para ser fessional.</span>
+      <span>Quiénes forman parte, en qué están y qué dejaron funcionando, con el trabajo a la vista. Y las dos cosas que hacen falta para ser fessional.</span>
     </a>
   </div>
 </section>
@@ -32,7 +32,7 @@ description: "side·pro reúne a profesionales de tecnologías digitales que tra
 
 <section>
   <h2>Las reglas se escriben en público</h2>
-  <p>Cómo funciona un pedido, qué licencia lleva el código, qué pasa cuando alguien se va: cada regla es una RFC de una carilla en el repo, con quién objetó y cómo se resolvió. Quienes entren primero las van a discutir y a cambiar. Eso es estar al inicio.</p>
+  <p>Cómo funciona un pedido, qué licencia lleva el código, qué pasa cuando alguien se va: cada regla es una RFC de una página en el repo, con quién objetó y cómo se resolvió. Quienes entren primero las van a discutir y a cambiar. Eso es estar al inicio.</p>
   <ul class="plain rfc">
     {% assign rfcs = site.rfc | sort: "numero" %}
     {% for r in rfcs %}
@@ -42,7 +42,7 @@ description: "side·pro reúne a profesionales de tecnologías digitales que tra
 </section>
 
 <section>
-  <h2>Lo que no vas a encontrar acá</h2>
+  <h2>Lo que no vas a encontrar aquí</h2>
   <ul class="plain">
     {% for item in site.data.no %}<li>{{ item }}</li>
     {% endfor %}

@@ -1,5 +1,5 @@
 // sidepro-anotarse: recibe el formulario de /fessionals, arma un correo con fecha, hora,
-// versión del aviso y consentimiento, lo manda a la casilla del proyecto por Email Routing
+// versión del aviso y consentimiento, lo manda al buzón del proyecto por Email Routing
 // y NO guarda nada. Sin base, sin logs con datos, sin IP ni user agent en el correo.
 //
 // Dos maneras de entrar (27/10/2026):
@@ -12,7 +12,7 @@
 // Se borra al firmar la ficha o a los 30 días, con constancia en el acta.
 //
 // Lo que nunca viaja: la casilla "trabajo hoy en IT" y cualquier pregunta sobre el contrato laboral.
-// El navegador las exige (required) pero no tienen name, así que no llegan; y si llegaran, acá se descartan.
+// El navegador las exige (required) pero no tienen name, así que no llegan; y si llegaran, aquí se descartan.
 
 import { EmailMessage } from "cloudflare:email";
 
@@ -30,7 +30,7 @@ export default {
       return texto("sidepro · anotarse. Solo acepta el formulario de " + env.ORIGEN + "/fessionals/. No guarda nada.", 200);
     }
     if (request.method !== "POST" || url.pathname !== "/anotarse") {
-      return texto("Nada por acá.", 404);
+      return texto("Nada por aquí.", 404);
     }
 
     // Solo desde el sitio.
@@ -43,14 +43,14 @@ export default {
     const maxMb = Number(env.MAX_MB || 10);
     const largo = Number(request.headers.get("Content-Length") || 0);
     if (largo > (maxMb + 1) * 1024 * 1024) {
-      return texto("El envío pesa más de " + maxMb + " MB. Mandá un archivo más chico o contalo en el campo de texto; el audio puede ir después por WhatsApp.", 413);
+      return texto("El envío pesa más de " + maxMb + " MB. Manda un archivo más pequeño o cuéntalo en el campo de texto; el audio puede ir después por WhatsApp.", 413);
     }
 
     // Límite opcional por IP (si el binding existe).
     if (env.LIMITE) {
       const ip = request.headers.get("CF-Connecting-IP") || "0";
       const { success } = await env.LIMITE.limit({ key: ip });
-      if (!success) return texto("Demasiados envíos seguidos. Probá en un minuto.", 429);
+      if (!success) return texto("Demasiados envíos seguidos. Prueba de nuevo en un minuto.", 429);
     }
 
     let datos;
@@ -80,25 +80,25 @@ export default {
     if (!v.nombre) faltan.push("nombre o alias");
     if (!v.contacto) faltan.push("cómo te escribimos");
     if (v.via === "a") {
-      if (!v.proyecto) faltan.push("el proyecto que traés");
+      if (!v.proyecto) faltan.push("el proyecto que traes");
       if (hayArchivo && v.autorizo !== "si") faltan.push("la casilla de autorización del archivo");
     } else if (v.via === "b") {
       if (pedidos.length !== 2 || pedidos[0] === pedidos[1]) faltan.push("dos pedidos distintos");
     } else {
-      faltan.push("cómo entrás (traés un proyecto o te anotás a dos pedidos)");
+      faltan.push("cómo entras (traes un proyecto o te anotas a dos pedidos)");
     }
     if (v.consentimiento !== "si") faltan.push("la casilla del aviso de datos");
     if (!v.aviso_version) faltan.push("la versión del aviso");
     if (v.disp && !CODIGO_DISP.test(v.disp)) v.disp = "";
     if (faltan.length) {
-      return texto("Faltan: " + faltan.join(", ") + ". Volvé atrás y completalo. Si no funciona, escribí a " + env.CORREO_AYUDA, 400);
+      return texto("Faltan: " + faltan.join(", ") + ". Vuelve atrás y complétalo. Si no funciona, escribe a " + env.CORREO_AYUDA, 400);
     }
 
     // El archivo: solo audio, imagen o PDF, hasta MAX_MB. Si no cumple, se avisa y no se manda nada.
     let adjunto = null;
     if (hayArchivo) {
       if (archivo.size > maxMb * 1024 * 1024) {
-        return texto("El archivo pesa más de " + maxMb + " MB. Mandá uno más chico o contalo en el campo de texto.", 413);
+        return texto("El archivo pesa más de " + maxMb + " MB. Manda uno más pequeño o cuéntalo en el campo de texto.", 413);
       }
       const tipo = (archivo.type || "").toLowerCase();
       if (!TIPOS.test(tipo)) {
@@ -149,7 +149,7 @@ export default {
     try {
       await env.CORREO.send(new EmailMessage(env.DESDE, env.PARA, raw));
     } catch (e) {
-      return texto("No se pudo enviar el correo. Escribí directamente a " + env.CORREO_AYUDA + " con el proyecto que traés o los dos pedidos que elegiste.", 500);
+      return texto("No se pudo enviar el correo. Escribe directamente a " + env.CORREO_AYUDA + " con el proyecto que traes o los dos pedidos que elegiste.", 500);
     }
 
     return redirigir(env.GRACIAS);

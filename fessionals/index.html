@@ -1,20 +1,20 @@
 ---
 title: "/fessionals"
-description: "Quiénes forman parte de sidepro, en qué están y qué dejaron andando. Y las dos cosas que hacen falta para ser fessional."
+description: "Quiénes forman parte de sidepro, en qué están y qué dejaron funcionando. Y las dos cosas que hacen falta para ser fessional."
 ---
 {% assign tarjetas = site.data.fessionals | where_exp: "t", "t.ejemplo != true" %}
 {% assign ejemplo = site.data.fessionals | where: "ejemplo", true | first %}
 <section>
   <p class="eyebrow">/fessionals</p>
-  <h1>Quiénes forman parte, en qué están y qué dejaron andando.</h1>
-  <p class="lead">Acá va una tarjeta por persona, solo si quiso aparecer y con lo que quiso mostrar: nombre o alias, ciudad, qué sabe hacer, el pedido que trajo, el que está haciendo y, si lo pidió, el repo con su nombre. Nunca el empleador, nunca un correo público. También van, si quieren y con el sí de su proyecto, quienes operan el sistema del otro lado.</p>
+  <h1>Quiénes forman parte, en qué están y qué dejaron funcionando.</h1>
+  <p class="lead">Aquí va una tarjeta por persona, solo si quiso aparecer y con lo que quiso mostrar: nombre o alias, ciudad, qué sabe hacer, el pedido que trajo, el que está haciendo y, si lo pidió, el repo con su nombre. Nunca el empleador, nunca un correo público. También van, si quieren y con el sí de su proyecto, quienes operan el sistema del otro lado.</p>
   <p>Cada pedido trabaja en un repo abierto. Se puede leer cómo resolvió otra dupla un formulario, una copia de respaldo o una decisión difícil, commit a commit, con el porqué escrito al lado. Es una forma de ver trabajar a otros profesionales de cerca, y de aprender de eso sin pedirle permiso a nadie.</p>
 </section>
 
 <section>
   {% if tarjetas.size == 0 %}
-  <h2>Acá van a estar los que estén. Hoy, nadie.</h2>
-  <p>Todavía no firmó nadie. Se arranca con tres pedidos concretos, los tres en Córdoba. Vivas donde vivas, entrás igual: traés un proyecto de tu ciudad o te anotás a dos de estos. Lo que se decide, se decide abierto, en las <a href="{{ '/rfc/' | relative_url }}">RFC del repo</a>, y quienes entren primero las van a discutir. Si querés anotarte, más abajo dice cómo. Te contesta {{ site.firma }}, no un formulario.</p>
+  <h2>Aquí van a estar los que estén. Hoy, nadie.</h2>
+  <p>Todavía no firmó nadie. Se arranca con tres pedidos concretos, los tres en Córdoba. Vivas donde vivas, entras igual: traes un proyecto de tu ciudad o te anotas a dos de estos. Lo que se decide, se decide abierto, en las <a href="{{ '/rfc/' | relative_url }}">RFC del repo</a>, y quienes entren primero las van a discutir. Si quieres anotarte, más abajo dice cómo. Te contesta {{ site.firma }}, no un formulario.</p>
   <div class="people" aria-label="Tarjetas de quienes forman parte">
     <div class="person ejemplo">
       <span class="who">así se ve una tarjeta cuando existe</span>
@@ -42,7 +42,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
   <h2>Dos cosas hacen falta para ser fessional</h2>
   <ol class="steps">
     <li><strong>Trabajar hoy en IT para una empresa u organización</strong>, en relación de dependencia o con un contrato estable. Se declara, no se verifica, y nunca se pide ni se publica el nombre del empleador. Es lo que hace que esto sea un side project y no un trabajo sin sueldo.</li>
-    <li><strong>Traer una organización socio-ambiental de tu ciudad o zona que ya sepa qué le falta</strong>, con alguien que lo vaya a operar y esté dispuesto a firmar la ficha de una página. Tiene que existir ya y no ser tuya: lo que falta lo dicen ellos. Después te anotás a ese pedido o a cualquier otro de <a href="{{ '/jects/' | relative_url }}">/jects</a>.</li>
+    <li><strong>Traer una organización socio-ambiental de tu ciudad o zona que ya sepa qué le falta</strong>, con alguien que lo vaya a operar y esté dispuesto a firmar la ficha de una página. Tiene que existir ya y no ser tuya: lo que falta lo dicen ellos. Después te anotas a ese pedido o a cualquier otro de <a href="{{ '/jects/' | relative_url }}">/jects</a>.</li>
   </ol>
   <p class="muted">Un club, un comedor, una cooperativa, una feria, una biblioteca popular, un centro vecinal, una escuela. Casi siempre llevan algo en un cuaderno o en un grupo de WhatsApp que se pierde.</p>
 </section>
@@ -55,10 +55,10 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
     <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
     <input type="hidden" name="t" value="" id="f-t">
     <input type="hidden" name="disp" value="" id="f-disp">
-    <p class="trampa" aria-hidden="true"><label>Si sos una persona, dejá esto vacío <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></p>
+    <p class="trampa" aria-hidden="true"><label>Si eres una persona, deja esto vacío <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></p>
 
     <fieldset>
-      <legend>Cómo entrás</legend>
+      <legend>Cómo entras</legend>
       <div class="radios columna">
         <label><input type="radio" name="via" value="a" checked> <span>Traigo una organización socio-ambiental de mi localidad que ya sabe qué le falta</span></label>
         <label><input type="radio" name="via" value="b"> <span>Me anoto a dos pedidos de /jects</span></label>
@@ -67,12 +67,12 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
 
     <div id="via-a">
       <div class="field">
-        <label for="f-proyecto">El proyecto que traés: qué es y en qué localidad, en una línea</label>
+        <label for="f-proyecto">El proyecto que traes: qué es y en qué localidad, en una línea</label>
         <input id="f-proyecto" name="proyecto" type="text" placeholder="por ejemplo: un comedor de barrio Alberdi que cuenta raciones en un cuaderno" maxlength="200">
-        <span class="hint">Sin nombres de personas. Si ya tiene ficha, el link alcanza.</span>
+        <span class="hint">Sin nombres de personas. Si ya tiene ficha, el link basta.</span>
       </div>
       <div class="field">
-        <label for="f-archivo">Contalo como puedas: un audio, una foto del cuaderno o del papel, un PDF (opcional)</label>
+        <label for="f-archivo">Cuéntalo como puedas: un audio, una foto del cuaderno o del papel, un PDF (opcional)</label>
         <input id="f-archivo" name="archivo" type="file" accept="audio/*,image/*,application/pdf">
         <span class="hint">Un archivo, hasta {{ site.archivo_mb }} MB. Lo escucha o lo mira una sola persona, con nombre; no pasa por ninguna IA ni se reenvía. Se vuelca a la ficha y se borra al firmarla o a los 30 días, con constancia. Nunca va al repo.</span>
       </div>
@@ -88,19 +88,19 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
 
     <div id="via-b" hidden>
       <fieldset>
-        <legend>Elegí dos pedidos</legend>
+        <legend>Elige dos pedidos</legend>
         <div class="radios columna">
           {% assign lista = site.pedidos | sort: "actualizado" | reverse %}
           {% for p in lista %}
           <label><input type="checkbox" name="pedidos" value="{{ p.codigo }}"> <span><b>{{ p.codigo }}</b> · {{ p.titulo }}{% if p.firmado != true %} <i class="muted">(sin firma todavía)</i>{% endif %}</span></label>
           {% endfor %}
         </div>
-        <span class="hint">Los pedidos sin firma arrancan cuando el proyecto firme su ficha. Si entrás así, sos segunda de esos pedidos; si llegás después de la sesión 0, escuchás su grabación y firmás el acuerdo antes de tocar datos.</span>
+        <span class="hint">Los pedidos sin firma arrancan cuando el proyecto firme su ficha. Si entras así, eres segunda de esos pedidos; si llegas después de la sesión 0, escuchas su grabación y firmas el acuerdo antes de tocar datos.</span>
       </fieldset>
     </div>
 
     <fieldset>
-      <legend>Qué puede figurar en público, si entrás</legend>
+      <legend>Qué puede figurar en público, si entras</legend>
       <div class="radios">
         <label><input type="radio" name="publico" value="nada" checked> Nada</label>
         <label><input type="radio" name="publico" value="alias"> Un alias</label>
@@ -115,16 +115,16 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
     <div class="field">
       <label for="f-contacto">Cómo te escribimos</label>
       <input id="f-contacto" name="contacto" type="text" placeholder="correo, Telegram o Signal" required maxlength="120">
-      <span class="hint">No se publica ni se comparte. Se borra si pedís que se borre.</span>
+      <span class="hint">No se publica ni se comparte. Se borra si pides que se borre.</span>
     </div>
     <div class="field">
-      <label for="f-sabe">Qué sabés hacer, en una línea</label>
+      <label for="f-sabe">Qué sabes hacer, en una línea</label>
       <input id="f-sabe" name="sabe" type="text" placeholder="por ejemplo: pipelines de datos, Postgres, formularios que no se rompen" maxlength="160">
     </div>
     <div class="field">
       <label for="f-horas">Horas libres reales por semana</label>
       <select id="f-horas" name="horas">
-        <option value="">Elegí</option>
+        <option value="">Elige</option>
         <option>4</option>
         <option>4 a 6</option>
         <option>6 a 8</option>
@@ -152,7 +152,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
     <p class="hint">Esa casilla y lo de tu contrato con tu empleador no viajan: el navegador las exige, pero no se envían ni se guardan. Lo del contrato se habla en el uno a uno.</p>
     <fieldset>
       <legend>Qué pasa con estos datos</legend>
-      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto, tus franjas y el proyecto que traés (o los pedidos que elegiste) para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no arrancó ningún pedido con vos, se borran y se deja constancia; el archivo, al firmar la ficha o a los 30 días. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
+      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto, tus franjas y el proyecto que traes (o los pedidos que elegiste) para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no arrancó ningún pedido contigo, se borran y se deja constancia; el archivo, al firmar la ficha o a los 30 días. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
       <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> Leí esto y estoy de acuerdo.</label>
     </fieldset>
     <p class="hint" id="f-error" hidden></p>
@@ -174,14 +174,14 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
       document.getElementById('f-disp').value = disp.join(',');
       if (via() === 'a') {
         var pr = document.getElementById('f-proyecto').value.trim();
-        if (!pr) { ev.preventDefault(); return fallo('Falta decir qué proyecto traés, en una línea.'); }
+        if (!pr) { ev.preventDefault(); return fallo('Falta decir qué proyecto traes, en una línea.'); }
         var f = document.getElementById('f-archivo').files[0];
-        if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('El archivo pesa más de {{ site.archivo_mb }} MB. Mandá uno más chico o contalo en el campo de texto; el audio puede ir después por WhatsApp.'); }
-        if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('Si mandás un archivo, marcá que lo grabaste o escribiste vos, o que quien opera lo autoriza.'); }
+        if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('El archivo pesa más de {{ site.archivo_mb }} MB. Manda uno más pequeño o cuéntalo en el campo de texto; el audio puede ir después por WhatsApp.'); }
+        if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('Si mandas un archivo, marca que lo grabaste o escribiste tú, o que quien opera lo autoriza.'); }
         form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
       } else {
         var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
-        if (n !== 2) { ev.preventDefault(); return fallo('Elegí exactamente dos pedidos.'); }
+        if (n !== 2) { ev.preventDefault(); return fallo('Elige exactamente dos pedidos.'); }
         document.getElementById('f-proyecto').value = ''; document.getElementById('f-archivo').value = '';
       }
     });
@@ -189,7 +189,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
   </script>
   {% else %}
   <div class="tintbox">
-    <p><strong>El formulario todavía no abre.</strong> Guardar tu nombre y tu contacto exige un responsable con nombre y domicilio (Ley 25.326), y hoy no lo hay: se decide en el mes 1 y se escribe acá cuando exista. Mientras tanto, si cumplís las dos cosas de arriba, escribí a <code>{{ site.correo_proyecto }}</code>: con el proyecto que traés (sin nombres de personas), o con los dos pedidos de /jects a los que te anotás. Te contesta {{ site.firma }}, con nombre, sin plazo prometido. Lo de tu contrato con tu empleador no lo escribas: se habla en el uno a uno.</p>
+    <p><strong>El formulario todavía no abre.</strong> Guardar tu nombre y tu contacto exige un responsable con nombre y domicilio (Ley 25.326), y hoy no lo hay: se decide en el mes 1 y se escribe aquí cuando exista. Mientras tanto, si cumples las dos cosas de arriba, escribe a <code>{{ site.correo_proyecto }}</code>: con el proyecto que traes (sin nombres de personas), o con los dos pedidos de /jects a los que te anotas. Te contesta {{ site.firma }}, con nombre, sin plazo prometido. Lo de tu contrato con tu empleador no lo escribas: se habla en el uno a uno.</p>
   </div>
   {% endif %}
 </section>

@@ -1,6 +1,6 @@
 # CAMBIOS · [id]
 
-Una línea por avance. Un avance es cualquier cambio que deje al pedido más cerca de lo que tiene que quedar andando: una columna menos, una copia restaurada, una decisión. Un avance es un commit y una línea acá; el hash corto del commit es su id. La escribe quien hizo el cambio; quien opera firma cada cierre de etapa, y si no tipea, dicta y la línea dice "dictó". Nada se borra: lo que estuvo mal se revierte con otro avance.
+Una línea por avance. Un avance es cualquier cambio que deje al pedido más cerca de lo que tiene que quedar funcionando: una columna menos, una copia restaurada, una decisión. Un avance es un commit y una línea aquí; el hash corto del commit es su id. La escribe quien hizo el cambio; quien opera firma cada cierre de etapa, y si no escribe, dicta y la línea dice "dictó". Nada se borra: lo que estuvo mal se revierte con otro avance.
 
 | Fecha | Avance | Quién | Commit | Etapa que cierra (si cierra) |
 | --- | --- | --- | --- | --- |

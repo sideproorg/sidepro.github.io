@@ -1,6 +1,6 @@
 # Mantenimiento: qué corre, dónde, quién tiene qué, cómo se apaga
 
-Hoja viva. Si algo acá no es cierto, es un error y se corrige con un PR. Última revisión: 2026-10-26.
+Hoja viva. Si algo aquí no es cierto, es un error y se corrige con un PR. Última revisión: 2026-10-26.
 
 ## Qué corre y dónde
 
@@ -12,21 +12,21 @@ Hoja viva. Si algo acá no es cierto, es un error y se corrige con un PR. Últim
 | Dominio `sidepro.org` | Registrado en Namecheap el 27/10/2026 a nombre de [tu nombre] (deuda: nada a nombre personal). A los 60 días se transfiere a Cloudflare Registrar, a la cuenta de sidepro, con acta de custodia | Namecheap, cuenta personal con 2FA y WhoisGuard; vence [fecha] | ~USD 11-15/año | [tu nombre] |
 | Dominio `sideproject.lat` | [registrador], alternativa si el INPI rechaza "sidepro" | la misma | ~USD 15-25/año | los mismos |
 | DNS | Cloudflare (nameservers cambiados en Namecheap) | Cuenta de Cloudflare de sidepro, no personal | 0 | los mismos |
-| Correo del proyecto | Email Routing (Cloudflare) → casilla con contrato de encargado ([proveedor]) | la misma + cuenta de la casilla | 0 | los mismos |
+| Correo del proyecto | Email Routing (Cloudflare) → buzón con contrato de encargado ([proveedor]) | la misma + cuenta del buzón | 0 | los mismos |
 | Formulario de /fessionals | Worker `sidepro-anotarse` (`worker/`), apagado | la misma | 0 | los mismos |
 | `.com.ar` | no registrado: espera un responsable con CUIT | | | |
 
 ## Claves y recuperación
 
 - 2FA en todas las cuentas. Códigos de recuperación impresos en dos sobres cerrados, uno por custodia. Dónde están: [lugar 1], [lugar 2].
-- Ninguna cuenta a nombre personal. Si hoy alguna lo está, figura acá como deuda: el registro de `sidepro.org` en Namecheap (a nombre de [tu nombre] hasta la transferencia a Cloudflare Registrar, posible desde el 26/12/2026).
+- Ninguna cuenta a nombre personal. Si hoy alguna lo está, figura aquí como deuda: el registro de `sidepro.org` en Namecheap (a nombre de [tu nombre] hasta la transferencia a Cloudflare Registrar, posible desde el 26/12/2026).
 - Acta de custodia y de cesión a la futura persona jurídica: `docs/acta-custodia.md` (pendiente).
 
 ## Rutina
 
-- **Mensual (15 minutos)**: la segunda custodia entra a GitHub, Cloudflare y la casilla; revisa que el Estado real tenga menos de 30 días; si el formulario está abierto, borra las anotaciones de más de 90 días que no arrancaron ningún pedido, y los archivos adjuntos de más de 30 días o de fichas ya firmadas, y deja constancia en `docs/actas.md` (cantidad y fecha, nunca nombres).
+- **Mensual (15 minutos)**: la segunda custodia entra a GitHub, Cloudflare y el buzón; revisa que el Estado real tenga menos de 30 días; si el formulario está abierto, borra las anotaciones de más de 90 días que no arrancaron ningún pedido, y los archivos adjuntos de más de 30 días o de fichas ya firmadas, y deja constancia en `docs/actas.md` (cantidad y fecha, nunca nombres).
 - **Cada PR**: la Action de links rotos tiene que pasar. Si falla por un sitio ajeno caído, se agrega a `.lycheeignore` con una línea de por qué.
-- **Mes 1 (una vez, 20 minutos)**: simulacro de apagado: desactivar GitHub Pages y servir el sitio desde Codeberg Pages. Si funciona, se anota acá la fecha. Si no, se arregla antes de la semana 8.
+- **Mes 1 (una vez, 20 minutos)**: simulacro de apagado: desactivar GitHub Pages y servir el sitio desde Codeberg Pages. Si funciona, se anota aquí la fecha. Si no, se arregla antes de la semana 8.
 - **Cada tres años**: renovar los dominios. Fecha de vencimiento de `sidepro.org`: [fecha].
 
 ## Cómo se apaga (disolución, ronda 7)

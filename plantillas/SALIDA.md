@@ -2,7 +2,7 @@
 
 v0 se escribe en la sesión 0. La versión final cierra el traspaso. Nadie arranca sin saber quién paga el año 2.
 
-- Qué queda andando: [una sola cosa]
+- Qué queda funcionando: [una sola cosa]
 - Quién lo opera después del traspaso: [rol]; suplente: [rol]
 - Quién paga el año 2 (hosting, dominio): [el proyecto / nadie, porque todo es sin costo / otro]
 - Dónde están las contraseñas: [en el proyecto; la dupla ya no las tiene]

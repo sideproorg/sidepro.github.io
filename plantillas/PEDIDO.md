@@ -1,4 +1,4 @@
-# PEDIDO · [id] · [título: qué tiene que quedar andando]
+# PEDIDO · [id] · [título: qué tiene que quedar funcionando]
 
 Lo escribe el proyecto en su lenguaje. Lo firma quien va a operar. Sin esta página firmada no hay fecha.
 
@@ -6,7 +6,7 @@ Lo escribe el proyecto en su lenguaje. Lo firma quien va a operar. Sin esta pág
 - Quién lo trajo: [nombre o alias]
 - El problema, en una oración: [...]
 - Qué hay hoy: [cuadernos, planillas, grupo de WhatsApp...]
-- Qué tiene que quedar andando (una sola cosa): [...]
+- Qué tiene que quedar funcionando (una sola cosa): [...]
 - Quién opera: [rol], [N] horas semanales acordadas. Suplente: [rol]
 - Fessionals: referente técnico [nombre o alias]; segunda [nombre o alias]
 - Horas: al menos 4 por semana, 12 semanas, en dupla

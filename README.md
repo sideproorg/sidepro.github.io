@@ -2,7 +2,7 @@
 
 Horas libres puestas en side projects que mejoran proyectos locales.
 
-sidepro reúne a profesionales de tecnologías digitales que trabajan en remoto con pequeñas organizaciones socio-ambientales (ciclo 1: Córdoba) que ya saben qué les falta y necesitan profesionales calificados para mejorar su funcionamiento. Pedidos de doce semanas, al menos cuatro horas por semana, en dupla con quien va a operar el sistema. Lo que queda andando lo gobierna el proyecto. Este repo es el sitio y el archivo: lo que no está acá, no existe.
+sidepro reúne a profesionales de tecnologías digitales que trabajan en remoto con pequeñas organizaciones socio-ambientales (ciclo 1: Córdoba) que ya saben qué les falta y necesitan profesionales calificados para mejorar su funcionamiento. Pedidos de doce semanas, al menos cuatro horas por semana, en dupla con quien va a operar el sistema. Lo que queda funcionando lo gobierna el proyecto. Este repo es el sitio y el archivo: lo que no está aquí, no existe.
 
 ## Cómo está hecho
 
@@ -13,9 +13,9 @@ sidepro reúne a profesionales de tecnologías digitales que trabajan en remoto 
 
 ## Agregar una ficha en diez minutos
 
-1. Copiá `_pedidos/pedido-002.md` como `_pedidos/pedido-004.md`.
-2. Completá los campos del encabezado. La escribe el proyecto en su lenguaje; si dice "urgente", "etc." o "una plataforma", está mal escrita. `estado: candidata` hasta que el proyecto diga qué le falta y tenga quien opere; `abierta` cuando lo diga; `firmado: true` cuando quien opera firme. `actualizado` con la fecha del cambio y `etapa_n` (0 a 5): de ahí salen el orden y la etapa en la portada.
-3. Abrí un pull request. Con una aprobación se publica sola en `/jects/pedido-004/`.
+1. Copia `_pedidos/pedido-002.md` como `_pedidos/pedido-004.md`.
+2. Completa los campos del encabezado. La escribe el proyecto en su lenguaje; si dice "urgente", "etc." o "una plataforma", está mal escrita. `estado: candidata` hasta que el proyecto diga qué le falta y tenga quien opere; `abierta` cuando lo diga; `firmado: true` cuando quien opera firme. `actualizado` con la fecha del cambio y `etapa_n` (0 a 5): de ahí salen el orden y la etapa en la portada.
+3. Abre un pull request. Con una aprobación se publica sola en `/jects/pedido-004/`.
 
 Lo mismo para una RFC (`_rfc/`), una tarjeta (`_data/fessionals.yml`) o una línea del Estado real (`_data/estado.yml`). Más en [CONTRIBUTING.md](CONTRIBUTING.md); qué corre, dónde y quién tiene qué clave, en [MANTENIMIENTO.md](MANTENIMIENTO.md).
 
@@ -27,9 +27,9 @@ _data/estado.yml       Estado real a la fecha (pie de todas las páginas)
 _data/faq.yml          preguntas honestas
 _data/fessionals.yml    tarjetas de quienes forman parte (opt-in)
 _data/pasos.yml        "Cómo participar", tres pasos (las cinco etapas de un pedido están en la RFC-001)
-_data/no.yml           "Lo que no vas a encontrar acá"
+_data/no.yml           "Lo que no vas a encontrar aquí"
 _pedidos/              una ficha por pedido → /jects/<id>/
-_rfc/                  una carilla por regla → /rfc/<id>/
+_rfc/                  una página por regla → /rfc/<id>/
 cruzar/                /cruzar/: cruza códigos de franjas libres en el navegador, sin guardar nada
 en/                    el sitio en inglés, con las mismas rutas bajo /en/
 _pedidos_en/ _rfc_en/  fichas y RFC en inglés (cada una es el par de su original)

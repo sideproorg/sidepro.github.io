@@ -1,11 +1,11 @@
 ---
 title: "Cruzar franjas"
-description: "Pegá los códigos de franjas de cada persona y mirá cuándo coinciden. Nada sale de tu navegador."
+description: "Pega los códigos de franjas de cada persona y mira cuándo coinciden. Nada sale de tu navegador."
 ---
 <section>
   <p class="eyebrow">/cruzar</p>
   <h1>Cuándo coinciden las franjas.</h1>
-  <p class="lead">Cada anotación llega al correo con un código de franjas, por ejemplo <code>lu-n,mi-t,sa-m</code>. Pegá acá un código por línea, con un nombre o alias delante, y mirá en qué franjas coinciden todos. No se guarda ni se envía nada: el cálculo lo hace tu navegador. Después, una persona propone día y hora en el issue del repo del proyecto, con nombre.</p>
+  <p class="lead">Cada anotación llega al correo con un código de franjas, por ejemplo <code>lu-n,mi-t,sa-m</code>. Pega aquí un código por línea, con un nombre o alias delante, y mira en qué franjas coinciden todos. No se guarda ni se envía nada: el cálculo lo hace tu navegador. Después, una persona propone día y hora en el issue del repo del proyecto, con nombre.</p>
 </section>
 <section>
   <div class="field">
@@ -39,7 +39,7 @@ description: "Pegá los códigos de franjas de cada persona y mirá cuándo coin
         if (total && n === total) comunes.push(dn[d] + ' ' + nombres[f]);
       });
     });
-    document.getElementById('cruce-texto').textContent = total ? (comunes.length ? 'Coinciden todos en: ' + comunes.join(', ') + '. Una persona propone día y hora en el issue, con nombre.' : 'No hay una franja en la que coincidan todos. Las celdas con más gente son el mejor punto de partida; alguien propone y se negocia.') : 'Pegá al menos un código.';
+    document.getElementById('cruce-texto').textContent = total ? (comunes.length ? 'Coinciden todos en: ' + comunes.join(', ') + '. Una persona propone día y hora en el issue, con nombre.' : 'No hay una franja en la que coincidan todos. Las celdas con más gente son el mejor punto de partida; alguien propone y se negocia.') : 'Pega al menos un código.';
     document.getElementById('resultado').hidden = false;
   });
 })();

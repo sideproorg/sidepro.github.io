@@ -1,5 +1,5 @@
 # Estado real a la fecha. Aparece en el pie de todas las páginas y en /estado.
-# Regla: si algo acá suena más grande de lo que es, es un error y se corrige.
+# Regla: si algo aquí suena más grande de lo que es, es un error y se corrige.
 # Cualquiera puede actualizarlo con un PR; si tiene más de 30 días, un PR "sin novedades" también vale.
 fecha: "27/10/2026"
 existe: "este sitio, el repo, tres fichas sin firma (una en curso, una abierta, una candidata; las trajo un fessional del núcleo), una persona con tope de horas."

@@ -1,7 +1,7 @@
 # Textos de la interfaz por idioma. Las páginas en /en/ usan "en"; el resto, "es".
 es:
-  html_lang: es-AR
-  og_locale: es_AR
+  html_lang: es
+  og_locale: es_419
   og_alt: "side·pro: side·projects y professionals, con pro en común"
   nav_label: Secciones
   estado: Estado real
@@ -31,13 +31,13 @@ es:
   quien_lo_trajo: Quién lo trajo
   problema: El problema
   que_hay: Qué hay hoy
-  que_queda: Qué tiene que quedar andando
+  que_queda: Qué tiene que quedar funcionando
   quien_opera: Quién lo opera
   stack: Con qué
   horas: Horas
   licencia: Licencia
   financiamiento: Financiamiento
-  hay_plata: Hay plata
+  hay_plata: Hay dinero
   etapa: Etapa
   de_cinco: "de cinco, según la"
   registro: registro

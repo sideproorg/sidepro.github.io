@@ -3,10 +3,10 @@ title: sidepro
 description: Horas libres puestas en side projects que mejoran proyectos locales.
 url: "https://sidepro.org"
 baseurl: ""
-lang: es-AR
+lang: es
 timezone: America/Argentina/Cordoba
 
-# Quién firma y cómo se escribe. Cambiar acá y aparece en todas las páginas.
+# Quién firma y cómo se escribe. Cambiar aquí y aparece en todas las páginas.
 firma: "[tu nombre]"
 correo_proyecto: "[correo del proyecto]"
 
@@ -18,7 +18,7 @@ worker_url: "https://anotarse.sidepro.org/anotarse"
 aviso_version: "2026-10-27"
 responsable_datos: ""
 domicilio_datos: ""
-herramienta_datos: "Cloudflare Workers y Email Routing (Cloudflare, Inc., EE.UU.), que reenvían sin guardar; la casilla del proyecto"
+herramienta_datos: "Cloudflare Workers y Email Routing (Cloudflare, Inc., EE.UU.), que reenvían sin guardar; el buzón del proyecto"
 
 collections:
   pedidos:
