@@ -1,5 +1,5 @@
 ---
-id: pedido-002
+codigo: pedido-002
 titulo: Un sistema para la compra y venta de yerba mate y miel que financia una escuela autogestiva
 estado: abierta
 firmado: false

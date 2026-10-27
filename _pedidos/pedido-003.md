@@ -1,5 +1,5 @@
 ---
-id: pedido-003
+codigo: pedido-003
 titulo: Un sistema de gestión para una escuela de fútbol popular y su merendero
 estado: candidata
 firmado: false

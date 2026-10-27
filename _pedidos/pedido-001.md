@@ -3,7 +3,7 @@
 # Si dice "urgente", "etc." o "una plataforma", está mal escrita y no se publica.
 # estado: candidata | abierta | en-curso | cerrada     firmado: true cuando quien opera firmó la ficha.
 # Los campos entre corchetes los completa el proyecto antes de firmar. El nombre de la organización entra con la firma.
-id: pedido-001
+codigo: pedido-001
 titulo: Un sistema de logística y comercialización para un Nodo de productores y consumidores agroecológicos
 estado: en-curso
 firmado: false
