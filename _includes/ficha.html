@@ -20,6 +20,7 @@
     <dt>Qué hay hoy</dt><dd>{{ p.que_hay }}</dd>
     <dt>Qué tiene que quedar andando</dt><dd>{{ p.que_queda }}</dd>
     <dt>Quién lo opera</dt><dd>{{ p.quien_opera }}</dd>
+    {% if p.stack %}<dt>Con qué</dt><dd>{{ p.stack }}</dd>{% endif %}
     <dt>Horas</dt><dd>{{ p.horas }}</dd>
     <dt>Licencia</dt><dd>{{ p.licencia }}</dd>
     {% if p.financiamiento %}<dt>Financiamiento</dt><dd>{{ p.financiamiento }}</dd>{% elsif p.hay_plata %}<dt>Hay plata</dt><dd>{{ p.hay_plata }}</dd>{% endif %}

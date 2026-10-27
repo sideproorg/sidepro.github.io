@@ -9,19 +9,36 @@ estado: en-curso
 firmado: false
 ciudad: Unquillo, Córdoba   # no se publica hasta que la ficha esté firmada (firmado: true)
 orden: 1
-actualizado: "2026-10-27"   # última actualización de la ficha; se cambia con cada PR
-etapa_n: 3   # 0 candidata, 1 pedido, 2 papel, 3 datos reales, 4 sola, 5 traspaso
+actualizado: "2026-10-27"
+etapa_n: 4   # 0 candidata, 1 pedido, 2 papel, 3 datos reales, 4 sola, 5 traspaso
 quien_pide: Un nodo de productores y consumidores agroecológicos. La localidad y el nombre se publican cuando firme su pedido.
-quien_lo_trajo: "[tu nombre], que ya está trabajando en él."
-problema: "[El proyecto completa, en una oración: qué les pasa hoy sin el sistema.]"
-que_hay: "[El proyecto completa: cuadernos, planillas, grupo de WhatsApp, lo que usen hoy.]"
-que_queda: "[El proyecto completa: la única cosa que tiene que quedar funcionando cuando el pedido termine.]"
-quien_opera: "[Rol de quien opera del lado del nodo, sin nombre hasta la firma, con sus horas semanales acordadas.]"
-horas: 4 por semana, 12 semanas, en dupla. En curso desde [mes].
-licencia: La elige el proyecto de una lista corta. Todavía no está decidida.
+quien_lo_trajo: "[tu nombre], que lo viene construyendo desde junio de 2026, antes de que existiera sidepro."
+problema: "Cada quincena, decenas de familias le piden a una red de productores de Córdoba y de otras provincias; detrás, el equipo cargaba productos, armaba el formulario, juntaba pedidos, mandaba comandas, recibía en el galpón, ajustaba faltantes, entregaba y liquidaba a mano, entre planillas y WhatsApp, y cada edición dependía de las mismas dos o tres personas."
+que_hay: "Un formulario de Google que se usó desde 2022 y ya se dejó. Hoy: formularios propios en HTML y JavaScript sin frameworks, servidos por GitHub Pages; una planilla de Google con más de treinta hojas (productores, productos, consumidores, ediciones, pedidos, ítems, comandas, recepciones, ajustes, liquidación, sobrantes, stock, pagos, registro de cambios); una veintena de escenarios de Make que se disparan por webhook; correo y un grupo de WhatsApp para avisar."
+que_queda: "Que el equipo del nodo abra y cierre una edición completa, de la carga de productos a la liquidación, sin quien lo trajo en el medio; con exportación a CSV y copia de respaldo restaurada al menos una vez, y una hoja de mantenimiento que diga qué corre dónde, cuánto cuesta por mes, quién tiene cada clave y cómo se apaga."
+quien_opera: "Una persona del equipo del nodo, que ya corre ediciones sola. Suplente: [a nombrar]. Su nombre entra con la firma."
+horas: "4 por semana, 12 semanas, en dupla. En curso desde junio de 2026; entró al método de sidepro en la etapa 4."
+licencia: "El código de los formularios ya es MIT, elegido por el nodo. La planilla y los escenarios se documentan en el repo del nodo."
 hay_plata: No. Está escrito dónde va cada peso cuando lo haya.
-financiamiento: "No. Si el proyecto consigue financiamiento para este pedido, puede pagar por lo entregado, por hito y con factura; se escribe acá antes de empezar."
-etapa: "3 Datos reales"
-cierre: El primer pedido real del sitio. Ya está andando y se puede sumar alguien más.
+financiamiento: "Se está gestionando: [monto] para el hito [N], de [fuente], con factura, después de cubrir las horas de quien opera y el sistema del año 2. Se escribe acá antes de cobrar un peso."
+etapa: "4 Sola"
+cierre: "El primer pedido real del sitio. Ya corre ediciones con quien opera sola; falta escribir el traspaso."
+stack: "Formularios HTML y JS sin frameworks en GitHub Pages · Google Sheets como base · Make (escenarios por webhook, plan pago) · Google Drive para copias · correo y WhatsApp para avisos. El nodo paga Make y sus cuentas; el plan B, si Make cambia de precio, se escribe en MANTENIMIENTO.md."
 ---
-Cuando el nodo firme, acá va el link a su repo y, al final, el postmortem firmado por quien opera.
+
+Cómo es una edición hoy, de punta a punta. Cada paso es un formulario del equipo o de la red, que llama a un escenario de Make, que escribe en la planilla:
+
+1. **Abrir edición.** Se crea la edición quincenal y se limpian las hojas de trabajo.
+2. **Carga de productos.** Cada productor actualiza lo suyo desde un link propio (qué hay, unidad, precio, oferta); queda registro de cada cambio de stock y de precio. El equipo cura y corrige el catálogo, y hay una vista previa antes de publicar.
+3. **Generar el formulario de pedidos.** Un escenario arma el formulario de la edición desde una plantilla y lo publica en GitHub Pages con un commit. El formulario es un recorrido obligado por categorías, no un carrito: se pasa por todo lo que la red trae esa quincena antes de cerrar el pedido.
+4. **Captura de pedidos.** Cada pedido entra a la planilla con su detalle y llega una confirmación por correo.
+5. **Comandas por productor y fraccionamiento.** A cada productor le llega qué preparar; se planifica qué se fracciona en el galpón.
+6. **Recepción en el galpón.** Se registra lo que llegó, con corrección si hace falta.
+7. **Ajustes.** Faltantes y cambios, con aviso a cada familia.
+8. **Entrega, no retirados y sobrantes.** Se marca lo entregado; lo no retirado se resuelve; lo que sobra se usa o se vende, y queda anotado.
+9. **Liquidación.** Cuánto le corresponde a cada productor, con aviso.
+10. **Copia de respaldo.** Una copia de la planilla antes de cada edición, y un reloj que limpia las viejas.
+
+Lo que falta para el traspaso: nombrar suplente, `MANTENIMIENTO.md` (qué corre dónde, cuánto cuesta por mes, quién tiene cada clave, cómo se apaga), exportación a CSV probada, una restauración de la copia hecha por quien opera, y `SALIDA.md` con quién paga el año 2. El registro de avances pasa a `CAMBIOS.md` del repo del nodo.
+
+Cuando el nodo firme, acá va su nombre, su localidad, el link a su repo y, al final, el postmortem firmado por quien opera.
