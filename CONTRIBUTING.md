@@ -14,3 +14,5 @@
 ## Nombre y localidad de una organización
 
 Hasta que la ficha esté firmada (`firmado: true`), no se publica el nombre de la organización ni su localidad: `ciudad` queda en el front matter y las plantillas lo ocultan; en `quien_pide` va el tipo de organización, sin lugar. En un pueblo chico, rubro más localidad es nombrarla. Con la firma entran las dos cosas, y lo que se puede contar en público queda escrito en el CONTAR.md del pedido.
+
+Nombres de personas, fechas puntuales, montos y contactos no van en este repo público: van en el repo privado de la organización, que pueden leer quienes ya están anotados como fessionals.
