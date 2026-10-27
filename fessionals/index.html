@@ -1,6 +1,6 @@
 ---
 title: "/fessionals"
-description: "Quiénes forman parte de sidepro, en qué están y qué dejaron andando. Y las dos cosas que hacen falta para ser de los primeros seis."
+description: "Quiénes forman parte de sidepro, en qué están y qué dejaron andando. Y las dos cosas que hacen falta para ser fessional."
 ---
 {% assign tarjetas = site.data.fessionals | where_exp: "t", "t.ejemplo != true" %}
 {% assign ejemplo = site.data.fessionals | where: "ejemplo", true | first %}
@@ -13,7 +13,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
 <section>
   {% if tarjetas.size == 0 %}
   <h2>Acá van a estar los que estén. Hoy, nadie.</h2>
-  <p>Todavía no firmó nadie. Van a ser seis, en Córdoba, con dos pedidos concretos. Lo que se decide, se decide abierto, en las <a href="{{ '/rfc/' | relative_url }}">RFC del repo</a>, y quienes entren primero las van a discutir. Si querés ser de los primeros, más abajo dice cómo. Te contesta {{ site.firma }}, no un formulario.</p>
+  <p>Todavía no firmó nadie. Se arranca en Córdoba, con tres pedidos concretos. Lo que se decide, se decide abierto, en las <a href="{{ '/rfc/' | relative_url }}">RFC del repo</a>, y quienes entren primero las van a discutir. Si querés anotarte, más abajo dice cómo. Te contesta {{ site.firma }}, no un formulario.</p>
   <div class="people" aria-label="Tarjetas de quienes forman parte">
     <div class="person ejemplo">
       <span class="who">así se ve una tarjeta cuando existe</span>
@@ -38,7 +38,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
 </section>
 
 <section id="requisitos">
-  <h2>Dos cosas hacen falta para ser de los primeros seis</h2>
+  <h2>Dos cosas hacen falta para ser fessional</h2>
   <ol class="steps">
     <li><strong>Trabajar hoy en IT para una empresa u organización</strong>, en relación de dependencia o con un contrato estable. Se declara, no se verifica, y nunca se pide ni se publica el nombre del empleador. Es lo que hace que esto sea un side project y no un trabajo sin sueldo.</li>
     <li><strong>Traer una organización socio-ambiental de tu ciudad o zona que ya sepa qué le falta</strong>, con alguien que lo vaya a operar y esté dispuesto a firmar la ficha de una página. Tiene que existir ya y no ser tuya: lo que falta lo dicen ellos. Después te anotás a ese pedido o a cualquier otro de <a href="{{ '/jects/' | relative_url }}">/jects</a>.</li>
@@ -47,7 +47,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
 </section>
 
 <section id="lista">
-  <h2>Los primeros seis</h2>
+  <h2>Anotarse</h2>
   {% if site.formulario_abierto %}
   <p class="muted">Cinco campos, tres preguntas y dos casillas. Te escribe {{ site.firma }}, con nombre. Hoy no hay plazo prometido, porque todavía no hay quien atienda además de esa persona. No se promete nada más que eso.</p>
   <form id="form-anotarse" method="post" action="{{ site.worker_url }}">
@@ -103,10 +103,10 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron an
     <p class="hint">Esa casilla y lo de tu contrato con tu empleador no viajan: el navegador las exige, pero no se envían ni se guardan. Lo del contrato se habla en el uno a uno.</p>
     <fieldset>
       <legend>Qué pasa con estos datos</legend>
-      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto y el proyecto que traés para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no hay primeros seis, se borran y se deja constancia. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
+      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto y el proyecto que traés para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no arrancó ningún pedido con vos, se borran y se deja constancia. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
       <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> Leí esto y estoy de acuerdo.</label>
     </fieldset>
-    <div><button type="submit" class="btn">Quiero ser de los primeros seis</button></div>
+    <div><button type="submit" class="btn">Quiero anotarme</button></div>
   </form>
   <script>document.getElementById('f-t').value = String(Date.now());</script>
   {% else %}

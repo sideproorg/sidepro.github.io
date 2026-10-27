@@ -1,6 +1,6 @@
 {% comment %} Cuadro de jects para la portada: lo último primero, como un git log. {% endcomment %}
 {% assign lista = site.pedidos | sort: "actualizado" | reverse %}
-<div class="box" data-label="jects · lo último primero">
+<div class="box" data-label="jects">
   <div class="log">
     <p class="cmd"><b>$</b> git log --oneline jects/</p>
     <ol>
