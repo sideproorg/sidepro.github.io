@@ -12,7 +12,7 @@
           <a href="{{ p.url | relative_url }}">
             <span class="line1"><span class="h">{{ p.codigo }}</span><span>{{ p.actualizado | date: "%d/%m/%Y" }}</span>{% if p.estado == "en-curso" %}<span class="st curso">en curso</span>{% elsif p.estado == "abierta" %}<span class="st abierta">abierta</span>{% elsif p.estado == "cerrada" %}<span class="st">cerrada</span>{% else %}<span class="st cand">candidata</span>{% endif %}<span>etapa {{ p.etapa_n | default: 0 }}/5{% if p.etapa and p.etapa_n > 0 %} · {{ p.etapa | remove_first: p.etapa_n | strip | downcase }}{% endif %}</span></span>
             <span class="t">{{ p.titulo }}</span>
-            <span class="m">{{ p.ciudad }}{% if p.estado == "candidata" %} · todavía no se habló con ellos{% elsif p.firmado != true %} · sin firma todavía{% endif %}{% if p.estado == "cerrada" %} · postmortem publicado{% endif %}</span>
+            <span class="m">{% if p.firmado == true %}{{ p.ciudad }}{% else %}localidad al firmar{% endif %}{% if p.estado == "candidata" %} · todavía no se habló con ellos{% elsif p.firmado != true %} · sin firma todavía{% endif %}{% if p.estado == "cerrada" %} · postmortem publicado{% endif %}</span>
           </a>
         </div>
       </li>

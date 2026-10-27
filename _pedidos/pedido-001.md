@@ -2,16 +2,16 @@
 # Ficha "Pedido". La escribe el proyecto en su lenguaje y la firma quien va a operar el sistema.
 # Si dice "urgente", "etc." o "una plataforma", está mal escrita y no se publica.
 # estado: candidata | abierta | en-curso | cerrada     firmado: true cuando quien opera firmó la ficha.
-# Los campos entre corchetes los completa el proyecto antes de firmar. El nombre de la organización entra con la firma.
+# Los campos entre corchetes los completa el proyecto antes de firmar. El nombre y la localidad de la organización entran con la firma.
 codigo: pedido-001
 titulo: Un sistema de logística y comercialización para un Nodo de productores y consumidores agroecológicos
 estado: en-curso
 firmado: false
-ciudad: Unquillo, Córdoba
+ciudad: Unquillo, Córdoba   # no se publica hasta que la ficha esté firmada (firmado: true)
 orden: 1
 actualizado: "2026-10-27"   # última actualización de la ficha; se cambia con cada PR
 etapa_n: 3   # 0 candidata, 1 pedido, 2 papel, 3 datos reales, 4 sola, 5 traspaso
-quien_pide: Un nodo de productores y consumidores agroecológicos de Unquillo, en las Sierras Chicas de Córdoba. El nombre se publica cuando firme su pedido.
+quien_pide: Un nodo de productores y consumidores agroecológicos. La localidad y el nombre se publican cuando firme su pedido.
 quien_lo_trajo: "[tu nombre], que ya está trabajando en él."
 problema: "[El proyecto completa, en una oración: qué les pasa hoy sin el sistema.]"
 que_hay: "[El proyecto completa: cuadernos, planillas, grupo de WhatsApp, lo que usen hoy.]"

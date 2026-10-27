@@ -9,7 +9,7 @@
       {% if p.estado == "ejemplo" or p.estado == "abierta" %}<span class="chip open">abierta</span>{% endif %}
       {% if p.estado == "en-curso" %}<span class="chip open">en curso</span>{% endif %}
       {% if p.estado == "cerrada" %}<span class="chip">cerrada</span>{% endif %}
-      <span class="chip">{{ p.ciudad }}</span>
+      {% if p.firmado == true %}<span class="chip">{{ p.ciudad }}</span>{% endif %}
     </div>
   </div>
   <h3><a href="{{ p.url | relative_url }}">{{ p.titulo }}</a></h3>
