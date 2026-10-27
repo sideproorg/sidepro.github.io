@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  {% capture og_titulo %}{% if page.title and page.title != "" %}{{ page.title }} · side·pro{% else %}side·pro{% endif %}{% endcapture %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="side·pro">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="{{ og_titulo | strip }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/og-sidepro.png' | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="side·pro: side·projects y professionals, con pro en común">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="color-scheme" content="light dark">
   <link rel="preload" href="{{ '/assets/fonts/PaperMono-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/sidepro.css' | relative_url }}">
