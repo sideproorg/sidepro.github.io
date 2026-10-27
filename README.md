@@ -34,7 +34,7 @@ cruzar/                /cruzar/: cruza códigos de franjas libres en el navegado
 _layouts/ _includes/   plantillas
 assets/css/sidepro.css dirección "Papel": tokens de color y tipografía al principio del archivo
 assets/fonts/          Paper Mono y su licencia
-plantillas/            PEDIDO, SESION0, CAMBIOS, DESPLIEGUE, MANTENIMIENTO y SALIDA para el repo de cada proyecto
+plantillas/            PEDIDO, SESION0, CAMBIOS, DESPLIEGUE, MANTENIMIENTO, SALIDA y REPO para el repo de cada proyecto
 worker/                el Worker del formulario (apagado)
 .github/workflows/     revisión de links rotos en cada PR
 ```

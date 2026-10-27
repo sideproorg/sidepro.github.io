@@ -27,3 +27,5 @@
   a: Si la operadora no aparece, el pedido se pausa a los diez días y se renegocia a los treinta; nunca "lo opera la dupla mientras tanto". Si alguien te deja colgado, lo decimos en el postmortem, que se publica igual.
 - q: ¿Qué pasa con mis datos si escribo?
   a: Hoy el formulario está cerrado porque guardar nombre y contacto exige un responsable con nombre y domicilio (Ley 25.326) y todavía no lo hay. Si escribís al correo del proyecto, lo lee una persona con nombre, no se cede a nadie y se borra cuando lo pidas. Cuando el formulario abra, el aviso va a decir quién guarda, para qué, hasta cuándo y cómo se borra.
+- q: ¿Dónde queda registrado lo que se hace?
+  a: "En el repo del proyecto, en archivos de texto: una línea por avance en CAMBIOS.md, y el commit que la trae dice quién, cuándo y qué. La rama principal está protegida y se entra por PR, así que nadie escribe sobre lo que no leyó; lo que estuvo mal se revierte, no se borra. Cada fessional trabaja desde su fork, con su nombre en el historial, y se lo lleva cuando se va. Son archivos: se clonan y se mudan con un git push. Cómo se arma, paso a paso, en plantillas/REPO.md."
