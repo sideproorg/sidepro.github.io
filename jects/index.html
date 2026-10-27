@@ -8,7 +8,7 @@ description: "Los proyectos a los que te podés anotar: una ficha por pedido, co
   <p class="eyebrow">/jects</p>
   <h1>Los proyectos a los que te podés anotar.</h1>
   <p class="lead">Cada ficha la escribe el proyecto en su lenguaje y la firma quien va a operar el sistema. Si una ficha dice "urgente", "etc." o "una plataforma", está mal escrita y no se publica.</p>
-  <p>Los pedidos llegan por dos puertas: un fessional trae una organización socio-ambiental de su ciudad, o el proyecto escribe abajo, en "Lo que hace falta". Una vez acá, cualquiera se puede anotar a cualquiera. Por defecto no se cobra; si el proyecto consigue financiamiento, puede pagar por lo entregado, y eso se escribe en la ficha antes de empezar.</p>
+  <p>Los pedidos llegan por dos puertas: un fessional trae una organización socio-ambiental de su ciudad, o el proyecto escribe abajo, en "Lo que hace falta". Una vez acá, cualquiera se puede anotar a cualquiera. La remuneración depende de cada proyecto; si la hay, se escribe en la ficha antes de empezar.</p>
   {% if firmados.size == 0 %}
   <p class="note">Ninguna ficha tiene firma todavía. Los campos entre corchetes los completa cada proyecto. Mientras tanto, lo que hay es anotarse en <a href="{{ '/fessionals/' | relative_url }}">/fessionals</a>.</p>
   {% endif %}
@@ -24,5 +24,5 @@ description: "Los proyectos a los que te podés anotar: una ficha por pedido, co
   <p class="eyebrow">Para proyectos</p>
   <h2>Lo que hace falta</h2>
   <p>Contanos qué les falta, quién lo va a usar y quién lo va a cuidar cuando esté hecho. Vale por escrito o por audio de WhatsApp de dos minutos: alguien lo pasa a una ficha de una página y se la devuelve para que digan "sí, es esto". Nada se publica sin esa lectura. Si conocen a alguien de IT que viva cerca, que los traiga: es la puerta más corta.</p>
-  <p>Responde una persona, con nombre, en 72 horas hábiles. El número de WhatsApp se publica cuando haya quien atienda; hoy el contacto es el correo del proyecto: <code>{{ site.correo_proyecto }}</code>.</p>
+  <p>Responde una persona, con nombre, en 72 horas hábiles. Por ahora, el contacto es el correo del proyecto: <code>{{ site.correo_proyecto }}</code>.</p>
 </section>

@@ -1,39 +1,39 @@
-{% comment %} Ficha "Pedido". Uso: {% include ficha.html p=pedido %} {% endcomment %}
-{% assign p = include.p %}
-<article class="ficha" aria-label="Ficha {{ p.codigo }}">
+{% comment %} Ficha "Pedido". Uso: {% include ficha.html p=pedido %}. Toma el idioma de la página. {% endcomment %}
+{% assign p = include.p %}{% assign L = page.lang | default: "es" %}{% assign t = site.data.ui[L] %}{% if L == "en" %}{% assign base = "/en" %}{% else %}{% assign base = "" %}{% endif %}
+<article class="ficha" aria-label="{{ t.ficha }} {{ p.codigo }}">
   <div class="top">
-    <span class="id">{{ p.codigo }}{% if p.estado == "ejemplo" %} · ejemplo{% elsif p.estado == "candidata" %} · candidata{% endif %}</span>
+    <span class="id">{{ p.codigo }}{% if p.estado == "ejemplo" %} · {{ t.ejemplo }}{% elsif p.estado == "candidata" %} · {{ t.candidata }}{% endif %}</span>
     <div class="chips">
-      {% if p.estado == "ejemplo" %}<span class="chip ex">EJEMPLO, sin firma</span>{% elsif p.firmado != true %}<span class="chip ex">sin firma todavía</span>{% endif %}
-      {% if p.estado == "candidata" %}<span class="chip">candidata</span>{% endif %}
-      {% if p.estado == "ejemplo" or p.estado == "abierta" %}<span class="chip open">abierta</span>{% endif %}
-      {% if p.estado == "en-curso" %}<span class="chip open">en curso</span>{% endif %}
-      {% if p.estado == "cerrada" %}<span class="chip">cerrada</span>{% endif %}
+      {% if p.estado == "ejemplo" %}<span class="chip ex">{{ t.chip_ejemplo }}</span>{% elsif p.firmado != true %}<span class="chip ex">{{ t.sin_firma }}</span>{% endif %}
+      {% if p.estado == "candidata" %}<span class="chip">{{ t.candidata }}</span>{% endif %}
+      {% if p.estado == "ejemplo" or p.estado == "abierta" %}<span class="chip open">{{ t.abierta }}</span>{% endif %}
+      {% if p.estado == "en-curso" %}<span class="chip open">{{ t.en_curso }}</span>{% endif %}
+      {% if p.estado == "cerrada" %}<span class="chip">{{ t.cerrada }}</span>{% endif %}
       {% if p.firmado == true %}<span class="chip">{{ p.ciudad }}</span>{% endif %}
     </div>
   </div>
   <h3><a href="{{ p.url | relative_url }}">{{ p.titulo }}</a></h3>
   <dl>
-    <dt>Quién pide</dt><dd>{{ p.quien_pide }}</dd>
-    <dt>Quién lo trajo</dt><dd>{{ p.quien_lo_trajo }}</dd>
-    <dt>El problema</dt><dd>{{ p.problema }}</dd>
-    <dt>Qué hay hoy</dt><dd>{{ p.que_hay }}</dd>
-    <dt>Qué tiene que quedar andando</dt><dd>{{ p.que_queda }}</dd>
-    <dt>Quién lo opera</dt><dd>{{ p.quien_opera }}</dd>
-    {% if p.stack %}<dt>Con qué</dt><dd>{{ p.stack }}</dd>{% endif %}
-    <dt>Horas</dt><dd>{{ p.horas }}</dd>
-    <dt>Licencia</dt><dd>{{ p.licencia }}</dd>
-    {% if p.financiamiento %}<dt>Financiamiento</dt><dd>{{ p.financiamiento }}</dd>{% elsif p.hay_plata %}<dt>Hay plata</dt><dd>{{ p.hay_plata }}</dd>{% endif %}
-    {% if p.etapa %}<dt>Etapa</dt><dd>{{ p.etapa }} · de cinco, según la <a href="{{ '/rfc/rfc-001/' | relative_url }}">RFC-001</a>{% if p.registro %} · <a href="{{ p.registro }}" rel="noopener">registro</a>{% endif %}</dd>{% endif %}
+    <dt>{{ t.quien_pide }}</dt><dd>{{ p.quien_pide }}</dd>
+    <dt>{{ t.quien_lo_trajo }}</dt><dd>{{ p.quien_lo_trajo }}</dd>
+    <dt>{{ t.problema }}</dt><dd>{{ p.problema }}</dd>
+    <dt>{{ t.que_hay }}</dt><dd>{{ p.que_hay }}</dd>
+    <dt>{{ t.que_queda }}</dt><dd>{{ p.que_queda }}</dd>
+    <dt>{{ t.quien_opera }}</dt><dd>{{ p.quien_opera }}</dd>
+    {% if p.stack %}<dt>{{ t.stack }}</dt><dd>{{ p.stack }}</dd>{% endif %}
+    <dt>{{ t.horas }}</dt><dd>{{ p.horas }}</dd>
+    <dt>{{ t.licencia }}</dt><dd>{{ p.licencia }}</dd>
+    {% if p.financiamiento %}<dt>{{ t.financiamiento }}</dt><dd>{{ p.financiamiento }}</dd>{% elsif p.hay_plata %}<dt>{{ t.hay_plata }}</dt><dd>{{ p.hay_plata }}</dd>{% endif %}
+    {% if p.etapa %}<dt>{{ t.etapa }}</dt><dd>{{ p.etapa }} · {{ t.de_cinco }} <a href="{{ base | append: '/rfc/rfc-001/' | relative_url }}">RFC-001</a>{% if p.registro %} · <a href="{{ p.registro }}" rel="noopener">{{ t.registro }}</a>{% endif %}</dd>{% endif %}
   </dl>
   <div class="foot">
     <span class="muted">{{ p.cierre }}</span>
     {% if include.boton == "fichas" %}
-      <a class="btn ghost" href="{{ '/jects/' | relative_url }}">Ver todas las fichas</a>
+      <a class="btn ghost" href="{{ base | append: '/jects/' | relative_url }}">{{ t.ver_fichas }}</a>
     {% elsif p.estado == "cerrada" %}
-      <a class="btn ghost" href="{{ p.url | relative_url }}">Leer el postmortem</a>
+      <a class="btn ghost" href="{{ p.url | relative_url }}">{{ t.postmortem }}</a>
     {% else %}
-      <a class="btn" href="{{ '/fessionals/#lista' | relative_url }}">Me anoto a este pedido</a>
+      <a class="btn" href="{{ base | append: '/fessionals/#lista' | relative_url }}">{{ t.me_anoto }}</a>
     {% endif %}
   </div>
 </article>

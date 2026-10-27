@@ -1,10 +1,10 @@
-{% assign e = site.data.estado %}
-<div class="estado" aria-label="Estado real a la fecha">
-  <div><span class="k">estado real al</span> {{ e.fecha }}</div>
-  <div><span class="k">existe:</span> {{ e.existe }}</div>
-  <div><span class="k">no existe todavía:</span> {{ e.no_existe }}</div>
-  <div><span class="k">alcance:</span> {{ e.alcance }}</div>
-  <div><span class="k">custodia:</span> {{ e.custodia }}</div>
-  <div><span class="k">horas en especie:</span> {{ e.horas_en_especie }}</div>
-  <div><span class="k">firma:</span> {{ e.firma }}</div>
+{% assign L = page.lang | default: "es" %}{% assign t = site.data.ui[L] %}{% if L == "en" %}{% assign e = site.data.en.estado %}{% else %}{% assign e = site.data.estado %}{% endif %}
+<div class="estado" aria-label="{{ t.er_label }}">
+  <div><span class="k">{{ t.er_al }}</span> {{ e.fecha }}</div>
+  <div><span class="k">{{ t.er_existe }}</span> {{ e.existe }}</div>
+  <div><span class="k">{{ t.er_no_existe }}</span> {{ e.no_existe }}</div>
+  <div><span class="k">{{ t.er_alcance }}</span> {{ e.alcance }}</div>
+  <div><span class="k">{{ t.er_custodia }}</span> {{ e.custodia }}</div>
+  <div><span class="k">{{ t.er_horas }}</span> {{ e.horas_en_especie }}</div>
+  <div><span class="k">{{ t.er_firma }}</span> {{ e.firma }}</div>
 </div>

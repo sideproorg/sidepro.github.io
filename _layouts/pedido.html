@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% assign L = page.lang | default: "es" %}{% assign t = site.data.ui[L] %}
 <section>
   <p class="eyebrow">/jects · {{ page.codigo }}</p>
   {% include ficha.html p=page %}
@@ -11,6 +12,6 @@ layout: default
 </section>
 {% endif %}
 <section class="tintbox">
-  <p class="eyebrow">Para anotarse</p>
-  <p>Para ser fessional hacen falta dos cosas: trabajar hoy en IT para una empresa u organización, y traer una organización socio-ambiental de tu ciudad que ya sepa qué le falta. Están explicadas en <a href="{{ '/fessionals/' | relative_url }}">/fessionals</a>, junto con el formulario (hoy cerrado) y el correo del proyecto.</p>
+  <p class="eyebrow">{{ t.para_anotarse }}</p>
+  <p>{{ t.pedido_anotarse }}</p>
 </section>

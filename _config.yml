@@ -27,14 +27,31 @@ collections:
   rfc:
     output: true
     permalink: /rfc/:name/
+  pedidos_en:
+    output: true
+    permalink: /en/jects/:name/
+  rfc_en:
+    output: true
+    permalink: /en/rfc/:name/
 
 defaults:
   - scope: { path: "", type: "pedidos" }
     values: { layout: pedido }
   - scope: { path: "", type: "rfc" }
     values: { layout: rfc }
+  - scope: { path: "", type: "pedidos_en" }
+    values: { layout: pedido, lang: en }
+  - scope: { path: "", type: "rfc_en" }
+    values: { layout: rfc, lang: en }
+  - scope: { path: "en" }
+    values: { lang: en }
   - scope: { path: "" }
     values: { layout: default }
+
+# Idiomas: español en la raíz, inglés en /en/. Cada página tiene su par con la misma ruta.
+# Textos de la interfaz en _data/ui.yml; datos en inglés en _data/en/; fichas y RFC en _pedidos_en/ y _rfc_en/.
+# Al cambiar una ficha o una RFC, cambiar también su par en el otro idioma.
+description_en: "Spare hours put into side projects that improve local projects."
 
 markdown: kramdown
 kramdown:

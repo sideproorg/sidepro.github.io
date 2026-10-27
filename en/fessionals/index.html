@@ -1,0 +1,195 @@
+---
+title: "/fessionals"
+lang: en
+description: "Who is part of sidepro, what they are on, and what they left running. And the two things it takes to be a fessional."
+---
+{% assign tarjetas = site.data.fessionals | where_exp: "t", "t.ejemplo != true" %}
+{% assign ejemplo = site.data.fessionals | where: "ejemplo", true | first %}
+<section>
+  <p class="eyebrow">/fessionals</p>
+  <h1>Who is part of it, what they are on, and what they left running.</h1>
+  <p class="lead">One card per person goes here, only if they wanted to appear and with what they wanted to show: name or alias, city, what they know how to do, the request they brought, the one they are working on and, if they asked, the repo with their name. Never the employer, never a public email. Operators on the other side go here too, if they want and with their project's yes.</p>
+</section>
+
+<section>
+  {% if tarjetas.size == 0 %}
+  <h2>Whoever is here will be here. Today, nobody.</h2>
+  <p>Nobody has signed yet. It starts with three concrete requests, all three in Córdoba. Wherever you live, you can join: you bring a project from your city or you sign up for two of these. What gets decided is decided in the open, in the <a href="{{ '/en/rfc/' | relative_url }}">repo's RFCs</a>, and those who come in first will discuss them. If you want to sign up, how is below. {{ site.firma }} replies, not a form.</p>
+  <div class="people" aria-label="Cards of people taking part">
+    <div class="person ejemplo">
+      <span class="who">this is what a card looks like</span>
+      <strong>[name or alias] · [city]</strong>
+      <span>[what they know how to do, in one line]</span>
+      <span class="muted">Brought: pedido-00N · working on: [the request] · since [month] · repo with their name, if they asked</span>
+    </div>
+  </div>
+  {% else %}
+  <h2>Who is here</h2>
+  <div class="people" aria-label="Cards of people taking part">
+    {% for t in tarjetas %}
+    <div class="person">
+      {% if t.opera %}<span class="who">operates</span>{% endif %}
+      <strong>{{ t.nombre }} · {{ t.ciudad }}</strong>
+      <span>{{ t.sabe }}</span>
+      <span class="muted">{% if t.trajo != "" %}Brought: {{ t.trajo }} · {% endif %}{% if t.esta_en != "" %}working on: {{ t.esta_en }} · {% endif %}since {{ t.desde }}{% if t.repo != "" %} · <a href="{{ t.repo }}" rel="noopener">repo with their name</a>{% endif %}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+<section id="requisitos">
+  <h2>Two things make you a fessional</h2>
+  <ol class="steps">
+    <li><strong>Working in IT today for a company or organization</strong>, as an employee or on a steady contract. It is declared, not verified, and the employer's name is never asked for or published. It is what makes this a side project and not unpaid work.</li>
+    <li><strong>Bringing a socio-environmental organization from your city or area that already knows what it needs</strong>, with someone who will operate it and is willing to sign the one-page request. It has to exist already and not be yours: what's missing is for them to say. Then you sign up for that request or any other in <a href="{{ '/en/jects/' | relative_url }}">/jects</a>. Or, instead, signing up for two requests already in /jects.</li>
+  </ol>
+  <p class="muted">A club, a soup kitchen, a cooperative, a market, a community library, a neighborhood center, a school. They almost always keep something in a notebook or a WhatsApp group where it gets lost.</p>
+</section>
+
+<section id="lista">
+  <h2>Sign up</h2>
+  {% if site.formulario_abierto %}
+  <p class="muted">A short form. {{ site.firma }} writes back, by name. There is no promised deadline today, because nobody besides that person is answering yet. Nothing more than that is promised.</p>
+  <form id="form-anotarse" method="post" action="{{ site.worker_url }}" enctype="multipart/form-data">
+    <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
+    <input type="hidden" name="t" value="" id="f-t">
+    <input type="hidden" name="disp" value="" id="f-disp">
+    <p class="trampa" aria-hidden="true"><label>If you are a person, leave this empty <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></p>
+
+    <fieldset>
+      <legend>How you come in</legend>
+      <div class="radios columna">
+        <label><input type="radio" name="via" value="a" checked> <span>I bring a socio-environmental organization from where I live that already knows what it needs</span></label>
+        <label><input type="radio" name="via" value="b"> <span>I sign up for two requests in /jects</span></label>
+      </div>
+    </fieldset>
+
+    <div id="via-a">
+      <div class="field">
+        <label for="f-proyecto">The project you bring: what it is and where, in one line</label>
+        <input id="f-proyecto" name="proyecto" type="text" placeholder="e.g. a neighborhood soup kitchen that counts meals in a notebook" maxlength="200">
+        <span class="hint">No names of people. If it already has a request page, the link is enough.</span>
+      </div>
+      <div class="field">
+        <label for="f-archivo">Tell it however you can: an audio, a photo of the notebook or the paper, a PDF (optional)</label>
+        <input id="f-archivo" name="archivo" type="file" accept="audio/*,image/*,application/pdf">
+        <span class="hint">One file, up to {{ site.archivo_mb }} MB. A single named person listens to it or looks at it; it goes through no AI and is not forwarded. It is turned into the request and deleted when the request is signed or after 30 days, with a record. It never goes into the repo.</span>
+      </div>
+      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> I recorded or wrote it myself, or the operator agrees. There are no names, voices or faces of other people.</label>
+      <fieldset>
+        <legend>Did you talk to whoever would operate it?</legend>
+        <div class="radios">
+          <label><input type="radio" name="opera" value="si"> Yes, and they are willing to sign the request</label>
+          <label><input type="radio" name="opera" value="no" checked> Not yet</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div id="via-b" hidden>
+      <fieldset>
+        <legend>Choose two requests</legend>
+        <div class="radios columna">
+          {% assign lista = site.pedidos_en | sort: "actualizado" | reverse %}
+          {% for p in lista %}
+          <label><input type="checkbox" name="pedidos" value="{{ p.codigo }}"> <span><b>{{ p.codigo }}</b> · {{ p.titulo }}{% if p.firmado != true %} <i class="muted">(not signed yet)</i>{% endif %}</span></label>
+          {% endfor %}
+        </div>
+        <span class="hint">Unsigned requests start when the project signs. If you come in this way, you are the second on those requests and start by video call: you listen to the recording of session 0 and sign the agreement before touching any data.</span>
+      </fieldset>
+    </div>
+
+    <fieldset>
+      <legend>What may appear in public, if you join</legend>
+      <div class="radios">
+        <label><input type="radio" name="publico" value="nada" checked> Nothing</label>
+        <label><input type="radio" name="publico" value="alias"> An alias</label>
+        <label><input type="radio" name="publico" value="nombre"> My name</label>
+      </div>
+      <span class="hint">The card can be changed or taken down the same day. What doesn't get erased is your name in the commits of the project's repo, if you chose to sign them. A contract with an exclusivity clause is reason enough for "nothing".</span>
+    </fieldset>
+    <div class="field">
+      <label for="f-nombre">Name or alias</label>
+      <input id="f-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80">
+    </div>
+    <div class="field">
+      <label for="f-contacto">How we reach you</label>
+      <input id="f-contacto" name="contacto" type="text" placeholder="email, Telegram or Signal" required maxlength="120">
+      <span class="hint">Not published or shared. Deleted if you ask.</span>
+    </div>
+    <div class="field">
+      <label for="f-sabe">What you know how to do, in one line</label>
+      <input id="f-sabe" name="sabe" type="text" placeholder="e.g. data pipelines, Postgres, forms that don't break" maxlength="160">
+    </div>
+    <div class="field">
+      <label for="f-horas">Real spare hours per week</label>
+      <select id="f-horas" name="horas">
+        <option value="">Choose</option>
+        <option>4</option>
+        <option value="4 a 6">4 to 6</option>
+        <option value="6 a 8">6 to 8</option>
+        <option value="Depende de la semana; a veces 0">Depends on the week; sometimes 0</option>
+      </select>
+      <span class="hint">The real ones, not the ones you wish you had. It is designed to survive weeks of 0.</span>
+    </div>
+
+    <fieldset>
+      <legend>Your free time slots in a normal week</legend>
+      <div class="grilla" id="grilla">
+        <span></span><span class="gh">morning</span><span class="gh">afternoon</span><span class="gh">evening</span>
+        {% assign dias = "lu,ma,mi,ju,vi,sa,do" | split: "," %}{% assign dias_en = "Mon,Tue,Wed,Thu,Fri,Sat,Sun" | split: "," %}
+        {% for d in dias %}
+        <span class="gd">{{ dias_en[forloop.index0] }}</span>
+        <label><input type="checkbox" data-f="{{ d }}-m"><span>m</span></label>
+        <label><input type="checkbox" data-f="{{ d }}-t"><span>a</span></label>
+        <label><input type="checkbox" data-f="{{ d }}-n"><span>e</span></label>
+        {% endfor %}
+      </div>
+      <span class="hint">They travel in the email as a code (for example <code>lu-n,mi-t</code>, Monday evening and Wednesday afternoon). Whoever convenes cross-checks them in <a href="{{ '/en/cruzar/' | relative_url }}">/cruzar/</a>, storing nothing, and proposes a day and time, with their name.</span>
+    </fieldset>
+
+    <label class="check"><input type="checkbox" id="f-trabajo" required> I work in IT today for a company or organization, as an employee or on a steady contract.</label>
+    <p class="hint">That box and anything about your contract with your employer don't travel: the browser requires them, but they are not sent or stored. The contract is talked about one to one.</p>
+    <fieldset>
+      <legend>What happens to this data</legend>
+      <p class="hint">Controller: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. I store your name, contact, time slots and the project you bring (or the requests you chose) to connect you with a request. They go through Cloudflare Workers and Email Routing (Cloudflare, Inc., USA), which forward without storing, and the project inbox; they are not shared with anyone. If no request has started with you within 90 days, they are deleted and a record is kept; the file, when the request is signed or after 30 days. Access, correction and deletion at no cost: <code>{{ site.correo_proyecto }}</code>, reply within 5 business days. Notice version {{ site.aviso_version }}.</p>
+      <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> I have read this and I agree.</label>
+    </fieldset>
+    <p class="hint" id="f-error" hidden></p>
+    <div><button type="submit" class="btn">Sign me up</button></div>
+  </form>
+  <script>
+  (function () {
+    document.getElementById('f-t').value = String(Date.now());
+    var form = document.getElementById('form-anotarse'), err = document.getElementById('f-error');
+    var va = document.getElementById('via-a'), vb = document.getElementById('via-b');
+    function via() { return form.querySelector('input[name="via"]:checked').value; }
+    function mostrar() { var a = via() === 'a'; va.hidden = !a; vb.hidden = a; }
+    form.querySelectorAll('input[name="via"]').forEach(function (r) { r.addEventListener('change', mostrar); });
+    mostrar();
+    function fallo(m) { err.textContent = m; err.hidden = false; err.scrollIntoView({ block: 'center' }); }
+    form.addEventListener('submit', function (ev) {
+      err.hidden = true;
+      var disp = []; form.querySelectorAll('#grilla input:checked').forEach(function (c) { disp.push(c.dataset.f); });
+      document.getElementById('f-disp').value = disp.join(',');
+      if (via() === 'a') {
+        var pr = document.getElementById('f-proyecto').value.trim();
+        if (!pr) { ev.preventDefault(); return fallo('Say which project you bring, in one line.'); }
+        var f = document.getElementById('f-archivo').files[0];
+        if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('The file is larger than {{ site.archivo_mb }} MB. Send a smaller one or tell it in the text field; the audio can come later by WhatsApp.'); }
+        if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('If you send a file, check that you recorded or wrote it yourself, or that the operator agrees.'); }
+        form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
+      } else {
+        var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
+        if (n !== 2) { ev.preventDefault(); return fallo('Choose exactly two requests.'); }
+        document.getElementById('f-proyecto').value = ''; document.getElementById('f-archivo').value = '';
+      }
+    });
+  })();
+  </script>
+  {% else %}
+  <div class="tintbox">
+    <p><strong>The form isn't open yet.</strong> Storing your name and contact requires a controller with a name and registered address (Argentina's data protection law, 25.326), and there isn't one today: it is decided in month 1. Meanwhile, if you meet the two things above, write to <code>{{ site.correo_proyecto }}</code>: with the project you bring (no names of people), or with the two requests in /jects you are signing up for. {{ site.firma }} replies, by name, with no promised deadline. Don't write anything about your contract with your employer: that is talked about one to one.</p>
+  </div>
+  {% endif %}
+</section>

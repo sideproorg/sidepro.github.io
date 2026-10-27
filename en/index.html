@@ -1,0 +1,51 @@
+---
+title: ""
+lang: en
+description: "side·pro brings together remote digital-tech professionals and small socio-environmental organizations that need new technology to run better."
+---
+<section>
+  {% include jects-log.html %}
+</section>
+
+<section>
+  <h1 class="visually-hidden">sidepro</h1>
+  <p class="lead grande"><span class="mark inline">side<span class="dot">·</span>pro</span> brings together <a class="ruta" href="{{ '/en/fessionals/' | relative_url }}">/fessionals</a>, digital-tech professionals who work remotely, with <a class="ruta" href="{{ '/en/jects/' | relative_url }}">/jects</a>, requests from small socio-environmental organizations that need new technology to run better.</p>
+  <div class="doors">
+    <a class="door" href="{{ '/en/jects/' | relative_url }}">
+      <span class="path">/<b>jects</b></span>
+      <span>The projects you can sign up for: one page per request, with who operates it and what has to keep running.</span>
+    </a>
+    <a class="door" href="{{ '/en/fessionals/' | relative_url }}">
+      <span class="path">/<b>fessionals</b></span>
+      <span>Who is part of it, what they are on, and what they left running. And the two things it takes to be a fessional.</span>
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2>How to take part</h2>
+  <ol class="steps">
+    {% for paso in site.data.en.pasos %}<li>{{ paso }}</li>
+    {% endfor %}
+  </ol>
+  <p class="muted" style="margin-top:12px">The sign-up form is in <a href="{{ '/en/fessionals/#lista' | relative_url }}">/fessionals</a>{% unless site.formulario_abierto %} (closed for now: it says why there, and how to write in the meantime){% endunless %}. What happens next, from the request to the postmortem, is five stages, and it is in <a href="{{ '/en/rfc/rfc-001/' | relative_url }}">RFC-001</a>.</p>
+</section>
+
+<section>
+  <h2>The rules are written in public</h2>
+  <p>How a request works, what license the code carries, what happens when someone leaves: each rule is a one-page RFC in the repo, with who objected and how it was settled. Those who come in first will discuss them and change them. That is what being at the start means.</p>
+  <ul class="plain rfc">
+    {% assign rfcs = site.rfc_en | sort: "numero" %}
+    {% for r in rfcs %}
+    <li><a href="{{ r.url | relative_url }}"><b>RFC-{{ r.numero }}</b> {{ r.titulo }}.</a> <span class="muted">{% if r.estado == "pending" %}Pending publication.{% elsif r.estado == "open" %}Open: comments welcome.{% else %}{{ r.estado | capitalize }}.{% endif %}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>What you won't find here</h2>
+  <ul class="plain">
+    {% for item in site.data.en.no %}<li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</section>

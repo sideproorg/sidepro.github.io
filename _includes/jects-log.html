@@ -1,5 +1,6 @@
-{% comment %} Cuadro de jects para la portada: lo último primero, como un git log. {% endcomment %}
-{% assign lista = site.pedidos | sort: "actualizado" | reverse %}
+{% comment %} Cuadro de jects para la portada: lo último primero, como un git log. Toma el idioma de la página. {% endcomment %}
+{% assign L = page.lang | default: "es" %}{% assign t = site.data.ui[L] %}
+{% if L == "en" %}{% assign base = "/en" %}{% assign lista = site.pedidos_en | sort: "actualizado" | reverse %}{% else %}{% assign base = "" %}{% assign lista = site.pedidos | sort: "actualizado" | reverse %}{% endif %}
 <div class="box" data-label="jects">
   <div class="log">
     <p class="cmd"><b>$</b> git log --oneline jects/</p>
@@ -10,14 +11,14 @@
 │</span>
         <div class="body">
           <a href="{{ p.url | relative_url }}">
-            <span class="line1"><span class="h">{{ p.codigo }}</span><span>{{ p.actualizado | date: "%d/%m/%Y" }}</span>{% if p.estado == "en-curso" %}<span class="st curso">en curso</span>{% elsif p.estado == "abierta" %}<span class="st abierta">abierta</span>{% elsif p.estado == "cerrada" %}<span class="st">cerrada</span>{% else %}<span class="st cand">candidata</span>{% endif %}<span>etapa {{ p.etapa_n | default: 0 }}/5{% if p.etapa and p.etapa_n > 0 %} · {{ p.etapa | remove_first: p.etapa_n | strip | downcase }}{% endif %}</span></span>
+            <span class="line1"><span class="h">{{ p.codigo }}</span><span>{{ p.actualizado | date: t.fecha }}</span>{% if p.estado == "en-curso" %}<span class="st curso">{{ t.en_curso }}</span>{% elsif p.estado == "abierta" %}<span class="st abierta">{{ t.abierta }}</span>{% elsif p.estado == "cerrada" %}<span class="st">{{ t.cerrada }}</span>{% else %}<span class="st cand">{{ t.candidata }}</span>{% endif %}<span>{{ t.etapa_corta }} {{ p.etapa_n | default: 0 }}/5{% if p.etapa and p.etapa_n > 0 %} · {{ p.etapa | remove_first: p.etapa_n | strip | downcase }}{% endif %}</span></span>
             <span class="t">{{ p.titulo }}</span>
-            <span class="m">{% if p.firmado == true %}{{ p.ciudad }} · {% endif %}{% if p.estado == "candidata" %}todavía no se habló con ellos{% elsif p.firmado != true %}sin firma todavía{% endif %}{% if p.estado == "cerrada" %} · postmortem publicado{% endif %}</span>
+            <span class="m">{% if p.firmado == true %}{{ p.ciudad }} · {% endif %}{% if p.estado == "candidata" %}{{ t.no_hablado }}{% elsif p.firmado != true %}{{ t.sin_firma }}{% endif %}{% if p.estado == "cerrada" %} · {{ t.postmortem_pub }}{% endif %}</span>
           </a>
         </div>
       </li>
       {% endfor %}
     </ol>
   </div>
-  <div class="foot"><span>cada cierre de etapa es una línea en CAMBIOS.md</span><a href="{{ '/jects/' | relative_url }}">ver todas las fichas →</a></div>
+  <div class="foot"><span>{{ t.log_pie }}</span><a href="{{ base | append: '/jects/' | relative_url }}">{{ t.log_ver }}</a></div>
 </div>

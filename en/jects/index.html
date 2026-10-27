@@ -1,0 +1,29 @@
+---
+title: "/jects"
+lang: en
+description: "The projects you can sign up for: one page per request, with who operates it and what has to keep running."
+---
+{% assign pedidos = site.pedidos_en | sort: "actualizado" | reverse %}
+{% assign firmados = pedidos | where: "firmado", true %}
+<section>
+  <p class="eyebrow">/jects</p>
+  <h1>The projects you can sign up for.</h1>
+  <p class="lead">Each request is written by the project in its own words and signed by whoever will operate the system. If a request says "urgent", "etc." or "a platform", it is badly written and doesn't go up.</p>
+  <p>Requests come through two doors: a fessional brings a socio-environmental organization from their city, or the project writes in below, in "What it takes". Once here, anyone can sign up for any of them. Pay depends on each project; if there is any, it is written in the request before starting.</p>
+  {% if firmados.size == 0 %}
+  <p class="note">No request is signed yet. The fields in brackets are filled in by each project. Meanwhile, what there is is signing up in <a href="{{ '/en/fessionals/' | relative_url }}">/fessionals</a>.</p>
+  {% endif %}
+</section>
+
+<section class="lista-fichas">
+  {% for p in pedidos %}
+    {% include ficha.html p=p %}
+  {% endfor %}
+</section>
+
+<section class="tintbox" id="hace-falta">
+  <p class="eyebrow">For projects</p>
+  <h2>What it takes</h2>
+  <p>Tell us what you're missing, who will use it and who will look after it once it's done. Writing works, or a two-minute WhatsApp audio: someone turns it into a one-page request and sends it back so you can say "yes, that's it". Nothing goes up without that review. If you know someone in IT who lives nearby, have them bring you: it's the shortest door.</p>
+  <p>A person replies, with their name, within 72 business hours. For now the contact is the project email: <code>{{ site.correo_proyecto }}</code>.</p>
+</section>

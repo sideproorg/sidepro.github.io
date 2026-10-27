@@ -1,0 +1,118 @@
+# Textos de la interfaz por idioma. Las páginas en /en/ usan "en"; el resto, "es".
+es:
+  html_lang: es-AR
+  og_locale: es_AR
+  og_alt: "side·pro: side·projects y professionals, con pro en común"
+  nav_label: Secciones
+  estado: Estado real
+  pie_label: Pie
+  legal: 'Textos con licencia CC BY-SA 4.0; código del sitio, MIT. Sin rastreadores. Tipografía <a href="https://github.com/paper-design/paper-mono" rel="noopener">Paper Mono</a> (OFL). Lo que nombre a personas o comunidades queda fuera de la licencia y no se publica sin su lectura.'
+  idioma_label: Idioma
+  fecha: "%d/%m/%Y"
+  # estado real
+  er_label: Estado real a la fecha
+  er_al: estado real al
+  er_existe: "existe:"
+  er_no_existe: "no existe todavía:"
+  er_alcance: "alcance:"
+  er_custodia: "custodia:"
+  er_horas: "horas en especie:"
+  er_firma: "firma:"
+  # ficha
+  ficha: Ficha
+  ejemplo: ejemplo
+  candidata: candidata
+  chip_ejemplo: "EJEMPLO, sin firma"
+  sin_firma: sin firma todavía
+  abierta: abierta
+  en_curso: en curso
+  cerrada: cerrada
+  quien_pide: Quién pide
+  quien_lo_trajo: Quién lo trajo
+  problema: El problema
+  que_hay: Qué hay hoy
+  que_queda: Qué tiene que quedar andando
+  quien_opera: Quién lo opera
+  stack: Con qué
+  horas: Horas
+  licencia: Licencia
+  financiamiento: Financiamiento
+  hay_plata: Hay plata
+  etapa: Etapa
+  de_cinco: "de cinco, según la"
+  registro: registro
+  ver_fichas: Ver todas las fichas
+  postmortem: Leer el postmortem
+  me_anoto: Me anoto a este pedido
+  # jects-log
+  no_hablado: todavía no se habló con ellos
+  postmortem_pub: postmortem publicado
+  etapa_corta: etapa
+  log_pie: cada cierre de etapa es una línea en CAMBIOS.md
+  log_ver: ver todas las fichas →
+  # pedido
+  para_anotarse: Para anotarse
+  pedido_anotarse: 'Para ser fessional hacen falta dos cosas: trabajar hoy en IT para una empresa u organización, y traer una organización socio-ambiental de tu ciudad que ya sepa qué le falta, o anotarte a dos pedidos de /jects. Están explicadas en <a href="/fessionals/">/fessionals</a>, junto con el formulario y el correo del proyecto.'
+  # rfc
+  rfc_estado: Estado
+  rfc_abre: Abre
+  rfc_cierra: Cierra
+  rfc_objeciones: Objeciones
+  rfc_donde: Dónde se discute
+  rfc_donde_txt: En el pull request que la propone, en el repo. Cualquiera puede comentar antes de anotarse.
+en:
+  html_lang: en
+  og_locale: en_US
+  og_alt: "side·pro: side·projects and professionals, with pro in common"
+  nav_label: Sections
+  estado: Current state
+  pie_label: Footer
+  legal: 'Texts licensed CC BY-SA 4.0; site code, MIT. No trackers. Typeface <a href="https://github.com/paper-design/paper-mono" rel="noopener">Paper Mono</a> (OFL). Anything naming people or communities is outside the license and is not published without their review.'
+  idioma_label: Language
+  fecha: "%Y-%m-%d"
+  er_label: Current state
+  er_al: current state as of
+  er_existe: "exists:"
+  er_no_existe: "does not exist yet:"
+  er_alcance: "scope:"
+  er_custodia: "custody:"
+  er_horas: "hours in kind:"
+  er_firma: "signed:"
+  ficha: Request
+  ejemplo: example
+  candidata: candidate
+  chip_ejemplo: "EXAMPLE, unsigned"
+  sin_firma: not signed yet
+  abierta: open
+  en_curso: in progress
+  cerrada: closed
+  quien_pide: Who is asking
+  quien_lo_trajo: Who brought it
+  problema: The problem
+  que_hay: What exists today
+  que_queda: What has to keep running
+  quien_opera: Who operates it
+  stack: Built with
+  horas: Hours
+  licencia: License
+  financiamiento: Funding
+  hay_plata: Is there money
+  etapa: Stage
+  de_cinco: "of five, per"
+  registro: log
+  ver_fichas: See all requests
+  postmortem: Read the postmortem
+  me_anoto: Sign up for this request
+  no_hablado: not talked to yet
+  postmortem_pub: postmortem published
+  etapa_corta: stage
+  log_pie: every stage closed is a line in CAMBIOS.md
+  log_ver: see all requests →
+  para_anotarse: To sign up
+  pedido_anotarse: 'Two things make you a fessional: working in IT today for a company or organization, and bringing a socio-environmental organization from your city that already knows what it needs, or signing up for two requests in /jects. Both are explained in <a href="/en/fessionals/">/fessionals</a>, along with the form and the project email.'
+  rfc_estado: Status
+  rfc_abre: Opened
+  rfc_cierra: Closes
+  rfc_objeciones: Objections
+  rfc_donde: Where it is discussed
+  rfc_donde_txt: In the pull request that proposes it, in the repo. Anyone can comment before signing up.

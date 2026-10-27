@@ -31,6 +31,10 @@ _data/no.yml           "Lo que no vas a encontrar acá"
 _pedidos/              una ficha por pedido → /jects/<id>/
 _rfc/                  una carilla por regla → /rfc/<id>/
 cruzar/                /cruzar/: cruza códigos de franjas libres en el navegador, sin guardar nada
+en/                    el sitio en inglés, con las mismas rutas bajo /en/
+_pedidos_en/ _rfc_en/  fichas y RFC en inglés (cada una es el par de su original)
+_data/en/              estado, pasos, FAQ y "lo que no" en inglés
+_data/ui.yml           textos de la interfaz en los dos idiomas
 _layouts/ _includes/   plantillas
 assets/css/sidepro.css dirección "Papel": tokens de color y tipografía al principio del archivo
 assets/fonts/          Paper Mono y su licencia
@@ -54,3 +58,7 @@ Está en el pie de todas las páginas y en `/estado/`. Si tiene más de treinta 
 3. Reemplazar los marcadores: `[tu nombre]`, `[correo del proyecto]` y `[N]` en `_config.yml`, `_data/estado.yml` y `_pedidos/`.
 4. Dominio: `sidepro.org` está registrado en Namecheap; el DNS vive en la cuenta de Cloudflare de sidepro (nameservers cambiados en Namecheap). Registros para GitHub Pages: cuatro `A` en `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) y `CNAME www → sideproorg.github.io`, todos sin proxy (nube gris). El archivo `CNAME` del repo (contiene `sidepro.org`) le dice a GitHub el dominio; con él presente, GitHub redirige `sideproorg.github.io` al dominio, así que solo tiene que existir cuando el DNS esté activo. En GitHub, *Settings → Pages* muestra el dominio y, cuando el certificado esté emitido (minutos a una hora), se marca *Enforce HTTPS*.
 5. Espejo: crear `sideproorg/sideproorg.github.io` en Codeberg y configurar el push automático (Codeberg → *Settings → Mirror*, o una Action con un token guardado como secreto). Anotar en `MANTENIMIENTO.md`.
+
+## Dos idiomas
+
+El sitio está en español en la raíz y en inglés bajo `/en/`, con las mismas rutas; el botón `es | en` de la cabecera lleva a la misma página en el otro idioma. Cada cambio de contenido se hace en los dos: la ficha en `_pedidos/` y su par en `_pedidos_en/`, la RFC en `_rfc/` y en `_rfc_en/`, los datos en `_data/` y en `_data/en/`. Los textos de botones, etiquetas y pie están en `_data/ui.yml`. Las plantillas de `plantillas/` siguen en español.

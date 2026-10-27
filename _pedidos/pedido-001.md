@@ -39,5 +39,5 @@ Cómo es una edición hoy, de punta a punta. Cada paso es un formulario del equi
 9. **Liquidación.** Cuánto le corresponde a cada productor, con aviso.
 10. **Copia de respaldo.** Una copia de la planilla antes de cada edición, y un reloj que limpia las viejas.
 
-Lo que falta para el traspaso: nombrar suplente, `MANTENIMIENTO.md` (qué corre dónde, cuánto cuesta por mes, quién tiene cada clave, cómo se apaga), exportación a CSV probada, una restauración de la copia hecha por quien opera, y `SALIDA.md` con quién paga el año 2. El registro de avances pasa a `CAMBIOS.md` del repo del nodo.
+Lo que falta para el traspaso: `MANTENIMIENTO.md` (qué corre dónde, cuánto cuesta por mes, quién tiene cada clave, cómo se apaga), exportación a CSV probada, una restauración de la copia hecha por quien opera, y `SALIDA.md` con quién paga el año 2. El registro de avances pasa a `CAMBIOS.md` del repo del nodo.
 

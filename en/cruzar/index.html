@@ -1,0 +1,47 @@
+---
+title: "Cross-check slots"
+lang: en
+description: "Paste each person's time-slot code and see when they overlap. Nothing leaves your browser."
+---
+<section>
+  <p class="eyebrow">/cruzar</p>
+  <h1>When the time slots overlap.</h1>
+  <p class="lead">Each sign-up arrives in the inbox with a time-slot code, for example <code>lu-n,mi-t,sa-m</code>. Paste one code per line here, with a name or alias in front, and see which slots everyone shares. Nothing is stored or sent: your browser does the math. Then one person proposes a day and time in the issue of the project's repo, with their name.</p>
+</section>
+<section>
+  <div class="field">
+    <label for="codigos">One code per line</label>
+    <textarea id="codigos" rows="5" placeholder="ana: lu-n,mi-t,sa-m&#10;operator: mi-t,ju-t,sa-m&#10;second: lu-n,sa-m"></textarea>
+    <span class="hint">Format: <code>name: day-slot,day-slot</code>. Days (codes in Spanish): lu Mon, ma Tue, mi Wed, ju Thu, vi Fri, sa Sat, do Sun. Slots: m (morning), t (afternoon), n (evening).</span>
+  </div>
+  <div style="margin-top:12px"><button type="button" class="btn" id="cruzar-btn">Cross-check</button></div>
+  <div id="resultado" style="margin-top:18px" hidden>
+    <h2>Result</h2>
+    <div class="grilla cruce" id="cruce"></div>
+    <p class="hint" id="cruce-texto"></p>
+  </div>
+</section>
+<script>
+(function () {
+  var dias = ['lu','ma','mi','ju','vi','sa','do'], franjas = ['m','t','n'], nombres = { m: 'morning', t: 'afternoon', n: 'evening' };
+  var dn = { lu: 'Monday', ma: 'Tuesday', mi: 'Wednesday', ju: 'Thursday', vi: 'Friday', sa: 'Saturday', do: 'Sunday' };
+  document.getElementById('cruzar-btn').addEventListener('click', function () {
+    var lineas = document.getElementById('codigos').value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+    var personas = lineas.map(function (l) { var i = l.indexOf(':'); var nombre = i >= 0 ? l.slice(0, i).trim() : 'someone'; var cod = (i >= 0 ? l.slice(i + 1) : l).toLowerCase().replace(/\s+/g, ''); return { nombre: nombre, set: cod.split(',').filter(Boolean) }; });
+    var total = personas.length, cuenta = {};
+    personas.forEach(function (p) { p.set.forEach(function (f) { cuenta[f] = (cuenta[f] || 0) + 1; }); });
+    var g = document.getElementById('cruce'); g.innerHTML = '';
+    var cab = ['', 'morning', 'afternoon', 'evening']; cab.forEach(function (c) { var s = document.createElement('span'); s.className = 'gh'; s.textContent = c; g.appendChild(s); });
+    var comunes = [];
+    dias.forEach(function (d) {
+      var sd = document.createElement('span'); sd.className = 'gd'; sd.textContent = dn[d].slice(0, 3); g.appendChild(sd);
+      franjas.forEach(function (f) {
+        var k = d + '-' + f, n = cuenta[k] || 0; var s = document.createElement('span'); s.className = 'celda' + (total && n === total ? ' todos' : (n ? ' algunos' : '')); s.textContent = total ? (n + '/' + total) : ''; g.appendChild(s);
+        if (total && n === total) comunes.push(dn[d] + ' ' + nombres[f]);
+      });
+    });
+    document.getElementById('cruce-texto').textContent = total ? (comunes.length ? 'Everyone overlaps on: ' + comunes.join(', ') + '. One person proposes a day and time in the issue, with their name.' : 'There is no slot everyone shares. The cells with the most people are the best place to start; someone proposes and it gets negotiated.') : 'Paste at least one code.';
+    document.getElementById('resultado').hidden = false;
+  });
+})();
+</script>

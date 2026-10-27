@@ -53,6 +53,11 @@ b, strong { font-weight: 600; }
 @media (prefers-reduced-motion: reduce) { .mark .cur { animation: none; opacity: .35; } }
 .cabecera nav { display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: 13px; }
 .cabecera nav a { text-decoration: none; color: var(--muted); }
+.cabecera .idioma { display: inline-flex; gap: 0; border: 1px solid var(--line); margin-left: 4px; }
+.cabecera .idioma a { padding: 0 6px; color: var(--muted); }
+.cabecera .idioma a + a { border-left: 1px solid var(--line); }
+.cabecera .idioma a[aria-current="true"] { background: var(--fg); color: var(--bg); }
+.cabecera .idioma a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .cabecera nav a[aria-current] { color: var(--fg); border-bottom: 2px solid var(--accent); }
 .cabecera nav a:hover { color: var(--fg); }
 

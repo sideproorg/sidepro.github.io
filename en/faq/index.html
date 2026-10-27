@@ -1,0 +1,18 @@
+---
+title: "FAQ"
+lang: en
+description: "The awkward stuff, before you ask: contract, license, hours, data, what we don't build."
+---
+<section>
+  <p class="eyebrow">FAQ</p>
+  <h1>The awkward stuff, before you ask.</h1>
+  <div class="faq">
+    {% for item in site.data.en.faq %}
+    <details>
+      <summary>{{ item.q }}</summary>
+      <p>{{ item.a }}</p>
+    </details>
+    {% endfor %}
+  </div>
+  <p class="muted">The most repeated question in the inbox goes in here, with a PR.</p>
+</section>

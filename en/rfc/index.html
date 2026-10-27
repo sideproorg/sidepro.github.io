@@ -1,0 +1,30 @@
+---
+title: "RFC"
+lang: en
+description: "sidepro's rules, one page each, with who objected and how it was settled."
+---
+{% assign rfcs = site.rfc_en | sort: "numero" %}
+<section>
+  <p class="eyebrow">RFC</p>
+  <h1>The rules are written in public.</h1>
+  <p class="lead">Each rule is a one-page RFC: what is proposed, who objected, how it was settled. They are discussed in the pull request that proposes them and can be commented on before signing up. The open ones are the decisions still missing.</p>
+</section>
+<section>
+  <table class="tabla">
+    <thead><tr><th>RFC</th><th>Title</th><th>Status</th><th>Opened</th></tr></thead>
+    <tbody>
+    {% for r in rfcs %}
+      <tr>
+        <td><a href="{{ r.url | relative_url }}">RFC-{{ r.numero }}</a></td>
+        <td>{{ r.titulo }}</td>
+        <td>{{ r.estado }}</td>
+        <td>{{ r.abre | date: "%Y-%m-%d" }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+<section class="tintbox">
+  <p class="eyebrow">To propose one</p>
+  <p>Copy <code>_rfc/rfc-002.md</code> (and its pair in <code>_rfc_en/</code>), number it, write it in one page and open a PR. The PR is the discussion; when it closes, the RFC says how it was settled and who objected.</p>
+</section>

@@ -1,0 +1,31 @@
+# Honest questions. Pair of _data/faq.yml: change both together.
+- q: What about my contract with my employer?
+  a: "Many contracts with foreign companies assign the intellectual property of what you make, and some forbid contributing to code under certain licenses. Before you start there is a one-page letter, in Spanish and English, for you to present at your company. It is input, not a safe-conduct; if your company has its own form for outside projects, use it."
+- q: What license does the code I write have?
+  a: "We don't know yet. Each project picks it from a short list of open licenses, and it is written in the request before you sign up. The general rule is discussed in public, in RFC-002."
+- q: How many hours, really?
+  a: "At least 4 a week for 12 weeks, by milestones, not by cadence; you set the ceiling. About 50 useful hours in total. If you can't one week, you say so and nothing happens."
+- q: Do I have to bring a project?
+  a: "There are two ways in. You bring one: a socio-environmental organization from your city or area, wherever you live, that already exists and already knows what it needs, with someone who will operate it and is willing to sign the one-page request; what's missing is for them to say, not you. Or you sign up for two of the requests already in /jects: you come in as the second on those requests, you don't open new ones, and you start by video call, with the recording of session 0 and the agreement signed before touching any data. Unsigned requests can be chosen now, but they start when the project signs."
+- q: What do I send if I bring a project?
+  a: "One line saying what it is and where, and if you like, a file up to 10 MB: an audio of you telling what gets lost today, a photo of the notebook, a PDF. One named person listens to it or looks at it, it goes through no AI, it is turned into the request and deleted when the request is signed or after 30 days, with a record. No names, voices or faces of other people: if the operator speaks in the audio, they must know and agree."
+- q: What if I don't know any project?
+  a: "Ask around your block who keeps the books for the club, the soup kitchen, the market, the cooperative, the library. It is almost always a notebook or a WhatsApp group where things get lost. If none shows up, it's not the time yet; without a project there is no session 0."
+- q: What if I'm not working for a company right now?
+  a: "Then this isn't for you yet. sidepro is a side project next to a job that pays, not unpaid work. When you have one again, the door is still open. Your employer's name is never asked for or published."
+- q: What happens if I leave?
+  a: "You leave with no penalty. What you delivered stays under an open license with a documented handover. The only thing asked is that you say so and don't vanish without a word."
+- q: Who owns the code?
+  a: "The project, from the first commit; its account is the canonical one. sidepro keeps a public fork with the history intact, so your work and your name survive if the project deletes its repo. No one's data, screenshots or credentials."
+- q: Is it paid?
+  a: "It may be or it may not: it depends on each project, its funds, whether it wants or is able to pay, or whether it gets funding. By default these are spare hours. If there is pay, it is written in the request before starting: for which milestone and in what form, with an invoice or in kind with its value in pesos. No agreement sets a precedent for another. You can say no and the request goes on the same. sidepro doesn't charge, pay or intermediate. Check your contract first."
+- q: How does a request start, and how many meetings does it have?
+  a: "Six hours in twelve weeks: a short call between the two fessionals to split roles, a two-hour in-person session 0 with the operator (whoever brought the project attends; whoever signed up for two requests listens to the recording and starts by video call), five fifteen-minute check-ins every two weeks, and a one-hour handover. No system sets the dates: in the form you mark your free slots, whoever convenes cross-checks them in /cruzar/ in their browser, storing nothing, and proposes a day and time in the repo's issue, with their name. The five stages (request, paper, real data, solo, handover), the roles and what gets logged where are in RFC-001, which is open for comments."
+- q: What won't we build?
+  a: "Mobile apps, AI models, integrations with banks or the tax agency, logins for fifty users, real-time dashboards. Yes to forms, spreadsheets with validation, simple databases and exports; whatever someone from the project can operate and change without you."
+- q: What if the project doesn't respond?
+  a: "If the operator doesn't show up, the request is paused after ten days and renegotiated after thirty; never 'the pair runs it in the meantime'. If someone leaves you hanging, we say so in the postmortem, which is published anyway."
+- q: What happens to my data if I write?
+  a: "Today the form is closed, because storing name and contact requires a controller with a name and a registered address (Argentina's data protection law, 25.326), and there isn't one yet. If you write to the project email, a named person reads it, it is not shared with anyone, and it is deleted when you ask. When the form opens, the notice will say who stores it, what for, until when and how it is deleted."
+- q: Where is the work recorded?
+  a: "In the project's repo, in text files: one line per step forward in CAMBIOS.md, and the commit that brings it says who, when and what. The main branch is protected and everything comes in by PR, so nobody writes over what they haven't read; mistakes are reverted, not deleted. Each fessional works from their fork, with their name in the history, and takes it with them when they leave. They are files: they get cloned and moved with a git push. How to set it up, step by step, in plantillas/REPO.md."
