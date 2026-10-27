@@ -67,6 +67,8 @@ h3 a { text-decoration: none; }
 p { margin: 0; }
 p + p, p + ul, p + ol, ul + p, ol + p, p + .doors, p + .people, p + form, p + table { margin-top: 12px; }
 .lead { font-size: 15px; line-height: 1.6; max-width: 62ch; }
+.lead a.ruta { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--line); }
+.lead a.ruta:hover, .lead a.ruta:focus-visible { border-bottom-color: var(--accent); }
 .lead.grande { font-size: 17px; line-height: 1.55; max-width: 58ch; text-wrap: pretty; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .muted { color: var(--muted); }
