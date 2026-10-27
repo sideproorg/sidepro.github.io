@@ -11,16 +11,16 @@ ciudad: Unquillo, Córdoba   # no se publica hasta que la ficha esté firmada (f
 orden: 1
 actualizado: "2026-10-27"
 etapa_n: 4   # 0 candidata, 1 pedido, 2 papel, 3 datos reales, 4 sola, 5 traspaso
-quien_pide: Un nodo de productores y consumidores agroecológicos. La localidad y el nombre se publican cuando firme su pedido.
-quien_lo_trajo: "Un fessional que lo viene construyendo desde antes de que existiera sidepro. Su nombre lo ven quienes ya están anotados."
+quien_pide: Un nodo de productores y consumidores agroecológicos.
+quien_lo_trajo: "Un fessional que lo viene construyendo desde antes de que existiera sidepro."
 problema: "Cada quincena, decenas de familias le piden a una red de productores de Córdoba y de otras provincias; detrás, el equipo cargaba productos, armaba el formulario, juntaba pedidos, mandaba comandas, recibía en el galpón, ajustaba faltantes, entregaba y liquidaba a mano, entre planillas y WhatsApp, y cada edición dependía de las mismas dos o tres personas."
 que_hay: "Antes: un formulario de Google para tomar pedidos y todo lo demás a mano, entre WhatsApp, Gmail y carga en planillas. Hoy, en transición: formularios propios en HTML y JavaScript sin frameworks, servidos por GitHub Pages; una planilla de Google con más de treinta hojas (productores, productos, consumidores, ediciones, pedidos, ítems, comandas, recepciones, ajustes, liquidación, sobrantes, stock, pagos, registro de cambios); una veintena de escenarios de Make que se disparan por webhook; correo y un grupo de WhatsApp para avisar. El formulario de Google sigue en uso mientras el sistema nuevo se consolida."
 que_queda: "Que el equipo del nodo abra y cierre una edición completa, de la carga de productos a la liquidación, sin quien lo trajo en el medio; con exportación a CSV y copia de respaldo restaurada al menos una vez, y una hoja de mantenimiento que diga qué corre dónde, cuánto cuesta por mes, quién tiene cada clave y cómo se apaga."
-quien_opera: "Una persona del equipo del nodo, que ya corre ediciones sola. Suplente: cualquier otra persona del equipo; el sistema es simple y se guía solo. Los nombres los ven quienes ya están anotados."
+quien_opera: "Una persona del equipo del nodo, que ya corre ediciones sola. Suplente: cualquier otra persona del equipo; el sistema es simple y se guía solo."
 horas: "4 por semana, 12 semanas, en dupla. Ya estaba en curso cuando nació sidepro; entró al método en la etapa 4."
 licencia: "El código de los formularios ya es MIT, elegido por el nodo. La planilla y los escenarios se documentan en el repo del nodo."
 hay_plata: No. Está escrito dónde va cada peso cuando lo haya.
-financiamiento: "Sí, en especie. Se acordó un valor en pesos por hora según las posibilidades reales del nodo, y se pagó en alimentos agroecológicos que gestiona el nodo. Sin factura, porque fue un intercambio. Hito: el sistema lanzado y usado en una edición entera, reemplazando al anterior. No es un precedente: es un tipo de acuerdo posible. El monto lo ven quienes ya están anotados."
+financiamiento: "Sí, en especie. Se acordó un valor en pesos por hora según las posibilidades reales del nodo, y se pagó en alimentos agroecológicos que gestiona el nodo. Sin factura, porque fue un intercambio. Hito: el sistema lanzado y usado en una edición entera, reemplazando al anterior. No es un precedente: es un tipo de acuerdo posible."
 etapa: "4 Sola"
 cierre: "El primer pedido real del sitio. Ya corre ediciones con quien opera sola; falta escribir el traspaso."
 stack: "Formularios HTML y JS sin frameworks en GitHub Pages · Google Sheets como base · Make (escenarios por webhook, plan pago) · Google Drive para copias · correo y WhatsApp para avisos. El nodo paga Make y sus cuentas. Plan de transición: Google Forms convive hasta que el sistema nuevo se consolide; después, la base pasa de Google Sheets a Supabase o similar. El plan B, si Make cambia de precio, va en MANTENIMIENTO.md."
@@ -41,4 +41,3 @@ Cómo es una edición hoy, de punta a punta. Cada paso es un formulario del equi
 
 Lo que falta para el traspaso: nombrar suplente, `MANTENIMIENTO.md` (qué corre dónde, cuánto cuesta por mes, quién tiene cada clave, cómo se apaga), exportación a CSV probada, una restauración de la copia hecha por quien opera, y `SALIDA.md` con quién paga el año 2. El registro de avances pasa a `CAMBIOS.md` del repo del nodo.
 
-Cuando el nodo firme, acá va su nombre, su localidad, el link a su repo y, al final, el postmortem firmado por quien opera.

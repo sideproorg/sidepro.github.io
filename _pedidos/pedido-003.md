@@ -7,7 +7,7 @@ ciudad: Unquillo, Córdoba   # no se publica hasta que la ficha esté firmada (f
 orden: 3
 actualizado: "2026-10-26"   # última actualización de la ficha; se cambia con cada PR
 etapa_n: 0   # 0 candidata, 1 pedido, 2 papel, 3 datos reales, 4 sola, 5 traspaso
-quien_pide: Una escuela de fútbol popular con merendero. La localidad y el nombre se publican cuando firme su pedido.
+quien_pide: Una escuela de fútbol popular con merendero.
 quien_lo_trajo: "[tu nombre], que los conoce. Todavía no hablaron del sistema: esta ficha es una candidata, no un pedido."
 problema: "[Lo dice el proyecto cuando se hable con ellos; no se escribe por ellos.]"
 que_hay: "[Lo dice el proyecto.]"
