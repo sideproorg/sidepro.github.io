@@ -50,8 +50,8 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
 <section id="lista">
   <h2>Anotarse</h2>
   {% if site.formulario_abierto %}
-  <p class="muted">Un formulario corto. Te escribe {{ site.firma }}, con nombre. Hoy no hay plazo prometido, porque todavía no hay quien atienda además de esa persona. No se promete nada más que eso.</p>
-  <form id="form-anotarse" method="post" action="{{ site.worker_url }}" enctype="multipart/form-data">
+  <p class="muted">Un formulario corto. Al enviarlo se abre tu programa de correo con todo armado para <code>{{ site.correo_proyecto }}</code>; lo mandas tú. Te escribe {{ site.firma }}, con nombre, sin plazo prometido.</p>
+  <form id="form-anotarse" method="post" action="mailto:{{ site.correo_proyecto }}" enctype="text/plain">
     <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
     <input type="hidden" name="t" value="" id="f-t">
     <input type="hidden" name="disp" value="" id="f-disp">
@@ -69,14 +69,12 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
       <div class="field">
         <label for="f-proyecto">Etapa 0: la organización y la necesidad, como las ves hoy</label>
         <textarea id="f-proyecto" name="proyecto" rows="4" maxlength="800" placeholder="Qué es la organización, qué hace y en qué localidad. Qué se pierde o cuesta hoy y cómo lo hacen. Lo que crees y todavía no confirmaste con ellos."></textarea>
-        <span class="hint">Sin nombres de personas. Si ya tiene ficha, el link basta.</span>
+        <span class="hint">Sin nombres de personas. Si ya tiene ficha, basta con el enlace.</span>
       </div>
       <div class="field">
-        <label for="f-archivo">Cuéntalo como puedas: un audio, una foto del cuaderno o del papel, un PDF (opcional)</label>
-        <input id="f-archivo" name="archivo" type="file" accept="audio/*,image/*,application/pdf">
-        <span class="hint">Un archivo, hasta {{ site.archivo_mb }} MB. Lo escucha o lo mira una sola persona, con nombre; no pasa por ninguna IA ni se reenvía. Se vuelca a la ficha y se borra al firmarla o a los 30 días, con constancia. Nunca va al repo.</span>
+        <p class="hint" id="f-archivo-nota"><b>¿Tienes un audio, una foto del cuaderno o del papel, o un PDF?</b> Adjúntalo al correo que se abre al enviar, hasta {{ site.archivo_mb }} MB. Lo escucha o lo mira una sola persona, con nombre; no pasa por ninguna IA ni se reenvía. Se vuelca a la ficha y se borra al firmarla o a los 30 días, con constancia. Nunca va al repo.</p>
       </div>
-      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> Lo grabé o lo escribí yo, o quien opera lo autoriza. No hay nombres, voces ni caras de otras personas.</label>
+      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> Si adjunto algo: lo grabé o lo escribí yo, o quien opera lo autoriza. No hay nombres, voces ni caras de otras personas.</label>
       <fieldset>
         <legend>¿Hablaste con quien lo operaría?</legend>
         <div class="radios">
@@ -152,12 +150,17 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
     <p class="hint">Esa casilla y lo de tu contrato con tu empleador no viajan: el navegador las exige, pero no se envían ni se guardan. Lo del contrato se habla en el uno a uno.</p>
     <fieldset>
       <legend>Qué pasa con estos datos</legend>
-      <p class="hint">Responsable: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. Guardo nombre, contacto, tus franjas y el proyecto que traes (o los pedidos que elegiste) para conectarte con un pedido. Pasan por {{ site.herramienta_datos }}; no se ceden a nadie. Si en 90 días no arrancó ningún pedido contigo, se borran y se deja constancia; el archivo, al firmar la ficha o a los 30 días. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
+      <p class="hint">Responsable: {{ site.responsable_datos }}. Al tocar "Quiero anotarme" se abre tu programa de correo con este formulario armado, y lo envías tú a <code>{{ site.correo_proyecto }}</code>: no pasa por ningún servidor de sidepro ni queda guardado en la web. Lo lee una persona con nombre en {{ site.herramienta_datos }}, para conectarte con un pedido; no se cede a nadie. Si en 90 días no arrancó ningún pedido contigo, se borra y se deja constancia; un archivo adjunto, al firmar la ficha o a los 30 días. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
       <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> Leí esto y estoy de acuerdo.</label>
     </fieldset>
     <p class="hint" id="f-error" hidden></p>
     <div><button type="submit" class="btn">Quiero anotarme</button></div>
   </form>
+  <div class="tintbox" id="f-listo" hidden>
+    <p><strong>Se abrió tu programa de correo.</strong> Revisa el correo, adjunta el archivo si tienes uno, y envíalo. Si no se abrió nada, copia este texto y mándalo a <code>{{ site.correo_proyecto }}</code> con el asunto que figura arriba.</p>
+    <textarea id="f-texto" rows="10" readonly></textarea>
+    <div style="margin-top:8px"><button type="button" class="btn ghost" id="f-copiar">Copiar el texto</button> <span class="hint" id="f-copiado" hidden>Copiado.</span></div>
+  </div>
   <script>
   (function () {
     document.getElementById('f-t').value = String(Date.now());
@@ -175,15 +178,48 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
       if (via() === 'a') {
         var pr = document.getElementById('f-proyecto').value.trim();
         if (!pr) { ev.preventDefault(); return fallo('Falta describir la organización y la necesidad.'); }
-        var f = document.getElementById('f-archivo').files[0];
-        if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('El archivo pesa más de {{ site.archivo_mb }} MB. Manda uno más pequeño o cuéntalo en el campo de texto; el audio puede ir después por WhatsApp.'); }
-        if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('Si mandas un archivo, marca que lo grabaste o escribiste tú, o que quien opera lo autoriza.'); }
         form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
       } else {
         var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
         if (n !== 2) { ev.preventDefault(); return fallo('Elige exactamente dos pedidos.'); }
-        document.getElementById('f-proyecto').value = ''; document.getElementById('f-archivo').value = '';
+        document.getElementById('f-proyecto').value = '';
       }
+      ev.preventDefault();
+      var S = {"titulo": "Anotación en sidepro.org/fessionals", "asunto_a": "Etapa 0 · ", "asunto_b": "Me anoto · ", "como": "Cómo entra", "va": "trae un proyecto (etapa 0)", "vb": "se anota a dos pedidos", "pub": "Qué puede figurar en público", "nom": "Nombre o alias", "con": "Cómo escribirle", "sabe": "Qué sabe hacer", "horas": "Horas libres reales por semana", "disp": "Franjas libres (código para /cruzar/)", "nada": "(no marcó)", "desc": "Etapa 0 · la organización y la necesidad, como las ve hoy", "opera": "Habló con quien lo operaría", "arch": "Archivo adjunto", "arch_si": "sí, con autorización (lo grabó o escribió, o quien opera lo autoriza)", "arch_no": "si hay, va adjunto a este correo", "ped": "Pedidos elegidos", "cons": "Consentimiento", "cons_txt": "sí, leyó el aviso de datos versión", "dijo": "(no dijo)"};
+      function marcado(n) { var r = form.querySelector('input[name="' + n + '"]:checked'); return r ? r.closest('label').textContent.trim() : ''; }
+      var sel = document.getElementById('f-horas');
+      var a = via() === 'a';
+      var nombre = document.getElementById('f-nombre').value.trim();
+      var lineas = [S.titulo, '',
+        S.como + ': ' + (a ? S.va : S.vb),
+        S.pub + ': ' + marcado('publico'),
+        S.nom + ': ' + nombre,
+        S.con + ': ' + document.getElementById('f-contacto').value.trim(),
+        S.sabe + ': ' + (document.getElementById('f-sabe').value.trim() || S.dijo),
+        S.horas + ': ' + (sel.value ? sel.options[sel.selectedIndex].text : S.dijo),
+        S.disp + ': ' + (document.getElementById('f-disp').value || S.nada), ''];
+      var asunto;
+      if (a) {
+        var d = document.getElementById('f-proyecto').value.trim();
+        lineas.push(S.desc + ':', d, '', S.opera + ': ' + marcado('opera'), S.arch + ': ' + (document.getElementById('f-autorizo').checked ? S.arch_si : S.arch_no));
+        asunto = S.asunto_a + d.replace(/\s+/g, ' ').slice(0, 60);
+      } else {
+        var ps = []; form.querySelectorAll('input[name="pedidos"]:checked').forEach(function (c) { ps.push(c.value); });
+        lineas.push(S.ped + ': ' + ps.join(', '));
+        asunto = S.asunto_b + ps.join(', ');
+      }
+      lineas.push('', S.cons + ': ' + S.cons_txt + ' {{ site.aviso_version }}');
+      var cuerpo = lineas.join('\n');
+      var para = '{{ site.correo_proyecto }}';
+      document.getElementById('f-texto').value = asunto + '\n\n' + cuerpo;
+      document.getElementById('f-listo').hidden = false;
+      window.location.href = 'mailto:' + para + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
+      document.getElementById('f-listo').scrollIntoView({ block: 'center' });
+    });
+    document.getElementById('f-copiar').addEventListener('click', function () {
+      var t = document.getElementById('f-texto');
+      function ok() { document.getElementById('f-copiado').hidden = false; }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t.value).then(ok, function () { t.select(); }); } else { t.select(); }
     });
   })();
   </script>

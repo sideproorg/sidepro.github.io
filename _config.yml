@@ -11,14 +11,14 @@ firma: "[tu nombre]"
 correo_proyecto: "sidepro.org@gmail.com"
 
 # Formulario de /fessionals. Queda cerrado hasta que exista un responsable de datos con domicilio.
-# Cuando se abra: formulario_abierto: true, y el Worker desplegado en worker_url (ver worker/README.md).
-formulario_abierto: false
+# Abierto desde el 28/10/2026 con envío por el correo de la persona (mailto). El Worker (worker/) queda para más adelante.
+formulario_abierto: true
 archivo_mb: 10 # tamaño máximo del archivo del formulario; tiene que coincidir con MAX_MB en worker/wrangler.toml
 worker_url: "https://anotarse.sidepro.org/anotarse"
-aviso_version: "2026-10-27"
+aviso_version: "2026-10-28"
 responsable_datos: "sidepro, organización descentralizada"
 domicilio_datos: ""
-herramienta_datos: "Cloudflare Workers y Email Routing (Cloudflare, Inc., EE.UU.), que reenvían sin guardar; el buzón del proyecto"
+herramienta_datos: "el buzón del proyecto en Gmail (Google LLC, EE.UU.)"
 
 collections:
   pedidos:

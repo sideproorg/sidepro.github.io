@@ -51,8 +51,8 @@ description: "Who is part of sidepro, what they are on, and what they left runni
 <section id="lista">
   <h2>Sign up</h2>
   {% if site.formulario_abierto %}
-  <p class="muted">A short form. {{ site.firma }} writes back, by name. There is no promised deadline today, because nobody besides that person is answering yet. Nothing more than that is promised.</p>
-  <form id="form-anotarse" method="post" action="{{ site.worker_url }}" enctype="multipart/form-data">
+  <p class="muted">A short form. When you send it, your email program opens with everything ready for <code>{{ site.correo_proyecto }}</code>; you send it yourself. {{ site.firma }} writes back, by name, with no promised deadline.</p>
+  <form id="form-anotarse" method="post" action="mailto:{{ site.correo_proyecto }}" enctype="text/plain">
     <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
     <input type="hidden" name="t" value="" id="f-t">
     <input type="hidden" name="disp" value="" id="f-disp">
@@ -73,11 +73,9 @@ description: "Who is part of sidepro, what they are on, and what they left runni
         <span class="hint">No names of people. If it already has a request page, the link is enough.</span>
       </div>
       <div class="field">
-        <label for="f-archivo">Tell it however you can: an audio, a photo of the notebook or the paper, a PDF (optional)</label>
-        <input id="f-archivo" name="archivo" type="file" accept="audio/*,image/*,application/pdf">
-        <span class="hint">One file, up to {{ site.archivo_mb }} MB. A single named person listens to it or looks at it; it goes through no AI and is not forwarded. It is turned into the request and deleted when the request is signed or after 30 days, with a record. It never goes into the repo.</span>
+        <p class="hint" id="f-archivo-nota"><b>Do you have an audio, a photo of the notebook or the paper, or a PDF?</b> Attach it to the email that opens when you send, up to {{ site.archivo_mb }} MB. A single named person listens to it or looks at it; it goes through no AI and is not forwarded. It is turned into the request and deleted when the request is signed or after 30 days, with a record. It never goes into the repo.</p>
       </div>
-      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> I recorded or wrote it myself, or the operator agrees. There are no names, voices or faces of other people.</label>
+      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> If I attach something: I recorded or wrote it myself, or the operator agrees. There are no names, voices or faces of other people.</label>
       <fieldset>
         <legend>Did you talk to whoever would operate it?</legend>
         <div class="radios">
@@ -153,12 +151,17 @@ description: "Who is part of sidepro, what they are on, and what they left runni
     <p class="hint">That box and anything about your contract with your employer don't travel: the browser requires them, but they are not sent or stored. The contract is talked about one to one.</p>
     <fieldset>
       <legend>What happens to this data</legend>
-      <p class="hint">Controller: {{ site.responsable_datos }}, {{ site.domicilio_datos }}. I store your name, contact, time slots and the project you bring (or the requests you chose) to connect you with a request. They go through Cloudflare Workers and Email Routing (Cloudflare, Inc., USA), which forward without storing, and the project inbox; they are not shared with anyone. If no request has started with you within 90 days, they are deleted and a record is kept; the file, when the request is signed or after 30 days. Access, correction and deletion at no cost: <code>{{ site.correo_proyecto }}</code>, reply within 5 business days. Notice version {{ site.aviso_version }}.</p>
+      <p class="hint">Controller: {{ site.responsable_datos }}. When you tap "Sign me up", your email program opens with this form filled in, and you send it yourself to <code>{{ site.correo_proyecto }}</code>: it goes through no sidepro server and is not stored on the web. A named person reads it in the project inbox on Gmail (Google LLC, USA), to connect you with a request; it is not shared with anyone. If no request has started with you within 90 days, it is deleted and a record is kept; an attached file, when the request is signed or after 30 days. Access, correction and deletion at no cost: <code>{{ site.correo_proyecto }}</code>, reply within 5 business days. Notice version {{ site.aviso_version }}.</p>
       <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> I have read this and I agree.</label>
     </fieldset>
     <p class="hint" id="f-error" hidden></p>
     <div><button type="submit" class="btn">Sign me up</button></div>
   </form>
+  <div class="tintbox" id="f-listo" hidden>
+    <p><strong>Your email program opened.</strong> Check the email, attach the file if you have one, and send it. If nothing opened, copy this text and send it to <code>{{ site.correo_proyecto }}</code> with the subject shown at the top.</p>
+    <textarea id="f-texto" rows="10" readonly></textarea>
+    <div style="margin-top:8px"><button type="button" class="btn ghost" id="f-copiar">Copy the text</button> <span class="hint" id="f-copiado" hidden>Copied.</span></div>
+  </div>
   <script>
   (function () {
     document.getElementById('f-t').value = String(Date.now());
@@ -176,15 +179,48 @@ description: "Who is part of sidepro, what they are on, and what they left runni
       if (via() === 'a') {
         var pr = document.getElementById('f-proyecto').value.trim();
         if (!pr) { ev.preventDefault(); return fallo('Describe the organization and the need.'); }
-        var f = document.getElementById('f-archivo').files[0];
-        if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('The file is larger than {{ site.archivo_mb }} MB. Send a smaller one or tell it in the text field; the audio can come later by WhatsApp.'); }
-        if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('If you send a file, check that you recorded or wrote it yourself, or that the operator agrees.'); }
         form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
       } else {
         var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
         if (n !== 2) { ev.preventDefault(); return fallo('Choose exactly two requests.'); }
-        document.getElementById('f-proyecto').value = ''; document.getElementById('f-archivo').value = '';
+        document.getElementById('f-proyecto').value = '';
       }
+      ev.preventDefault();
+      var S = {"titulo": "Sign-up from sidepro.org/en/fessionals", "asunto_a": "Stage 0 · ", "asunto_b": "Sign up · ", "como": "How they come in", "va": "brings a project (stage 0)", "vb": "signs up for two requests", "pub": "What may appear in public", "nom": "Name or alias", "con": "How to reach them", "sabe": "What they know how to do", "horas": "Real spare hours per week", "disp": "Free slots (code for /cruzar/)", "nada": "(none marked)", "desc": "Stage 0 · the organization and the need, as they see it today", "opera": "Talked to whoever would operate it", "arch": "Attached file", "arch_si": "yes, with permission (recorded or written by them, or the operator agrees)", "arch_no": "if any, it is attached to this email", "ped": "Requests chosen", "cons": "Consent", "cons_txt": "yes, read the data notice version", "dijo": "(not given)"};
+      function marcado(n) { var r = form.querySelector('input[name="' + n + '"]:checked'); return r ? r.closest('label').textContent.trim() : ''; }
+      var sel = document.getElementById('f-horas');
+      var a = via() === 'a';
+      var nombre = document.getElementById('f-nombre').value.trim();
+      var lineas = [S.titulo, '',
+        S.como + ': ' + (a ? S.va : S.vb),
+        S.pub + ': ' + marcado('publico'),
+        S.nom + ': ' + nombre,
+        S.con + ': ' + document.getElementById('f-contacto').value.trim(),
+        S.sabe + ': ' + (document.getElementById('f-sabe').value.trim() || S.dijo),
+        S.horas + ': ' + (sel.value ? sel.options[sel.selectedIndex].text : S.dijo),
+        S.disp + ': ' + (document.getElementById('f-disp').value || S.nada), ''];
+      var asunto;
+      if (a) {
+        var d = document.getElementById('f-proyecto').value.trim();
+        lineas.push(S.desc + ':', d, '', S.opera + ': ' + marcado('opera'), S.arch + ': ' + (document.getElementById('f-autorizo').checked ? S.arch_si : S.arch_no));
+        asunto = S.asunto_a + d.replace(/\s+/g, ' ').slice(0, 60);
+      } else {
+        var ps = []; form.querySelectorAll('input[name="pedidos"]:checked').forEach(function (c) { ps.push(c.value); });
+        lineas.push(S.ped + ': ' + ps.join(', '));
+        asunto = S.asunto_b + ps.join(', ');
+      }
+      lineas.push('', S.cons + ': ' + S.cons_txt + ' {{ site.aviso_version }}');
+      var cuerpo = lineas.join('\n');
+      var para = '{{ site.correo_proyecto }}';
+      document.getElementById('f-texto').value = asunto + '\n\n' + cuerpo;
+      document.getElementById('f-listo').hidden = false;
+      window.location.href = 'mailto:' + para + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
+      document.getElementById('f-listo').scrollIntoView({ block: 'center' });
+    });
+    document.getElementById('f-copiar').addEventListener('click', function () {
+      var t = document.getElementById('f-texto');
+      function ok() { document.getElementById('f-copiado').hidden = false; }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t.value).then(ok, function () { t.select(); }); } else { t.select(); }
     });
   })();
   </script>

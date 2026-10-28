@@ -1,8 +1,8 @@
 # Current state, in English. Pair of _data/estado.yml: change both together.
-fecha: "2026-10-27"
+fecha: "2026-10-28"
 existe: "this site, the repo, three unsigned requests (one in progress, one open, one candidate; brought by a fessional from the core), one person with capped hours."
-no_existe: "legal entity, fees, a finished request, a defined license for the code (RFC-002, open), a data controller with a registered address."
+no_existe: "legal entity, fees, a finished request, a defined license for the code (RFC-002, open), a postal address for the data controller."
 alcance: "Argentina. Today's three requests are in Córdoba. If you live in another city you can still join: bring a project from where you live, or sign up for two requests."
-custodia: "one person; the second one is sought in month 1. Until there is a data controller, the form stays closed."
+custodia: "one person; the second one is sought in month 1."
 horas_en_especie: "[N] per week from [your name]."
 firma: "[your name]"
