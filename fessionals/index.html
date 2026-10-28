@@ -51,7 +51,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
   <h2>Anotarse</h2>
   {% if site.formulario_abierto %}
   <p class="muted">Un formulario corto. Al enviarlo se abre tu programa de correo con todo armado para <code>{{ site.correo_proyecto }}</code>; lo mandas tú. Te escribe {{ site.firma }}, con nombre, sin plazo prometido.</p>
-  <form id="form-anotarse" method="post" action="mailto:{{ site.correo_proyecto }}" enctype="text/plain">
+  <form id="form-anotarse" action="#" novalidate>
     <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
     <input type="hidden" name="t" value="" id="f-t">
     <input type="hidden" name="disp" value="" id="f-disp">
@@ -209,9 +209,14 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
     function mostrar() { var a = via() === 'a'; va.hidden = !a; vb.hidden = a; }
     form.querySelectorAll('input[name="via"]').forEach(function (r) { r.addEventListener('change', mostrar); });
     mostrar();
+    var MSG = { req: 'Faltan tu nombre o alias y cómo te escribimos.', cas: 'Marca las dos casillas: que trabajas hoy en IT y que leíste el aviso de datos.' };
     function fallo(m) { err.textContent = m; err.hidden = false; err.scrollIntoView({ block: 'center' }); }
     form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
       err.hidden = true;
+      var req = ['f-nombre', 'f-contacto'].filter(function (id) { return !document.getElementById(id).value.trim(); });
+      if (req.length) { document.getElementById(req[0]).focus(); return fallo(MSG.req); }
+      if (!document.getElementById('f-trabajo').checked || !document.getElementById('f-ok').checked) return fallo(MSG.cas);
       var disp = []; form.querySelectorAll('#grilla input:checked').forEach(function (c) { disp.push(c.dataset.f); });
       document.getElementById('f-disp').value = disp.join(',');
       if (via() === 'a') {
@@ -253,10 +258,22 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
       lineas.push('', S.cons + ': ' + S.cons_txt + ' {{ site.aviso_version }}');
       var cuerpo = lineas.join('\n');
       var para = '{{ site.correo_proyecto }}';
-      document.getElementById('f-texto').value = asunto + '\n\n' + cuerpo;
-      document.getElementById('f-listo').hidden = false;
+      function respaldo(aviso) {
+        document.getElementById('f-texto').value = asunto + '\n\n' + cuerpo;
+        document.getElementById('f-listo').hidden = false;
+        if (aviso) fallo(aviso);
+        document.getElementById('f-listo').scrollIntoView({ block: 'center' });
+      }
+      {% if site.worker_activo %}
+      var boton = form.querySelector('button[type="submit"]'); boton.disabled = true;
+      fetch('{{ site.worker_url }}', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ asunto: asunto, cuerpo: cuerpo, contacto: document.getElementById('f-contacto').value.trim(), consentimiento: document.getElementById('f-ok').checked ? 'si' : '', aviso_version: '{{ site.aviso_version }}', t: document.getElementById('f-t').value, sitio_web: form.querySelector('input[name="sitio_web"]').value }) })
+        .then(function (r) { return r.json(); })
+        .then(function (j) { if (j.ok) { window.location.href = '{{ "/gracias/" | relative_url }}'; } else { boton.disabled = false; respaldo('No se pudo enviar. Copia el texto de abajo y mándalo por correo.'); } })
+        .catch(function () { boton.disabled = false; respaldo('No se pudo enviar. Copia el texto de abajo y mándalo por correo.'); });
+      {% else %}
+      respaldo();
       window.location.href = 'mailto:' + para + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
-      document.getElementById('f-listo').scrollIntoView({ block: 'center' });
+      {% endif %}
     });
     document.getElementById('f-copiar').addEventListener('click', function () {
       var t = document.getElementById('f-texto');
