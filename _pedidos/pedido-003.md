@@ -8,7 +8,7 @@ orden: 3
 actualizado: "2026-10-26"   # última actualización de la ficha; se cambia con cada PR
 etapa_n: 0   # 0 descripción, 1 relevamiento, 2 papel, 3 datos reales, 4 sola, 5 traspaso
 quien_pide: Una escuela de fútbol y merendero popular.
-quien_lo_trajo: "[tu nombre], que los conoce. Todavía no hablaron del sistema: esta ficha es una candidata, no un pedido."
+quien_lo_trajo: "Un fessional del núcleo, que los conoce. Todavía no hablaron del sistema: esta ficha es una candidata, no un pedido."
 problema: "[Lo dice el proyecto cuando se hable con ellos; no se escribe por ellos.]"
 que_hay: "[Lo dice el proyecto.]"
 que_queda: "[Lo dice el proyecto.]"

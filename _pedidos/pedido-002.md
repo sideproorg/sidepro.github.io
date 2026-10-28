@@ -8,7 +8,7 @@ orden: 2
 actualizado: "2026-10-26"   # última actualización de la ficha; se cambia con cada PR
 etapa_n: 1   # 0 descripción, 1 relevamiento, 2 papel, 3 datos reales, 4 sola, 5 traspaso
 quien_pide: Una escuela autogestiva que se financia comprando y vendiendo yerba mate y miel.
-quien_lo_trajo: "[tu nombre]. Ya habló con quien lo operaría y está dispuesto a firmar la ficha."
+quien_lo_trajo: "Un fessional del núcleo. Ya habló con quien lo operaría y está dispuesto a firmar la ficha."
 problema: "[El proyecto completa, en una oración: qué les pasa hoy con las compras, las ventas y el dinero que entra y sale.]"
 que_hay: "[El proyecto completa: dónde anotan hoy las compras, las ventas y lo que se debe.]"
 que_queda: "[El proyecto completa: la única cosa que tiene que quedar funcionando.]"

@@ -8,7 +8,7 @@ orden: 2
 actualizado: "2026-10-26"
 etapa_n: 1
 quien_pide: A self-managed school that funds itself by buying and selling yerba mate and honey.
-quien_lo_trajo: "[your name]. Already talked to whoever would operate it, and they are willing to sign the request."
+quien_lo_trajo: "A fessional from the core. Already talked to whoever would operate it, and they are willing to sign the request."
 problema: "[The project fills this in, in one sentence: what happens to them today with purchases, sales and the money coming in and out.]"
 que_hay: "[The project fills this in: where they record purchases, sales and debts today.]"
 que_queda: "[The project fills this in: the one thing that has to keep running.]"

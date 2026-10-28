@@ -9,7 +9,7 @@ Hoja viva. Si algo aquí no es cierto, es un error y se corrige con un PR. Últi
 | Sitio (Jekyll) | GitHub Pages, repo `sideproorg/sideproorg.github.io`, rama `main` | Organización `sideproorg` en GitHub | 0 | [owner 1], [owner 2: pendiente, mes 1] |
 | Espejo del repo | Codeberg, `sideproorg/sideproorg.github.io` (push automático) | Organización `sidepro` en Codeberg | 0 | los mismos |
 | Copia de resguardo | Software Heritage, "Save code now" con la URL del repo | ninguna | 0 | cualquiera |
-| Dominio `sidepro.org` | Registrado en Namecheap el 27/10/2026 a nombre de [tu nombre] (deuda: nada a nombre personal). A los 60 días se transfiere a Cloudflare Registrar, a la cuenta de sidepro, con acta de custodia | Namecheap, cuenta personal con 2FA y WhoisGuard; vence [fecha] | ~USD 11-15/año | [tu nombre] |
+| Dominio `sidepro.org` | Registrado en Namecheap el 27/10/2026 a nombre de Juan Pablo Moreno (deuda: nada a nombre personal). A los 60 días se transfiere a Cloudflare Registrar, a la cuenta de sidepro, con acta de custodia | Namecheap, cuenta personal con 2FA y WhoisGuard; vence [fecha] | ~USD 11-15/año | Juan Pablo Moreno |
 | Dominio `sideproject.lat` | [registrador], alternativa si el INPI rechaza "sidepro" | la misma | ~USD 15-25/año | los mismos |
 | DNS | Cloudflare (nameservers cambiados en Namecheap) | Cuenta de Cloudflare de sidepro, no personal | 0 | los mismos |
 | Correo del proyecto | Email Routing (Cloudflare) → buzón con contrato de encargado ([proveedor]) | la misma + cuenta del buzón | 0 | los mismos |
@@ -19,7 +19,7 @@ Hoja viva. Si algo aquí no es cierto, es un error y se corrige con un PR. Últi
 ## Claves y recuperación
 
 - 2FA en todas las cuentas. Códigos de recuperación impresos en dos sobres cerrados, uno por custodia. Dónde están: [lugar 1], [lugar 2].
-- Ninguna cuenta a nombre personal. Si hoy alguna lo está, figura aquí como deuda: el registro de `sidepro.org` en Namecheap (a nombre de [tu nombre] hasta la transferencia a Cloudflare Registrar, posible desde el 26/12/2026).
+- Ninguna cuenta a nombre personal. Si hoy alguna lo está, figura aquí como deuda: el registro de `sidepro.org` en Namecheap (a nombre de Juan Pablo Moreno hasta la transferencia a Cloudflare Registrar, posible desde el 26/12/2026).
 - Acta de custodia y de cesión a la futura persona jurídica: `docs/acta-custodia.md` (pendiente).
 
 ## Rutina

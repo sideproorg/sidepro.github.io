@@ -7,7 +7,7 @@ lang: es
 timezone: America/Argentina/Cordoba
 
 # Quién firma y cómo se escribe. Cambiar aquí y aparece en todas las páginas.
-firma: "[tu nombre]"
+firma: "Juan Pablo Moreno"
 correo_proyecto: "sidepro.org@gmail.com"
 
 # Formulario de /fessionals. Queda cerrado hasta que exista un responsable de datos con domicilio.
