@@ -38,7 +38,7 @@ _data/ui.yml           textos de la interfaz en los dos idiomas
 _layouts/ _includes/   plantillas
 assets/css/sidepro.css dirección "Papel": tokens de color y tipografía al principio del archivo
 assets/fonts/          Paper Mono y su licencia
-plantillas/            PEDIDO, SESION0, CAMBIOS, DESPLIEGUE, MANTENIMIENTO, SALIDA y REPO para el repo de cada proyecto
+plantillas/            DESCRIPCION, RELEVAMIENTO, PEDIDO, SESION0, CAMBIOS, DESPLIEGUE, MANTENIMIENTO, SALIDA y REPO para el repo de cada proyecto
 worker/                el Worker del formulario (apagado)
 .github/workflows/     revisión de links rotos en cada PR
 ```

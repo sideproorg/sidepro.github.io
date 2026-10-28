@@ -68,8 +68,8 @@ description: "Who is part of sidepro, what they are on, and what they left runni
 
     <div id="via-a">
       <div class="field">
-        <label for="f-proyecto">The project you bring: what it is and where, in one line</label>
-        <input id="f-proyecto" name="proyecto" type="text" placeholder="e.g. a neighborhood soup kitchen that counts meals in a notebook" maxlength="200">
+        <label for="f-proyecto">Stage 0: the organization and the need, as you see them today</label>
+        <textarea id="f-proyecto" name="proyecto" rows="4" maxlength="800" placeholder="What the organization is, what it does and where. What gets lost or is hard today and how they do it. What you believe and haven't confirmed with them yet."></textarea>
         <span class="hint">No names of people. If it already has a request page, the link is enough.</span>
       </div>
       <div class="field">
@@ -175,7 +175,7 @@ description: "Who is part of sidepro, what they are on, and what they left runni
       document.getElementById('f-disp').value = disp.join(',');
       if (via() === 'a') {
         var pr = document.getElementById('f-proyecto').value.trim();
-        if (!pr) { ev.preventDefault(); return fallo('Say which project you bring, in one line.'); }
+        if (!pr) { ev.preventDefault(); return fallo('Describe the organization and the need.'); }
         var f = document.getElementById('f-archivo').files[0];
         if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('The file is larger than {{ site.archivo_mb }} MB. Send a smaller one or tell it in the text field; the audio can come later by WhatsApp.'); }
         if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('If you send a file, check that you recorded or wrote it yourself, or that the operator agrees.'); }

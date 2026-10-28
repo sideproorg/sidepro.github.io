@@ -16,6 +16,6 @@ quien_opera: "[Role of the operator on the school's side, with their agreed week
 horas: 4 a week, 12 weeks, as a pair.
 licencia: Chosen by the project. We don't know yet.
 financiamiento: "Depends on the project. If there is pay, it is written here before starting."
-etapa: "1 Request"
+etapa: "1 Discovery"
 cierre: Opens as soon as the school reads the request and signs it.
 ---

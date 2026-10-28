@@ -17,7 +17,7 @@
 import { EmailMessage } from "cloudflare:email";
 
 const CAMPOS = ["via", "publico", "nombre", "contacto", "sabe", "horas", "proyecto", "opera", "autorizo", "disp", "consentimiento", "aviso_version"];
-const MAX = { via: 1, nombre: 80, contacto: 120, sabe: 160, horas: 40, proyecto: 200, publico: 10, opera: 5, autorizo: 5, disp: 120, aviso_version: 20 };
+const MAX = { via: 1, nombre: 80, contacto: 120, sabe: 160, horas: 40, proyecto: 800, publico: 10, opera: 5, autorizo: 5, disp: 120, aviso_version: 20 };
 const TIPOS = /^(audio\/|image\/|application\/pdf$)/;
 const CODIGO_PEDIDO = /^pedido-\d{3}$/;
 const CODIGO_DISP = /^((lu|ma|mi|ju|vi|sa|do)-[mtn])(,(lu|ma|mi|ju|vi|sa|do)-[mtn])*$/;

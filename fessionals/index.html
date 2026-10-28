@@ -67,8 +67,8 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
 
     <div id="via-a">
       <div class="field">
-        <label for="f-proyecto">El proyecto que traes: qué es y en qué localidad, en una línea</label>
-        <input id="f-proyecto" name="proyecto" type="text" placeholder="por ejemplo: un comedor de barrio Alberdi que cuenta raciones en un cuaderno" maxlength="200">
+        <label for="f-proyecto">Etapa 0: la organización y la necesidad, como las ves hoy</label>
+        <textarea id="f-proyecto" name="proyecto" rows="4" maxlength="800" placeholder="Qué es la organización, qué hace y en qué localidad. Qué se pierde o cuesta hoy y cómo lo hacen. Lo que crees y todavía no confirmaste con ellos."></textarea>
         <span class="hint">Sin nombres de personas. Si ya tiene ficha, el link basta.</span>
       </div>
       <div class="field">
@@ -174,7 +174,7 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
       document.getElementById('f-disp').value = disp.join(',');
       if (via() === 'a') {
         var pr = document.getElementById('f-proyecto').value.trim();
-        if (!pr) { ev.preventDefault(); return fallo('Falta decir qué proyecto traes, en una línea.'); }
+        if (!pr) { ev.preventDefault(); return fallo('Falta describir la organización y la necesidad.'); }
         var f = document.getElementById('f-archivo').files[0];
         if (f && f.size > {{ site.archivo_mb }} * 1024 * 1024) { ev.preventDefault(); return fallo('El archivo pesa más de {{ site.archivo_mb }} MB. Manda uno más pequeño o cuéntalo en el campo de texto; el audio puede ir después por WhatsApp.'); }
         if (f && !document.getElementById('f-autorizo').checked) { ev.preventDefault(); return fallo('Si mandas un archivo, marca que lo grabaste o escribiste tú, o que quien opera lo autoriza.'); }

@@ -16,6 +16,6 @@ quien_opera: "[No operator named yet. Without an operator with agreed hours, the
 horas: 4 a week, 12 weeks, as a pair, once it opens.
 licencia: Chosen by the project. We don't know yet.
 financiamiento: "Depends on the project. If there is pay, it is written here before starting."
-etapa: "0 Candidate"
+etapa: "0 Description"
 cierre: Candidate. It becomes a request when the school says what it needs and someone from it will operate it.
 ---

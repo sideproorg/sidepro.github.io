@@ -10,7 +10,7 @@ firmado: false
 ciudad: Unquillo, Córdoba   # no se publica hasta que la ficha esté firmada (firmado: true)
 orden: 1
 actualizado: "2026-10-27"
-etapa_n: 4   # 0 candidata, 1 pedido, 2 papel, 3 datos reales, 4 sola, 5 traspaso
+etapa_n: 4   # 0 descripción, 1 relevamiento, 2 papel, 3 datos reales, 4 sola, 5 traspaso
 quien_pide: Un nodo de productores y consumidores agroecológicos.
 quien_lo_trajo: "Un fessional que lo viene construyendo desde antes de que existiera sidepro."
 problema: "Cada quincena hay que coordinar los pedidos entre una red de productores de Córdoba y de otras provincias y las familias que compran. Cargar productos, armar el formulario, juntar pedidos, mandar comandas, recibir en el galpón, ajustar faltantes, entregar y liquidar eran pasos manuales, repartidos entre planillas, WhatsApp y correo."
