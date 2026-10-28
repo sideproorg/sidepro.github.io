@@ -66,20 +66,59 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
     </fieldset>
 
     <div id="via-a">
-      <div class="field">
-        <label for="f-proyecto">Etapa 0: la organización y la necesidad, como las ves hoy</label>
-        <textarea id="f-proyecto" name="proyecto" rows="4" maxlength="800" placeholder="Qué es la organización, qué hace y en qué localidad. Qué se pierde o cuesta hoy y cómo lo hacen. Lo que crees y todavía no confirmaste con ellos."></textarea>
-        <span class="hint">Sin nombres de personas. Si ya tiene ficha, basta con el enlace.</span>
-      </div>
-      <div class="field">
-        <p class="hint" id="f-archivo-nota"><b>¿Tienes un audio, una foto del cuaderno o del papel, o un PDF?</b> Adjúntalo al correo que se abre al enviar, hasta {{ site.archivo_mb }} MB. Lo escucha o lo mira una sola persona, con nombre; no pasa por ninguna IA ni se reenvía. Se vuelca a la ficha y se borra al firmarla o a los 30 días, con constancia. Nunca va al repo.</p>
-      </div>
-      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> Si adjunto algo: lo grabé o lo escribí yo, o quien opera lo autoriza. No hay nombres, voces ni caras de otras personas.</label>
+      <p class="hint">Etapa 0 · Descripción. Cuéntala como la ves hoy, desde afuera, antes de hablar del sistema con la organización. Sin nombres de personas.</p>
       <fieldset>
-        <legend>¿Hablaste con quien lo operaría?</legend>
+        <legend>La organización</legend>
+        <div class="field">
+          <label for="f-org-que">Qué es</label>
+          <input id="f-org-que" type="text" maxlength="80" placeholder="comedor, cooperativa, club, nodo, escuela...">
+        </div>
+        <div class="field">
+          <label for="f-org-hace">Qué hace y para quién, en una oración</label>
+          <input id="f-org-hace" type="text" maxlength="200">
+        </div>
+        <div class="field">
+          <label for="f-org-donde">En qué localidad</label>
+          <input id="f-org-donde" type="text" maxlength="80">
+        </div>
+        <div class="field">
+          <label for="f-org-desde">Desde cuándo existe, aproximadamente</label>
+          <input id="f-org-desde" type="text" maxlength="40">
+        </div>
+        <div class="field">
+          <label for="f-org-personas">Cuántas personas la sostienen día a día, aproximadamente</label>
+          <input id="f-org-personas" type="text" maxlength="40">
+        </div>
+        <div class="field">
+          <label for="f-org-conoces">Cómo la conoces</label>
+          <input id="f-org-conoces" type="text" maxlength="80" placeholder="vecino, cliente, voluntario, familiar...">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>La necesidad, según lo que ves desde afuera</legend>
+        <div class="field">
+          <label for="f-nec-pierde">Qué se pierde, se repite o cuesta hoy</label>
+          <textarea id="f-nec-pierde" rows="3" maxlength="400"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-nec-como">Cómo lo hacen hoy</label>
+          <input id="f-nec-como" type="text" maxlength="160" placeholder="cuaderno, planilla, grupo de WhatsApp, de memoria...">
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="f-supuestos">Supuestos a validar, uno por línea</label>
+        <textarea id="f-supuestos" rows="3" maxlength="500" placeholder="lo que crees y todavía no confirmaste con la organización"></textarea>
+      </div>
+      <fieldset>
+        <legend>Con quién vas a hablar</legend>
+        <div class="field">
+          <label for="f-rol">Rol de quien probablemente lo operaría</label>
+          <input id="f-rol" type="text" maxlength="80" placeholder="sin nombre: la tesorera, quien coordina, quien atiende...">
+        </div>
         <div class="radios">
-          <label><input type="radio" name="opera" value="si"> Sí, y está dispuesto a firmar la ficha</label>
-          <label><input type="radio" name="opera" value="no" checked> Todavía no</label>
+          <span class="hint">¿Ya le contaste la idea?</span>
+          <label><input type="radio" name="contaste" value="si"> Sí</label>
+          <label><input type="radio" name="contaste" value="no" checked> No</label>
         </div>
       </fieldset>
     </div>
@@ -150,14 +189,14 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
     <p class="hint">Esa casilla y lo de tu contrato con tu empleador no viajan: el navegador las exige, pero no se envían ni se guardan. Lo del contrato se habla en el uno a uno.</p>
     <fieldset>
       <legend>Qué pasa con estos datos</legend>
-      <p class="hint">Responsable: {{ site.responsable_datos }}. Al tocar "Quiero anotarme" se abre tu programa de correo con este formulario armado, y lo envías tú a <code>{{ site.correo_proyecto }}</code>: no pasa por ningún servidor de sidepro ni queda guardado en la web. Lo lee una persona con nombre en {{ site.herramienta_datos }}, para conectarte con un pedido; no se cede a nadie. Si en 90 días no arrancó ningún pedido contigo, se borra y se deja constancia; un archivo adjunto, al firmar la ficha o a los 30 días. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
+      <p class="hint">Responsable: {{ site.responsable_datos }}. Al tocar "Quiero anotarme" se abre tu programa de correo con este formulario armado, y lo envías tú a <code>{{ site.correo_proyecto }}</code>: no pasa por ningún servidor de sidepro ni queda guardado en la web. Lo lee una persona con nombre en {{ site.herramienta_datos }}, para conectarte con un pedido; no se cede a nadie. Si en 90 días no arrancó ningún pedido contigo, se borra y se deja constancia. Acceso, rectificación y supresión sin costo: <code>{{ site.correo_proyecto }}</code>, respuesta en 5 días hábiles. Aviso versión {{ site.aviso_version }}.</p>
       <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> Leí esto y estoy de acuerdo.</label>
     </fieldset>
     <p class="hint" id="f-error" hidden></p>
     <div><button type="submit" class="btn">Quiero anotarme</button></div>
   </form>
   <div class="tintbox" id="f-listo" hidden>
-    <p><strong>Se abrió tu programa de correo.</strong> Revisa el correo, adjunta el archivo si tienes uno, y envíalo. Si no se abrió nada, copia este texto y mándalo a <code>{{ site.correo_proyecto }}</code> con el asunto que figura arriba.</p>
+    <p><strong>Se abrió tu programa de correo.</strong> Revisa el correo y envíalo. Si no se abrió nada, copia este texto y mándalo a <code>{{ site.correo_proyecto }}</code> con el asunto que figura arriba.</p>
     <textarea id="f-texto" rows="10" readonly></textarea>
     <div style="margin-top:8px"><button type="button" class="btn ghost" id="f-copiar">Copiar el texto</button> <span class="hint" id="f-copiado" hidden>Copiado.</span></div>
   </div>
@@ -176,13 +215,12 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
       var disp = []; form.querySelectorAll('#grilla input:checked').forEach(function (c) { disp.push(c.dataset.f); });
       document.getElementById('f-disp').value = disp.join(',');
       if (via() === 'a') {
-        var pr = document.getElementById('f-proyecto').value.trim();
-        if (!pr) { ev.preventDefault(); return fallo('Falta describir la organización y la necesidad.'); }
+        function v(id) { return document.getElementById(id).value.trim(); }
+        if (!v('f-org-que') || !v('f-nec-pierde') || !v('f-supuestos')) { ev.preventDefault(); return fallo('Falta qué es la organización, qué se pierde hoy o los supuestos a validar.'); }
         form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
       } else {
         var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
         if (n !== 2) { ev.preventDefault(); return fallo('Elige exactamente dos pedidos.'); }
-        document.getElementById('f-proyecto').value = '';
       }
       ev.preventDefault();
       var S = {"titulo": "Anotación en sidepro.org/fessionals", "asunto_a": "Etapa 0 · ", "asunto_b": "Me anoto · ", "como": "Cómo entra", "va": "trae un proyecto (etapa 0)", "vb": "se anota a dos pedidos", "pub": "Qué puede figurar en público", "nom": "Nombre o alias", "con": "Cómo escribirle", "sabe": "Qué sabe hacer", "horas": "Horas libres reales por semana", "disp": "Franjas libres (código para /cruzar/)", "nada": "(no marcó)", "desc": "Etapa 0 · la organización y la necesidad, como las ve hoy", "opera": "Habló con quien lo operaría", "arch": "Archivo adjunto", "arch_si": "sí, con autorización (lo grabó o escribió, o quien opera lo autoriza)", "arch_no": "si hay, va adjunto a este correo", "ped": "Pedidos elegidos", "cons": "Consentimiento", "cons_txt": "sí, leyó el aviso de datos versión", "dijo": "(no dijo)"};
@@ -200,9 +238,13 @@ description: "Quiénes forman parte de sidepro, en qué están y qué dejaron fu
         S.disp + ': ' + (document.getElementById('f-disp').value || S.nada), ''];
       var asunto;
       if (a) {
-        var d = document.getElementById('f-proyecto').value.trim();
-        lineas.push(S.desc + ':', d, '', S.opera + ': ' + marcado('opera'), S.arch + ': ' + (document.getElementById('f-autorizo').checked ? S.arch_si : S.arch_no));
-        asunto = S.asunto_a + d.replace(/\s+/g, ' ').slice(0, 60);
+        var E = {"org": "La organización", "que": "Qué es", "hace": "Qué hace y para quién", "donde": "Localidad", "desde": "Desde cuándo existe", "personas": "Cuántas personas la sostienen", "conoces": "Cómo la conoce", "nec": "La necesidad, vista desde afuera", "pierde": "Qué se pierde, se repite o cuesta", "como_hoy": "Cómo lo hacen hoy", "sup": "Supuestos a validar", "rol": "Rol de quien probablemente lo operaría", "contaste": "Ya le contó la idea"};
+        function g(id) { return document.getElementById(id).value.trim() || S.dijo; }
+        lineas.push(E.org + ':', '- ' + E.que + ': ' + g('f-org-que'), '- ' + E.hace + ': ' + g('f-org-hace'), '- ' + E.donde + ': ' + g('f-org-donde'), '- ' + E.desde + ': ' + g('f-org-desde'), '- ' + E.personas + ': ' + g('f-org-personas'), '- ' + E.conoces + ': ' + g('f-org-conoces'), '',
+          E.nec + ':', '- ' + E.pierde + ': ' + g('f-nec-pierde'), '- ' + E.como_hoy + ': ' + g('f-nec-como'), '',
+          E.sup + ':', document.getElementById('f-supuestos').value.trim().split('\n').map(function (x, k) { return (k + 1) + '. ' + x.trim(); }).join('\n'), '',
+          E.rol + ': ' + g('f-rol'), E.contaste + ': ' + marcado('contaste'));
+        asunto = S.asunto_a + document.getElementById('f-org-que').value.trim() + (document.getElementById('f-org-donde').value.trim() ? ' · ' + document.getElementById('f-org-donde').value.trim() : '');
       } else {
         var ps = []; form.querySelectorAll('input[name="pedidos"]:checked').forEach(function (c) { ps.push(c.value); });
         lineas.push(S.ped + ': ' + ps.join(', '));

@@ -67,20 +67,59 @@ description: "Who is part of sidepro, what they are on, and what they left runni
     </fieldset>
 
     <div id="via-a">
-      <div class="field">
-        <label for="f-proyecto">Stage 0: the organization and the need, as you see them today</label>
-        <textarea id="f-proyecto" name="proyecto" rows="4" maxlength="800" placeholder="What the organization is, what it does and where. What gets lost or is hard today and how they do it. What you believe and haven't confirmed with them yet."></textarea>
-        <span class="hint">No names of people. If it already has a request page, the link is enough.</span>
-      </div>
-      <div class="field">
-        <p class="hint" id="f-archivo-nota"><b>Do you have an audio, a photo of the notebook or the paper, or a PDF?</b> Attach it to the email that opens when you send, up to {{ site.archivo_mb }} MB. A single named person listens to it or looks at it; it goes through no AI and is not forwarded. It is turned into the request and deleted when the request is signed or after 30 days, with a record. It never goes into the repo.</p>
-      </div>
-      <label class="check"><input type="checkbox" id="f-autorizo" name="autorizo" value="si"> If I attach something: I recorded or wrote it myself, or the operator agrees. There are no names, voices or faces of other people.</label>
+      <p class="hint">Stage 0 · Description. Tell it as you see it today, from outside, before talking about the system with the organization. No names of people.</p>
       <fieldset>
-        <legend>Did you talk to whoever would operate it?</legend>
+        <legend>The organization</legend>
+        <div class="field">
+          <label for="f-org-que">What it is</label>
+          <input id="f-org-que" type="text" maxlength="80" placeholder="soup kitchen, cooperative, club, network, school...">
+        </div>
+        <div class="field">
+          <label for="f-org-hace">What it does and for whom, in one sentence</label>
+          <input id="f-org-hace" type="text" maxlength="200">
+        </div>
+        <div class="field">
+          <label for="f-org-donde">Where</label>
+          <input id="f-org-donde" type="text" maxlength="80">
+        </div>
+        <div class="field">
+          <label for="f-org-desde">Since when, roughly</label>
+          <input id="f-org-desde" type="text" maxlength="40">
+        </div>
+        <div class="field">
+          <label for="f-org-personas">How many people keep it going day to day, roughly</label>
+          <input id="f-org-personas" type="text" maxlength="40">
+        </div>
+        <div class="field">
+          <label for="f-org-conoces">How you know it</label>
+          <input id="f-org-conoces" type="text" maxlength="80" placeholder="neighbor, customer, volunteer, family...">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>The need, as you see it from outside</legend>
+        <div class="field">
+          <label for="f-nec-pierde">What gets lost, repeated or is hard today</label>
+          <textarea id="f-nec-pierde" rows="3" maxlength="400"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-nec-como">How they do it today</label>
+          <input id="f-nec-como" type="text" maxlength="160" placeholder="notebook, spreadsheet, WhatsApp group, from memory...">
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="f-supuestos">Assumptions to validate, one per line</label>
+        <textarea id="f-supuestos" rows="3" maxlength="500" placeholder="what you believe and haven't confirmed with the organization yet"></textarea>
+      </div>
+      <fieldset>
+        <legend>Who you will talk to</legend>
+        <div class="field">
+          <label for="f-rol">Role of whoever would probably operate it</label>
+          <input id="f-rol" type="text" maxlength="80" placeholder="no name: the treasurer, the coordinator, whoever serves...">
+        </div>
         <div class="radios">
-          <label><input type="radio" name="opera" value="si"> Yes, and they are willing to sign the request</label>
-          <label><input type="radio" name="opera" value="no" checked> Not yet</label>
+          <span class="hint">Have you told them the idea yet?</span>
+          <label><input type="radio" name="contaste" value="si"> Yes</label>
+          <label><input type="radio" name="contaste" value="no" checked> No</label>
         </div>
       </fieldset>
     </div>
@@ -151,14 +190,14 @@ description: "Who is part of sidepro, what they are on, and what they left runni
     <p class="hint">That box and anything about your contract with your employer don't travel: the browser requires them, but they are not sent or stored. The contract is talked about one to one.</p>
     <fieldset>
       <legend>What happens to this data</legend>
-      <p class="hint">Controller: {{ site.responsable_datos }}. When you tap "Sign me up", your email program opens with this form filled in, and you send it yourself to <code>{{ site.correo_proyecto }}</code>: it goes through no sidepro server and is not stored on the web. A named person reads it in the project inbox on Gmail (Google LLC, USA), to connect you with a request; it is not shared with anyone. If no request has started with you within 90 days, it is deleted and a record is kept; an attached file, when the request is signed or after 30 days. Access, correction and deletion at no cost: <code>{{ site.correo_proyecto }}</code>, reply within 5 business days. Notice version {{ site.aviso_version }}.</p>
+      <p class="hint">Controller: {{ site.responsable_datos }}. When you tap "Sign me up", your email program opens with this form filled in, and you send it yourself to <code>{{ site.correo_proyecto }}</code>: it goes through no sidepro server and is not stored on the web. A named person reads it in the project inbox on Gmail (Google LLC, USA), to connect you with a request; it is not shared with anyone. If no request has started with you within 90 days, it is deleted and a record is kept. Access, correction and deletion at no cost: <code>{{ site.correo_proyecto }}</code>, reply within 5 business days. Notice version {{ site.aviso_version }}.</p>
       <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> I have read this and I agree.</label>
     </fieldset>
     <p class="hint" id="f-error" hidden></p>
     <div><button type="submit" class="btn">Sign me up</button></div>
   </form>
   <div class="tintbox" id="f-listo" hidden>
-    <p><strong>Your email program opened.</strong> Check the email, attach the file if you have one, and send it. If nothing opened, copy this text and send it to <code>{{ site.correo_proyecto }}</code> with the subject shown at the top.</p>
+    <p><strong>Your email program opened.</strong> Check the email and send it. If nothing opened, copy this text and send it to <code>{{ site.correo_proyecto }}</code> with the subject shown at the top.</p>
     <textarea id="f-texto" rows="10" readonly></textarea>
     <div style="margin-top:8px"><button type="button" class="btn ghost" id="f-copiar">Copy the text</button> <span class="hint" id="f-copiado" hidden>Copied.</span></div>
   </div>
@@ -177,13 +216,12 @@ description: "Who is part of sidepro, what they are on, and what they left runni
       var disp = []; form.querySelectorAll('#grilla input:checked').forEach(function (c) { disp.push(c.dataset.f); });
       document.getElementById('f-disp').value = disp.join(',');
       if (via() === 'a') {
-        var pr = document.getElementById('f-proyecto').value.trim();
-        if (!pr) { ev.preventDefault(); return fallo('Describe the organization and the need.'); }
+        function v(id) { return document.getElementById(id).value.trim(); }
+        if (!v('f-org-que') || !v('f-nec-pierde') || !v('f-supuestos')) { ev.preventDefault(); return fallo('Missing: what the organization is, what gets lost today, or the assumptions to validate.'); }
         form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
       } else {
         var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
         if (n !== 2) { ev.preventDefault(); return fallo('Choose exactly two requests.'); }
-        document.getElementById('f-proyecto').value = '';
       }
       ev.preventDefault();
       var S = {"titulo": "Sign-up from sidepro.org/en/fessionals", "asunto_a": "Stage 0 · ", "asunto_b": "Sign up · ", "como": "How they come in", "va": "brings a project (stage 0)", "vb": "signs up for two requests", "pub": "What may appear in public", "nom": "Name or alias", "con": "How to reach them", "sabe": "What they know how to do", "horas": "Real spare hours per week", "disp": "Free slots (code for /cruzar/)", "nada": "(none marked)", "desc": "Stage 0 · the organization and the need, as they see it today", "opera": "Talked to whoever would operate it", "arch": "Attached file", "arch_si": "yes, with permission (recorded or written by them, or the operator agrees)", "arch_no": "if any, it is attached to this email", "ped": "Requests chosen", "cons": "Consent", "cons_txt": "yes, read the data notice version", "dijo": "(not given)"};
@@ -201,9 +239,13 @@ description: "Who is part of sidepro, what they are on, and what they left runni
         S.disp + ': ' + (document.getElementById('f-disp').value || S.nada), ''];
       var asunto;
       if (a) {
-        var d = document.getElementById('f-proyecto').value.trim();
-        lineas.push(S.desc + ':', d, '', S.opera + ': ' + marcado('opera'), S.arch + ': ' + (document.getElementById('f-autorizo').checked ? S.arch_si : S.arch_no));
-        asunto = S.asunto_a + d.replace(/\s+/g, ' ').slice(0, 60);
+        var E = {"org": "The organization", "que": "What it is", "hace": "What it does and for whom", "donde": "Where", "desde": "Since when", "personas": "People keeping it going", "conoces": "How they know it", "nec": "The need, seen from outside", "pierde": "What gets lost, repeated or is hard", "como_hoy": "How they do it today", "sup": "Assumptions to validate", "rol": "Role of whoever would probably operate it", "contaste": "Has told them the idea"};
+        function g(id) { return document.getElementById(id).value.trim() || S.dijo; }
+        lineas.push(E.org + ':', '- ' + E.que + ': ' + g('f-org-que'), '- ' + E.hace + ': ' + g('f-org-hace'), '- ' + E.donde + ': ' + g('f-org-donde'), '- ' + E.desde + ': ' + g('f-org-desde'), '- ' + E.personas + ': ' + g('f-org-personas'), '- ' + E.conoces + ': ' + g('f-org-conoces'), '',
+          E.nec + ':', '- ' + E.pierde + ': ' + g('f-nec-pierde'), '- ' + E.como_hoy + ': ' + g('f-nec-como'), '',
+          E.sup + ':', document.getElementById('f-supuestos').value.trim().split('\n').map(function (x, k) { return (k + 1) + '. ' + x.trim(); }).join('\n'), '',
+          E.rol + ': ' + g('f-rol'), E.contaste + ': ' + marcado('contaste'));
+        asunto = S.asunto_a + document.getElementById('f-org-que').value.trim() + (document.getElementById('f-org-donde').value.trim() ? ' · ' + document.getElementById('f-org-donde').value.trim() : '');
       } else {
         var ps = []; form.querySelectorAll('input[name="pedidos"]:checked').forEach(function (c) { ps.push(c.value); });
         lineas.push(S.ped + ': ' + ps.join(', '));
