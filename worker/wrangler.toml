@@ -14,14 +14,14 @@ routes = [
 # (Cloudflare manda un correo de verificación a esa casilla). Es la casilla del proyecto, con contrato de encargado.
 [[send_email]]
 name = "CORREO"
-destination_address = "CAMBIAR@casilla-del-proyecto"
+destination_address = "sidepro.org@gmail.com"
 
 [vars]
 ORIGEN = "https://sidepro.org"
 DESDE = "formulario@mensajes.sidepro.org"   # Email Routing activo en el subdominio mensajes.sidepro.org
-PARA = "CAMBIAR@casilla-del-proyecto"
+PARA = "sidepro.org@gmail.com"
 GRACIAS = "https://sidepro.org/gracias/"
-CORREO_AYUDA = "CAMBIAR@casilla-del-proyecto"
+CORREO_AYUDA = "sidepro.org@gmail.com"
 MAX_MB = "10"   # tamaño máximo del archivo adjunto; tiene que coincidir con archivo_mb en _config.yml
 
 # Opcional: límite de envíos por IP (5 por minuto). Si al desplegar wrangler rechaza esta sección,
