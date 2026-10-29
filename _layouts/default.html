@@ -64,7 +64,7 @@
 </div>
 {% if es_inicio %}
 <script>
-// El wordmark escribe "/jects" y "/fessionals" después de "pro" una sola vez por sesión, y queda quieto.
+// El wordmark escribe "jects" y "fessionals" después de "pro" una sola vez por sesión, y queda quieto.
 // Sin movimiento si el sistema lo pide. El texto escrito es decorativo: el enlace sigue leyéndose "side·pro".
 (function () {
   var suf = document.getElementById("mark-suf"), cur = document.getElementById("mark-cur");
@@ -77,7 +77,7 @@
   var t = 700, pasos = [];
   function tipea(s) { for (var i = 1; i <= s.length; i++) (function (k) { pasos.push([t, function () { suf.textContent = s.slice(0, k); }]); })(i), t += 70; t += 900; }
   function borra(s) { for (var i = s.length - 1; i >= 0; i--) (function (k) { pasos.push([t, function () { suf.textContent = s.slice(0, k); }]); })(i), t += 40; t += 500; }
-  tipea("/jects"); borra("/jects"); tipea("/fessionals"); borra("/fessionals");
+  tipea("jects"); borra("jects"); tipea("fessionals"); borra("fessionals");
   pasos.push([t, function () { cur.className = "cur fija"; }]);
   pasos.forEach(function (p) { setTimeout(p[1], p[0]); });
 })();
