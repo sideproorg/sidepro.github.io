@@ -4,6 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+  // Idioma: si el navegador no está en español y la persona nunca eligió idioma con el selector,
+  // las páginas en español la llevan a su par en /en/. Lo que se elige con el selector es | en se recuerda.
+  // Las páginas en /en/ nunca redirigen: un link en inglés se abre en inglés. Los robots no se redirigen.
+  (function () {
+    var K = "sidepro.idioma";
+    document.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest && e.target.closest(".idioma a[hreflang]");
+      if (a) { try { localStorage.setItem(K, a.getAttribute("hreflang")); } catch (x) {} }
+    });
+    if ("{{ L }}" !== "es") return;
+    var elegido = null;
+    try { elegido = localStorage.getItem(K); } catch (x) {}
+    if (elegido) return;
+    if (/bot|crawl|spider|slurp|preview|facebookexternalhit|whatsapp|telegram|discord|slack|lighthouse/i.test(navigator.userAgent || "")) return;
+    var primero = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase();
+    if (!primero || primero.indexOf("es") === 0) return;
+    location.replace("{{ en_url | relative_url }}" + location.search + location.hash);
+  })();
+  </script>
   <title>{% if page.title and page.title != "" %}{{ page.title }} · side·pro{% else %}side·pro{% endif %}</title>
   <meta name="description" content="{{ page.description | default: desc }}">
   {% capture og_titulo %}{% if page.title and page.title != "" %}{{ page.title }} · side·pro{% else %}side·pro{% endif %}{% endcapture %}
