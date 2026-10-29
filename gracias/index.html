@@ -1,8 +1,64 @@
 ---
 title: "Gracias"
-description: "Tu mensaje llegó."
+description: "Tu anotación llegó."
 ---
+<style>
+  .posteos { display: grid; gap: 12px; margin-top: 10px; }
+  .posteo { border: 1px solid var(--line); background: var(--card); padding: 12px; display: grid; gap: 8px; min-width: 0; }
+  .posteo h3 { margin: 0; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .posteo pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: inherit; font-size: 13px; }
+  .posteo .acciones { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .idiomas-post { display: flex; gap: 0; margin-top: 12px; border: 1px solid var(--line); width: max-content; }
+  .idiomas-post button { font: inherit; font-size: 12px; padding: 3px 10px; background: transparent; color: var(--muted); border: 0; cursor: pointer; }
+  .idiomas-post button + button { border-left: 1px solid var(--line); }
+  .idiomas-post button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+</style>
 <section class="tintbox">
   <h1>Gracias.</h1>
-  <p>Tu mensaje llegó al buzón del proyecto, con fecha y con la versión del aviso que aceptaste. Te escribe {{ site.firma }}, con nombre, sin plazo prometido todavía; si marcaste franjas, con una propuesta de día y hora. Mientras tanto, puedes leer las <a href="{{ '/jects/' | relative_url }}">fichas abiertas</a>, las <a href="{{ '/rfc/' | relative_url }}">RFC</a> y la <a href="{{ '/faq/' | relative_url }}">FAQ</a>, sobre todo la pregunta del contrato con tu empleador.</p>
+  <p>Tu anotación llegó al buzón del proyecto. Te escribe {{ site.firma }}, con nombre, sin plazo prometido; si marcaste franjas, con una propuesta de día y hora. Mientras tanto, puedes leer las <a href="{{ '/jects/' | relative_url }}">fichas</a>, las <a href="{{ '/rfc/' | relative_url }}">RFC</a> y la <a href="{{ '/faq/' | relative_url }}">FAQ</a>.</p>
 </section>
+<section id="verificar" hidden>
+  <h2>Verifica tu cuenta de X</h2>
+  <p>Tu código es <code id="cod"></code>. Para confirmar que el link de X es tuyo, elige una:</p>
+  <ol class="steps">
+    <li><b>Ponlo un rato en tu bio de X</b> y escríbenos cuando esté; después lo puedes borrar.</li>
+    <li><b>O publícalo en un post.</b> Aquí tienes tres para elegir; puedes editarlos antes de publicar.</li>
+  </ol>
+  <div class="idiomas-post" role="group"><button type="button" data-l="Español" aria-pressed="true">Español</button><button type="button" data-l="English" aria-pressed="false">English</button></div>
+  <div class="posteos" id="posteos"></div>
+</section>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), cod = q.get('c') || '', v = q.get('v') || 'a';
+  if (!/^sidepro-[A-Z0-9]{4}$/.test(cod)) return;
+  document.getElementById('verificar').hidden = false;
+  document.getElementById('cod').textContent = cod;
+  var P = {"Español": {"ecuacion": "side·pro·jects\n     pro·fessionals\n\nMe anoté en side·pro: pongo horas libres en un sistema para una organización socio-ambiental{ciudad}. Todo en un repo abierto.\n\nsidepro.org · {cod}", "commit": "$ git commit -m \"side project: horas libres para una organización socio-ambiental{ciudad}\"\n\nArranco un ject en side·pro. El repo va a ser público, IA y decisiones incluidas.\n\nsidepro.org · {cod}", "pregunta": "Me anoté en side·pro para poner horas libres en el sistema de una organización socio-ambiental{ciudad}.\n\n¿Qué organización de tu barrio todavía lleva todo en un cuaderno?\n\nsidepro.org · {cod}", "_ciudad": " de mi ciudad"}, "English": {"ecuacion": "side·pro·jects\n     pro·fessionals\n\nI joined side·pro: I'm putting spare hours into a system for a socio-environmental organization{ciudad}. All in an open repo.\n\nsidepro.org · {cod}", "commit": "$ git commit -m \"side project: spare hours for a socio-environmental organization{ciudad}\"\n\nStarting a ject on side·pro. The repo will be public, AI and decisions included.\n\nsidepro.org · {cod}", "pregunta": "I joined side·pro to put spare hours into the system of a socio-environmental organization{ciudad}.\n\nWhich organization in your neighborhood still runs on a notebook?\n\nsidepro.org · {cod}", "_ciudad": " in my city"}}, N = {"Español": {"ecuacion": "La ecuación", "commit": "El commit", "pregunta": "La pregunta"}, "English": {"ecuacion": "The equation", "commit": "The commit", "pregunta": "The question"}};
+  var T = { post: "Publicar en X", copy: "Copiar", copied: "Copiado." };
+  var cont = document.getElementById('posteos');
+  function pintar(l) {
+    cont.innerHTML = '';
+    ['ecuacion', 'commit', 'pregunta'].forEach(function (k) {
+      var txt = P[l][k].replace('{cod}', cod).replace('{ciudad}', v === 'a' ? P[l]._ciudad : '');
+      var box = document.createElement('div'); box.className = 'posteo';
+      var h = document.createElement('h3'); h.textContent = N[l][k];
+      var pre = document.createElement('pre'); pre.textContent = txt;
+      var acc = document.createElement('div'); acc.className = 'acciones';
+      var a = document.createElement('a'); a.className = 'btn'; a.textContent = T.post; a.target = '_blank'; a.rel = 'noopener';
+      a.href = 'https://x.com/intent/post?text=' + encodeURIComponent(txt);
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'btn ghost'; b.textContent = T.copy;
+      var ok = document.createElement('span'); ok.className = 'hint'; ok.textContent = T.copied; ok.hidden = true;
+      b.addEventListener('click', function () { if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { ok.hidden = false; }, function () {}); });
+      acc.appendChild(a); acc.appendChild(b); acc.appendChild(ok);
+      box.appendChild(h); box.appendChild(pre); box.appendChild(acc); cont.appendChild(box);
+    });
+  }
+  var langs = Object.keys(P); pintar(langs[0]);
+  document.querySelectorAll('.idiomas-post button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.idiomas-post button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      btn.setAttribute('aria-pressed', 'true'); pintar(btn.dataset.l);
+    });
+  });
+})();
+</script>

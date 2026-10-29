@@ -167,8 +167,9 @@ description: "Who is part of sidepro, what they are on, and what they left runni
       if (!al) return fallo(MSG.x, 'f-x');
       if (!v('f-contacto')) return fallo(MSG.con, 'f-contacto');
       if (!document.getElementById('f-trabajo').checked || !document.getElementById('f-ok').checked) return fallo(MSG.cas);
+      var abc = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789', cod = 'sidepro-'; for (var i = 0; i < 4; i++) cod += abc.charAt(Math.floor(Math.random() * abc.length));
       var disp = []; form.querySelectorAll('#grilla input:checked').forEach(function (c) { disp.push(c.dataset.f); });
-      var L = [S.titulo, '', S.como + ': ' + (a ? S.va : S.vb), S.x + ': @' + al + ' (https://x.com/' + al + ')', S.con + ': ' + v('f-contacto'), S.sabe + ': ' + (v('f-sabe') || S.dijo), S.disp + ': ' + (disp.join(',') || S.nada), ''];
+      var L = [S.titulo, '', S.como + ': ' + (a ? S.va : S.vb), S.x + ': @' + al + ' (https://x.com/' + al + ')', 'X verification code: ' + cod, S.con + ': ' + v('f-contacto'), S.sabe + ': ' + (v('f-sabe') || S.dijo), S.disp + ': ' + (disp.join(',') || S.nada), ''];
       var asunto;
       if (a) {
         var sup = v('f-supuestos').split('\n').filter(function (x) { return x.trim(); }).map(function (x, k) { return (k + 1) + '. ' + x.trim(); }).join('\n');
@@ -190,7 +191,7 @@ description: "Who is part of sidepro, what they are on, and what they left runni
       var boton = form.querySelector('button[type="submit"]'); boton.disabled = true;
       fetch('{{ site.worker_url }}', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ asunto: asunto, cuerpo: cuerpo, contacto: v('f-contacto'), consentimiento: 'si', aviso_version: '{{ site.aviso_version }}', t: v('f-t'), sitio_web: v('f-web') }) })
         .then(function (r) { return r.json(); })
-        .then(function (j) { if (j.ok) { window.location.href = '{{ "/en/gracias/" | relative_url }}'; } else { boton.disabled = false; respaldo(MSG.err); } })
+        .then(function (j) { if (j.ok) { window.location.href = '{{ "/en/gracias/" | relative_url }}' + '?c=' + cod + '&v=' + (a ? 'a' : 'b'); } else { boton.disabled = false; respaldo(MSG.err); } })
         .catch(function () { boton.disabled = false; respaldo(MSG.err); });
       {% else %}
       respaldo();
