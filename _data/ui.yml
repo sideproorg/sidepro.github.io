@@ -2,7 +2,7 @@
 es:
   html_lang: es
   og_locale: es_419
-  og_alt: "side·pro: side·projects y professionals, con pro en común"
+  og_alt: "side·pro: side·pro/jects y pro/fessionals, con pro en común"
   nav_label: Secciones
   estado: Estado real
   pie_label: Pie
@@ -63,7 +63,7 @@ es:
 en:
   html_lang: en
   og_locale: en_US
-  og_alt: "side·pro: side·projects and professionals, with pro in common"
+  og_alt: "side·pro: side·pro/jects and pro/fessionals, with pro in common"
   nav_label: Sections
   estado: Current state
   pie_label: Footer

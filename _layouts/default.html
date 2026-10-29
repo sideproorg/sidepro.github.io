@@ -15,14 +15,14 @@
   <meta property="og:title" content="{{ og_titulo | strip }}">
   <meta property="og:description" content="{{ page.description | default: desc }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:image" content="{{ '/assets/og-sidepro.png' | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/og-sidepro.png' | absolute_url }}?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="{{ t.og_alt }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ og_titulo | strip }}">
   <meta name="twitter:description" content="{{ page.description | default: desc }}">
-  <meta name="twitter:image" content="{{ '/assets/og-sidepro.png' | absolute_url }}">
+  <meta name="twitter:image" content="{{ '/assets/og-sidepro.png' | absolute_url }}?v=2">
   <meta name="twitter:image:alt" content="{{ t.og_alt }}">
   <meta name="color-scheme" content="light dark">
   <link rel="preload" href="{{ '/assets/fonts/PaperMono-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
@@ -64,7 +64,7 @@
 </div>
 {% if es_inicio %}
 <script>
-// El wordmark escribe "jects" y "fessionals" después de "pro" una sola vez por sesión, y queda quieto.
+// El wordmark escribe "/jects" y "/fessionals" después de "pro" una sola vez por sesión, y queda quieto.
 // Sin movimiento si el sistema lo pide. El texto escrito es decorativo: el enlace sigue leyéndose "side·pro".
 (function () {
   var suf = document.getElementById("mark-suf"), cur = document.getElementById("mark-cur");
@@ -77,7 +77,7 @@
   var t = 700, pasos = [];
   function tipea(s) { for (var i = 1; i <= s.length; i++) (function (k) { pasos.push([t, function () { suf.textContent = s.slice(0, k); }]); })(i), t += 70; t += 900; }
   function borra(s) { for (var i = s.length - 1; i >= 0; i--) (function (k) { pasos.push([t, function () { suf.textContent = s.slice(0, k); }]); })(i), t += 40; t += 500; }
-  tipea("jects"); borra("jects"); tipea("fessionals"); borra("fessionals");
+  tipea("/jects"); borra("/jects"); tipea("/fessionals"); borra("/fessionals");
   pasos.push([t, function () { cur.className = "cur fija"; }]);
   pasos.forEach(function (p) { setTimeout(p[1], p[0]); });
 })();
