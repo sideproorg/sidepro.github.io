@@ -30,6 +30,7 @@ Cada línea, respondida con palabras de la organización, no tuyas.
 - [ ] **Qué no es**: lo que quedó afuera a propósito: [...]
 - [ ] **Quién lo operaría**, con cuántas horas por semana, y si está dispuesto a firmar: [rol, horas, sí/no]
 - [ ] **Datos sensibles**: si hay datos de personas (familias, menores, salud, dinero) y dónde viven hoy: [...]
+- [ ] **Tus horas**: cuántas horas libres reales por semana puedes poner: [...]
 - [ ] **Dinero**: si hay o puede haber remuneración, y en qué forma: [no / se gestiona / sí]
 
 ## 3. La necesidad, descrita

@@ -16,7 +16,7 @@ formulario_abierto: true
 archivo_mb: 10 # tamaño máximo del archivo del formulario; tiene que coincidir con MAX_MB en worker/wrangler.toml
 worker_url: "https://anotarse.sidepro.org/anotarse"
 worker_activo: true # true cuando el Worker esté desplegado: el formulario envía directo y muestra /gracias/
-aviso_version: "2026-10-28"
+aviso_version: "2026-10-29"
 responsable_datos: "sidepro, organización descentralizada"
 domicilio_datos: ""
 herramienta_datos: "el buzón del proyecto en Gmail (Google LLC, EE.UU.)"

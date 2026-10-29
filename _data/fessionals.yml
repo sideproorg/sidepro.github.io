@@ -1,14 +1,7 @@
-# Tarjetas de /fessionals. Solo quien quiso aparecer, y con lo que quiso mostrar.
+# Tarjetas de /fessionals (/en/fessionals usa las mismas). Solo quien quiso aparecer.
 # Nunca el empleador, nunca un correo público. Se puede cambiar o bajar el mismo día con un PR.
-# Para agregar una tarjeta, copiar el bloque de ejemplo y borrar "ejemplo: true".
-# Campos: nombre (o alias), ciudad, sabe (una línea), trajo (id del pedido), esta_en (id del pedido o vacío),
-#         desde (mes), repo (URL del fork con su nombre, o vacío), opera (true si es quien opera del lado del proyecto).
-- ejemplo: true
-  nombre: "[nombre o alias]"
-  ciudad: "[ciudad]"
-  sabe: "[qué sabe hacer, en una línea]"
-  trajo: "pedido-00N"
-  esta_en: "[la ficha]"
-  desde: "[mes]"
-  repo: ""
-  opera: false
+# Campos: x (alias de X, sin @), sabe (la bio de X, tal cual), trajo (código del pedido o vacío),
+#         esta_en (código del pedido o vacío), desde (mes), repo (URL del fork con su nombre, o vacío),
+#         opera (true si es quien opera del lado del proyecto).
+# Si no hay ninguna tarjeta, la página muestra una de ejemplo.
+[]

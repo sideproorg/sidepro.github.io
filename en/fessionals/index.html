@@ -4,70 +4,61 @@ lang: en
 description: "Who is part of sidepro, what they are on, and what they left running. And the two things it takes to be a fessional."
 ---
 {% assign tarjetas = site.data.fessionals | where_exp: "t", "t.ejemplo != true" %}
-{% assign ejemplo = site.data.fessionals | where: "ejemplo", true | first %}
 <section>
   <p class="eyebrow">/fessionals</p>
   <h1>Who is part of it, what they are on, and what they left running.</h1>
-  <p class="lead">One card per person goes here, only if they wanted to appear and with what they wanted to show: name or alias, city, what they know how to do, the request they brought, the one they are working on and, if they asked, the repo with their name. Never the employer, never a public email. Operators on the other side go here too, if they want and with their project's yes.</p>
-  <p>Every request works in an open repo. You can read how another pair solved a form, a backup or a hard decision, commit by commit, with the why written next to it. It is a way to watch other professionals work up close, and to learn from it without asking anyone's permission.</p>
+  <p class="lead">One card per person, with their X handle, what they know how to do and the ject they are on. Never the employer or a public email.</p>
+  <p>Every ject works in an open repo. There you see how another professional really works: how they use AI, which agents, skills and memory they leave set up in the repo, which prompts they keep, how they break a problem into commits and why they made each decision. It is a way to learn up close, without asking anyone's permission.</p>
 </section>
 
 <section>
-  {% if tarjetas.size == 0 %}
-  <h2>Whoever is here will be here. Today, nobody.</h2>
-  <p>Nobody has signed yet. It starts with three concrete requests, all three in Córdoba. Wherever you live, you can join: you bring a project from your city or you sign up for two of these. What gets decided is decided in the open, in the <a href="{{ '/en/rfc/' | relative_url }}">repo's RFCs</a>, and those who come in first will discuss them. If you want to sign up, how is below. {{ site.firma }} replies, not a form.</p>
+  <h2>Contributors</h2>
+  <p>You bring a ject from where you live or sign up for two in <a href="{{ '/en/jects/' | relative_url }}">/jects</a>. What gets decided is decided in the open, in the <a href="{{ '/en/rfc/' | relative_url }}">repo's RFCs</a>, and those who become part of the organization can change them in sessions held for that purpose.</p>
   <div class="people" aria-label="Cards of people taking part">
+    {% if tarjetas.size == 0 %}
     <div class="person ejemplo">
       <span class="who">this is what a card looks like</span>
-      <strong>[name or alias] · [city]</strong>
-      <span>[what they know how to do, in one line]</span>
-      <span class="muted">Brought: pedido-00N · working on: [the request] · since [month] · repo with their name, if they asked</span>
+      <strong>@your_handle</strong>
+      <span>your X bio</span>
+      <span class="muted">Brought: pedido-00N · working on: [the ject] · since [month] · repo with their name</span>
     </div>
-  </div>
-  {% else %}
-  <h2>Who is here</h2>
-  <div class="people" aria-label="Cards of people taking part">
+    {% endif %}
     {% for t in tarjetas %}
     <div class="person">
       {% if t.opera %}<span class="who">operates</span>{% endif %}
-      <strong>{{ t.nombre }} · {{ t.ciudad }}</strong>
+      <strong><a href="https://x.com/{{ t.x }}" rel="noopener">@{{ t.x }}</a></strong>
       <span>{{ t.sabe }}</span>
-      <span class="muted">{% if t.trajo != "" %}Brought: {{ t.trajo }} · {% endif %}{% if t.esta_en != "" %}working on: {{ t.esta_en }} · {% endif %}since {{ t.desde }}{% if t.repo != "" %} · <a href="{{ t.repo }}" rel="noopener">repo with their name</a>{% endif %}</span>
+      <span class="muted">{% if t.trajo and t.trajo != "" %}Brought: {{ t.trajo }} · {% endif %}{% if t.esta_en and t.esta_en != "" %}working on: {{ t.esta_en }} · {% endif %}since {{ t.desde }}{% if t.repo and t.repo != "" %} · <a href="{{ t.repo }}" rel="noopener">repo with their name</a>{% endif %}</span>
     </div>
     {% endfor %}
   </div>
-  {% endif %}
 </section>
 
 <section id="requisitos">
   <h2>Two things make you a fessional</h2>
   <ol class="steps">
-    <li><strong>Working in IT today for a company or organization</strong>, as an employee or on a steady contract. It is declared, not verified, and the employer's name is never asked for or published. It is what makes this a side project and not unpaid work.</li>
-    <li><strong>Bringing a socio-environmental organization from your city or area that already knows what it needs</strong>, with someone who will operate it and is willing to sign the one-page request. It has to exist already and not be yours: what's missing is for them to say. Then you sign up for that request or any other in <a href="{{ '/en/jects/' | relative_url }}">/jects</a>. Or, instead, signing up for two requests already in /jects.</li>
+    <li><strong>Working in IT today for a company or organization</strong>, as an employee or on a steady contract. It is declared, not verified, and the employer's name is never asked for or published.</li>
+    <li><strong>Bringing a socio-environmental organization from where you live</strong>. Then you sign up for that request or any other in <a href="{{ '/en/jects/' | relative_url }}">/jects</a>. Or, instead of bringing one, signing up for two that are already there.</li>
   </ol>
   <p class="muted">A club, a soup kitchen, a cooperative, a market, a community library, a neighborhood center, a school. They almost always keep something in a notebook or a WhatsApp group where it gets lost.</p>
 </section>
 
 <section id="lista">
   <h2>Sign up</h2>
-  {% if site.formulario_abierto %}
-  <p class="muted">A short form. When you send it, your email program opens with everything ready for <code>{{ site.correo_proyecto }}</code>; you send it yourself. {{ site.firma }} writes back, by name, with no promised deadline.</p>
   <form id="form-anotarse" action="#" novalidate>
-    <input type="hidden" name="aviso_version" value="{{ site.aviso_version }}">
-    <input type="hidden" name="t" value="" id="f-t">
-    <input type="hidden" name="disp" value="" id="f-disp">
-    <p class="trampa" aria-hidden="true"><label>If you are a person, leave this empty <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></p>
+    <input type="hidden" id="f-t" value="">
+    <p class="trampa" aria-hidden="true"><label>If you are a person, leave this empty <input type="text" id="f-web" tabindex="-1" autocomplete="off"></label></p>
 
     <fieldset>
       <legend>How you come in</legend>
       <div class="radios columna">
-        <label><input type="radio" name="via" value="a" checked> <span>I bring a socio-environmental organization from where I live that already knows what it needs</span></label>
+        <label><input type="radio" name="via" value="a" checked> <span>I bring a socio-environmental organization from where I live</span></label>
         <label><input type="radio" name="via" value="b"> <span>I sign up for two requests in /jects</span></label>
       </div>
     </fieldset>
 
     <div id="via-a">
-      <p class="hint">Stage 0 · Description. Tell it as you see it today, from outside, before talking about the system with the organization. No names of people.</p>
+      <p class="hint">Stage 0 · Description. Tell it as you see it today, from outside. No names of people.</p>
       <fieldset>
         <legend>The organization</legend>
         <div class="field">
@@ -79,49 +70,19 @@ description: "Who is part of sidepro, what they are on, and what they left runni
           <input id="f-org-hace" type="text" maxlength="200">
         </div>
         <div class="field">
-          <label for="f-org-donde">Where</label>
+          <label for="f-org-donde">Where (town or area)</label>
           <input id="f-org-donde" type="text" maxlength="80">
         </div>
-        <div class="field">
-          <label for="f-org-desde">Since when, roughly</label>
-          <input id="f-org-desde" type="text" maxlength="40">
-        </div>
-        <div class="field">
-          <label for="f-org-personas">How many people keep it going day to day, roughly</label>
-          <input id="f-org-personas" type="text" maxlength="40">
-        </div>
-        <div class="field">
-          <label for="f-org-conoces">How you know it</label>
-          <input id="f-org-conoces" type="text" maxlength="80" placeholder="neighbor, customer, volunteer, family...">
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>The need, as you see it from outside</legend>
         <div class="field">
           <label for="f-nec-pierde">What gets lost, repeated or is hard today</label>
           <textarea id="f-nec-pierde" rows="3" maxlength="400"></textarea>
         </div>
-        <div class="field">
-          <label for="f-nec-como">How they do it today</label>
-          <input id="f-nec-como" type="text" maxlength="160" placeholder="notebook, spreadsheet, WhatsApp group, from memory...">
-        </div>
       </fieldset>
       <div class="field">
-        <label for="f-supuestos">Assumptions to validate, one per line</label>
-        <textarea id="f-supuestos" rows="3" maxlength="500" placeholder="what you believe and haven't confirmed with the organization yet"></textarea>
+        <label for="f-supuestos">Assumptions to validate</label>
+        <span class="hint">Write what you think this organization needs today to run better.</span>
+        <textarea id="f-supuestos" rows="3" maxlength="500" placeholder="e.g. an app to log activities, a QR code so people can donate more easily"></textarea>
       </div>
-      <fieldset>
-        <legend>Who you will talk to</legend>
-        <div class="field">
-          <label for="f-rol">Role of whoever would probably operate it</label>
-          <input id="f-rol" type="text" maxlength="80" placeholder="no name: the treasurer, the coordinator, whoever serves...">
-        </div>
-        <div class="radios">
-          <span class="hint">Have you told them the idea yet?</span>
-          <label><input type="radio" name="contaste" value="si"> Yes</label>
-          <label><input type="radio" name="contaste" value="no" checked> No</label>
-        </div>
-      </fieldset>
     </div>
 
     <div id="via-b" hidden>
@@ -137,38 +98,19 @@ description: "Who is part of sidepro, what they are on, and what they left runni
       </fieldset>
     </div>
 
-    <fieldset>
-      <legend>What may appear in public, if you join</legend>
-      <div class="radios">
-        <label><input type="radio" name="publico" value="nada" checked> Nothing</label>
-        <label><input type="radio" name="publico" value="alias"> An alias</label>
-        <label><input type="radio" name="publico" value="nombre"> My name</label>
-      </div>
-      <span class="hint">The card can be changed or taken down the same day. What doesn't get erased is your name in the commits of the project's repo, if you chose to sign them. A contract with an exclusivity clause is reason enough for "nothing".</span>
-    </fieldset>
     <div class="field">
-      <label for="f-nombre">Name or alias</label>
-      <input id="f-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80">
+      <label for="f-x">Your X link</label>
+      <input id="f-x" type="url" maxlength="120" placeholder="https://x.com/your_handle" autocomplete="url">
+      <span class="hint">Your handle and bio for the card come from there.</span>
     </div>
     <div class="field">
       <label for="f-contacto">How we reach you</label>
-      <input id="f-contacto" name="contacto" type="text" placeholder="email, Telegram or Signal" required maxlength="120">
+      <input id="f-contacto" type="text" maxlength="120" placeholder="email, Telegram or Signal">
       <span class="hint">Not published or shared. Deleted if you ask.</span>
     </div>
     <div class="field">
       <label for="f-sabe">What you know how to do, in one line</label>
-      <input id="f-sabe" name="sabe" type="text" placeholder="e.g. data pipelines, Postgres, forms that don't break" maxlength="160">
-    </div>
-    <div class="field">
-      <label for="f-horas">Real spare hours per week</label>
-      <select id="f-horas" name="horas">
-        <option value="">Choose</option>
-        <option>4</option>
-        <option value="4 a 6">4 to 6</option>
-        <option value="6 a 8">6 to 8</option>
-        <option value="Depende de la semana; a veces 0">Depends on the week; sometimes 0</option>
-      </select>
-      <span class="hint">The real ones, not the ones you wish you had. It is designed to survive weeks of 0.</span>
+      <input id="f-sabe" type="text" maxlength="160" placeholder="e.g. data pipelines, Postgres, forms that don't break">
     </div>
 
     <fieldset>
@@ -183,97 +125,75 @@ description: "Who is part of sidepro, what they are on, and what they left runni
         <label><input type="checkbox" data-f="{{ d }}-n"><span>e</span></label>
         {% endfor %}
       </div>
-      <span class="hint">They travel in the email as a code (for example <code>lu-n,mi-t</code>, Monday evening and Wednesday afternoon). Whoever convenes cross-checks them in <a href="{{ '/en/cruzar/' | relative_url }}">/cruzar/</a>, storing nothing, and proposes a day and time, with their name.</span>
+      <span class="hint">They travel as a code (for example <code>lu-n,mi-t</code>, Monday evening and Wednesday afternoon). Whoever convenes cross-checks them in <a href="{{ '/en/cruzar/' | relative_url }}">/cruzar/</a>, storing nothing, and proposes a day and time, with their name.</span>
     </fieldset>
 
-    <label class="check"><input type="checkbox" id="f-trabajo" required> I work in IT today for a company or organization, as an employee or on a steady contract.</label>
+    <label class="check"><input type="checkbox" id="f-trabajo"> I work in IT today for a company or organization, as an employee or on a steady contract.</label>
     <p class="hint">That box and anything about your contract with your employer don't travel: the browser requires them, but they are not sent or stored. The contract is talked about one to one.</p>
     <fieldset>
       <legend>What happens to this data</legend>
-      <p class="hint">Controller: {{ site.responsable_datos }}. When you tap "Sign me up", your email program opens with this form filled in, and you send it yourself to <code>{{ site.correo_proyecto }}</code>: it goes through no sidepro server and is not stored on the web. A named person reads it in the project inbox on Gmail (Google LLC, USA), to connect you with a request; it is not shared with anyone. If no request has started with you within 90 days, it is deleted and a record is kept. Access, correction and deletion at no cost: <code>{{ site.correo_proyecto }}</code>, reply within 5 business days. Notice version {{ site.aviso_version }}.</p>
-      <label class="check"><input type="checkbox" id="f-ok" name="consentimiento" value="si" required> I have read this and I agree.</label>
+      <p class="hint">Controller: {{ site.responsable_datos }}. When you tap "Sign me up", the form reaches the project inbox (<code>{{ site.correo_proyecto }}</code>, on Gmail) through Cloudflare, which forwards it without storing it. A named person reads it, to connect you with a request; it is not shared with anyone. If no request has started with you within 90 days, it is deleted and a record is kept. Access, correction and deletion at no cost: <code>{{ site.correo_proyecto }}</code>, reply within 5 business days. Notice version {{ site.aviso_version }}.</p>
+      <label class="check"><input type="checkbox" id="f-ok"> I have read this and I agree.</label>
     </fieldset>
     <p class="hint" id="f-error" hidden></p>
     <div><button type="submit" class="btn">Sign me up</button></div>
   </form>
   <div class="tintbox" id="f-listo" hidden>
-    <p><strong>Your email program opened.</strong> Check the email and send it. If nothing opened, copy this text and send it to <code>{{ site.correo_proyecto }}</code> with the subject shown at the top.</p>
+    <p><strong>Copy this text and send it to <code>{{ site.correo_proyecto }}</code></strong>, with the first line as the subject.</p>
     <textarea id="f-texto" rows="10" readonly></textarea>
     <div style="margin-top:8px"><button type="button" class="btn ghost" id="f-copiar">Copy the text</button> <span class="hint" id="f-copiado" hidden>Copied.</span></div>
   </div>
   <script>
   (function () {
-    document.getElementById('f-t').value = String(Date.now());
+    var S = {"titulo": "Sign-up from sidepro.org/en/fessionals", "a": "Stage 0", "b": "Sign up", "como": "How they come in", "va": "brings a ject (stage 0)", "vb": "signs up for two requests", "x": "X", "con": "How to reach them", "sabe": "What they know how to do", "disp": "Free slots (code for /cruzar/)", "nada": "(none marked)", "dijo": "(not given)", "que": "What the organization is", "hace": "What it does and for whom", "donde": "Where", "nec": "What gets lost, repeated or is hard today", "sup": "Assumptions to validate", "ped": "Requests chosen", "cons": "Consent: yes, read the data notice version"}, MSG = {"x": "Your X link is missing (for example https://x.com/your_handle).", "con": "How we reach you is missing.", "cas": "Check both boxes: that you work in IT today and that you read the data notice.", "a": "Missing: what the organization is, what gets lost today, or the assumptions to validate.", "b": "Choose exactly two requests.", "err": "It could not be sent. Copy the text below and send it by email."};
     var form = document.getElementById('form-anotarse'), err = document.getElementById('f-error');
+    document.getElementById('f-t').value = String(Date.now());
     var va = document.getElementById('via-a'), vb = document.getElementById('via-b');
     function via() { return form.querySelector('input[name="via"]:checked').value; }
     function mostrar() { var a = via() === 'a'; va.hidden = !a; vb.hidden = a; }
     form.querySelectorAll('input[name="via"]').forEach(function (r) { r.addEventListener('change', mostrar); });
     mostrar();
-    var MSG = { req: 'Your name or alias and how we reach you are missing.', cas: 'Check both boxes: that you work in IT today and that you read the data notice.' };
-    function fallo(m) { err.textContent = m; err.hidden = false; err.scrollIntoView({ block: 'center' }); }
+    function v(id) { return document.getElementById(id).value.trim(); }
+    function fallo(m, id) { err.textContent = m; err.hidden = false; (id ? document.getElementById(id) : err).focus && (id ? document.getElementById(id).focus() : err.scrollIntoView({ block: 'center' })); }
+    function alias(s) { var m = s.match(/(?:x|twitter)\.com\/@?([A-Za-z0-9_]{1,15})/i) || s.match(/^@?([A-Za-z0-9_]{1,15})$/); return m ? m[1] : ''; }
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       err.hidden = true;
-      var req = ['f-nombre', 'f-contacto'].filter(function (id) { return !document.getElementById(id).value.trim(); });
-      if (req.length) { document.getElementById(req[0]).focus(); return fallo(MSG.req); }
+      var a = via() === 'a';
+      if (a && (!v('f-org-que') || !v('f-nec-pierde') || !v('f-supuestos'))) return fallo(MSG.a);
+      var ps = []; form.querySelectorAll('input[name="pedidos"]:checked').forEach(function (c) { ps.push(c.value); });
+      if (!a && ps.length !== 2) return fallo(MSG.b);
+      var al = alias(v('f-x'));
+      if (!al) return fallo(MSG.x, 'f-x');
+      if (!v('f-contacto')) return fallo(MSG.con, 'f-contacto');
       if (!document.getElementById('f-trabajo').checked || !document.getElementById('f-ok').checked) return fallo(MSG.cas);
       var disp = []; form.querySelectorAll('#grilla input:checked').forEach(function (c) { disp.push(c.dataset.f); });
-      document.getElementById('f-disp').value = disp.join(',');
-      if (via() === 'a') {
-        function v(id) { return document.getElementById(id).value.trim(); }
-        if (!v('f-org-que') || !v('f-nec-pierde') || !v('f-supuestos')) { ev.preventDefault(); return fallo('Missing: what the organization is, what gets lost today, or the assumptions to validate.'); }
-        form.querySelectorAll('input[name="pedidos"]').forEach(function (c) { c.checked = false; });
-      } else {
-        var n = form.querySelectorAll('input[name="pedidos"]:checked').length;
-        if (n !== 2) { ev.preventDefault(); return fallo('Choose exactly two requests.'); }
-      }
-      ev.preventDefault();
-      var S = {"titulo": "Sign-up from sidepro.org/en/fessionals", "asunto_a": "Stage 0 · ", "asunto_b": "Sign up · ", "como": "How they come in", "va": "brings a project (stage 0)", "vb": "signs up for two requests", "pub": "What may appear in public", "nom": "Name or alias", "con": "How to reach them", "sabe": "What they know how to do", "horas": "Real spare hours per week", "disp": "Free slots (code for /cruzar/)", "nada": "(none marked)", "desc": "Stage 0 · the organization and the need, as they see it today", "opera": "Talked to whoever would operate it", "arch": "Attached file", "arch_si": "yes, with permission (recorded or written by them, or the operator agrees)", "arch_no": "if any, it is attached to this email", "ped": "Requests chosen", "cons": "Consent", "cons_txt": "yes, read the data notice version", "dijo": "(not given)"};
-      function marcado(n) { var r = form.querySelector('input[name="' + n + '"]:checked'); return r ? r.closest('label').textContent.trim() : ''; }
-      var sel = document.getElementById('f-horas');
-      var a = via() === 'a';
-      var nombre = document.getElementById('f-nombre').value.trim();
-      var lineas = [S.titulo, '',
-        S.como + ': ' + (a ? S.va : S.vb),
-        S.pub + ': ' + marcado('publico'),
-        S.nom + ': ' + nombre,
-        S.con + ': ' + document.getElementById('f-contacto').value.trim(),
-        S.sabe + ': ' + (document.getElementById('f-sabe').value.trim() || S.dijo),
-        S.horas + ': ' + (sel.value ? sel.options[sel.selectedIndex].text : S.dijo),
-        S.disp + ': ' + (document.getElementById('f-disp').value || S.nada), ''];
+      var L = [S.titulo, '', S.como + ': ' + (a ? S.va : S.vb), S.x + ': @' + al + ' (https://x.com/' + al + ')', S.con + ': ' + v('f-contacto'), S.sabe + ': ' + (v('f-sabe') || S.dijo), S.disp + ': ' + (disp.join(',') || S.nada), ''];
       var asunto;
       if (a) {
-        var E = {"org": "The organization", "que": "What it is", "hace": "What it does and for whom", "donde": "Where", "desde": "Since when", "personas": "People keeping it going", "conoces": "How they know it", "nec": "The need, seen from outside", "pierde": "What gets lost, repeated or is hard", "como_hoy": "How they do it today", "sup": "Assumptions to validate", "rol": "Role of whoever would probably operate it", "contaste": "Has told them the idea"};
-        function g(id) { return document.getElementById(id).value.trim() || S.dijo; }
-        lineas.push(E.org + ':', '- ' + E.que + ': ' + g('f-org-que'), '- ' + E.hace + ': ' + g('f-org-hace'), '- ' + E.donde + ': ' + g('f-org-donde'), '- ' + E.desde + ': ' + g('f-org-desde'), '- ' + E.personas + ': ' + g('f-org-personas'), '- ' + E.conoces + ': ' + g('f-org-conoces'), '',
-          E.nec + ':', '- ' + E.pierde + ': ' + g('f-nec-pierde'), '- ' + E.como_hoy + ': ' + g('f-nec-como'), '',
-          E.sup + ':', document.getElementById('f-supuestos').value.trim().split('\n').map(function (x, k) { return (k + 1) + '. ' + x.trim(); }).join('\n'), '',
-          E.rol + ': ' + g('f-rol'), E.contaste + ': ' + marcado('contaste'));
-        asunto = S.asunto_a + document.getElementById('f-org-que').value.trim() + (document.getElementById('f-org-donde').value.trim() ? ' · ' + document.getElementById('f-org-donde').value.trim() : '');
+        var sup = v('f-supuestos').split('\n').filter(function (x) { return x.trim(); }).map(function (x, k) { return (k + 1) + '. ' + x.trim(); }).join('\n');
+        L.push(S.que + ': ' + v('f-org-que'), S.hace + ': ' + (v('f-org-hace') || S.dijo), S.donde + ': ' + (v('f-org-donde') || S.dijo), S.nec + ': ' + v('f-nec-pierde'), '', S.sup + ':', sup);
+        asunto = S.a + ' · ' + v('f-org-que') + (v('f-org-donde') ? ' · ' + v('f-org-donde') : '') + ' · @' + al;
       } else {
-        var ps = []; form.querySelectorAll('input[name="pedidos"]:checked').forEach(function (c) { ps.push(c.value); });
-        lineas.push(S.ped + ': ' + ps.join(', '));
-        asunto = S.asunto_b + ps.join(', ');
+        L.push(S.ped + ': ' + ps.join(', '));
+        asunto = S.b + ' · ' + ps.join(', ') + ' · @' + al;
       }
-      lineas.push('', S.cons + ': ' + S.cons_txt + ' {{ site.aviso_version }}');
-      var cuerpo = lineas.join('\n');
-      var para = '{{ site.correo_proyecto }}';
+      L.push('', S.cons + ' {{ site.aviso_version }}');
+      var cuerpo = L.join('\n');
       function respaldo(aviso) {
         document.getElementById('f-texto').value = asunto + '\n\n' + cuerpo;
         document.getElementById('f-listo').hidden = false;
-        if (aviso) fallo(aviso);
+        if (aviso) { err.textContent = aviso; err.hidden = false; }
         document.getElementById('f-listo').scrollIntoView({ block: 'center' });
       }
       {% if site.worker_activo %}
       var boton = form.querySelector('button[type="submit"]'); boton.disabled = true;
-      fetch('{{ site.worker_url }}', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ asunto: asunto, cuerpo: cuerpo, contacto: document.getElementById('f-contacto').value.trim(), consentimiento: document.getElementById('f-ok').checked ? 'si' : '', aviso_version: '{{ site.aviso_version }}', t: document.getElementById('f-t').value, sitio_web: form.querySelector('input[name="sitio_web"]').value }) })
+      fetch('{{ site.worker_url }}', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ asunto: asunto, cuerpo: cuerpo, contacto: v('f-contacto'), consentimiento: 'si', aviso_version: '{{ site.aviso_version }}', t: v('f-t'), sitio_web: v('f-web') }) })
         .then(function (r) { return r.json(); })
-        .then(function (j) { if (j.ok) { window.location.href = '{{ "/en/gracias/" | relative_url }}'; } else { boton.disabled = false; respaldo('It could not be sent. Copy the text below and send it by email.'); } })
-        .catch(function () { boton.disabled = false; respaldo('It could not be sent. Copy the text below and send it by email.'); });
+        .then(function (j) { if (j.ok) { window.location.href = '{{ "/en/gracias/" | relative_url }}'; } else { boton.disabled = false; respaldo(MSG.err); } })
+        .catch(function () { boton.disabled = false; respaldo(MSG.err); });
       {% else %}
       respaldo();
-      window.location.href = 'mailto:' + para + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
       {% endif %}
     });
     document.getElementById('f-copiar').addEventListener('click', function () {
@@ -283,12 +203,4 @@ description: "Who is part of sidepro, what they are on, and what they left runni
     });
   })();
   </script>
-  {% else %}
-  <div class="tintbox">
-    <p><strong>While the form is closed, everything starts by email.</strong> Write to <code>{{ site.correo_proyecto }}</code>.</p>
-    <p><b>If you bring a project</b>, put "Stage 0" in the subject and tell, as you see it today from outside: what the organization is, what it does, where, since when and how many people keep it going; what gets lost or is hard today and how they do it; and, one per line, what you believe and haven't confirmed with them yet. No names of people. If you prefer, fill in the <a href="https://github.com/sideproorg/sideproorg.github.io/blob/main/plantillas/DESCRIPCION.md" rel="noopener">stage 0 template</a> (in Spanish) and attach it. That starts stage 1, discovery.</p>
-    <p><b>If you sign up for two requests</b>, put "Sign up" in the subject and the two codes from /jects.</p>
-    <p>Either way, say what you do in IT and your real spare hours. {{ site.firma }} replies, by name, with no promised deadline. Don't write anything about your contract with your employer: that is talked about one to one.</p>
-  </div>
-  {% endif %}
 </section>
